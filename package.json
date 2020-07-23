@@ -1,0 +1,16 @@
+{
+  "name": "simple",
+  "version": "1.0.0",
+  "description": "A simple scripting language powered by TypeScript",
+  "main": "index.ts",
+  "repository": "https://github.com/XiaocongDong/simple.git",
+  "author": "XiaocongDong <buptdxc@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "ts-node index.ts"
+  },
+  "devDependencies": {
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.7"
+  }
+}

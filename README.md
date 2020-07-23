@@ -1,2 +1,2 @@
 # simple
-Simple is a simple scripting language powered by TypeScript.
+Simple is a simple scripting language like JavaScript powered by TypeScript.
