@@ -36,6 +36,37 @@ let i = class Person {
   }
 };
 ```
+### 运算
+```javascript
+1+1
+1-1
+1*1
+1/1
+
+a+=1
+a-=1
+a*=1
+a/=1
+
+a||b
+a&&b
+```
+### 关键字
+```javascript
+let
+const
+break
+continue
+if
+else
+while
+function
+undefined
+null
+true
+false
+new
+```
 ### 定义函数
 ```javascript
 function name(x, y, z) {
