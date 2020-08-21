@@ -7,6 +7,7 @@ export type IStateConfig = {
   TokenType?: TOKEN_TYPE|ITokenTypeGenerator
   transitions?: Array<ITransition>
 }
+export type IStatesConfig = Record<IState, IStateConfig>
 
 interface ITransition {
   checker: RegExp|string|((ch: string) => boolean)
@@ -14,6 +15,6 @@ interface ITransition {
 }
 
 export type IConfig = {
-  states: Record<IState, IStateConfig>
+  states: IStatesConfig
   initialState: IState
 }

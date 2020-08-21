@@ -2,19 +2,21 @@ import TokenBuffer from "./TokenBuffer"
 import LocationKeeper from './LocationKeeper'
 import SyntaxError from './errors/Syntax'
 
-import { IConfig, IState, IStateConfig, ITokenTypeGenerator } from "./types/Tokenizer"
+import { IConfig, IState, IStateConfig, ITokenTypeGenerator, IStatesConfig } from "./types/Tokenizer"
 import { SPACE, NEW_LINE } from "./constants"
 import { TOKEN_TYPE, IToken } from "./types/token"
 
 class Tokenizer {
   private tokenBuffer: TokenBuffer = new TokenBuffer()
-  private config: IConfig = null
+  private statesConfig: IStatesConfig = null
+  private initialState: IState = null
   private state: IState = null
   private locationKeeper: LocationKeeper = new LocationKeeper()
   private buffer: string = ''
   
   constructor(config: IConfig) {
-    this.config = config
+    this.statesConfig = config.states
+    this.initialState = config.initialState
     this.state = config.initialState
   }
 
@@ -31,21 +33,21 @@ class Tokenizer {
   }
 
   end() {
-    if (this.state === this.config.initialState) {
+    if (this.state === this.initialState) {
       if (this.buffer) {
         throw new SyntaxError('Unexpected EOF', this.locationKeeper.getCurrentLocation())
       }
       return
     }
     
-    const currentStateConfig: IStateConfig = this.config[this.state]
+    const currentStateConfig: IStateConfig = this.statesConfig[this.state]
     if (currentStateConfig.isEnd) {
       this.addToken(currentStateConfig.TokenType)
     }
   }
 
   reset() {
-    this.state = this.config.initialState
+    this.state = this.initialState
     this.buffer = ''
   }
 
@@ -64,22 +66,22 @@ class Tokenizer {
   }
 
   consume(ch: string) {
-    if ((ch === SPACE || ch === NEW_LINE) && this.state === this.config.initialState) {
+    if ((ch === SPACE || ch === NEW_LINE) && this.state === this.initialState) {
       this.locationKeeper.consume(ch)
       return
     }
 
-    const currentStateConfig: IStateConfig = this.config[this.state]
+    const currentStateConfig: IStateConfig = this.statesConfig[this.state]
     const transitions = currentStateConfig.transitions
     if (!transitions) {
-      if (!currentStateConfig.isEnd) {
+      if (currentStateConfig.isEnd) {
         this.addToken(currentStateConfig.TokenType)
         this.reset()
         this.consume(ch)
         return
       }
 
-      throw new SyntaxError(`Unexpected token ${this.buffer}`, this.locationKeeper.getCurrentLocation())
+      throw new SyntaxError(`Unexpected character ${ch}`, this.locationKeeper.getCurrentLocation())
     }
   
     const targetTransition = transitions.find(({ checker }) => {
@@ -108,7 +110,7 @@ class Tokenizer {
 
     this.locationKeeper.consume(ch)
     // when state start to transfer from initial state to other state, mark current location
-    if (this.state === this.config.initialState && targetTransition.state !== this.config.initialState) {
+    if (this.state === this.initialState && targetTransition.state !== this.initialState) {
       this.locationKeeper.markLocation()
     }
 
