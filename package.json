@@ -8,6 +8,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "ts-node index.ts",
+    "test": "jest",
     "test-watch": "jest --watch"
   },
   "devDependencies": {
