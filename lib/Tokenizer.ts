@@ -72,6 +72,10 @@ class Tokenizer {
     }
 
     const currentStateConfig: IStateConfig = this.statesConfig[this.state]
+    if (!currentStateConfig) {
+      throw new Error(`Missing state config for ${this.state}`)
+    }
+
     const transitions = currentStateConfig.transitions
     if (!transitions) {
       if (currentStateConfig.isEnd) {

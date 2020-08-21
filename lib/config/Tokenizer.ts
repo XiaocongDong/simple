@@ -1,6 +1,6 @@
 import { IConfig } from "../types/Tokenizer";
 import { TOKEN_TYPE } from "../types/token";
-import { LET, CONST, BREAK, CONTINUE, IF, ELSE, WHILE, FUNCTION, UNDEFINED, NULL, TRUE, FALSE, NEW } from "../constants";
+import { LET, CONST, BREAK, CONTINUE, IF, ELSE, WHILE, FUNCTION, UNDEFINED, NULL, TRUE, FALSE, NEW, CLASS } from "../constants";
 
 enum State {
   INITIAL = 'INITIAL',
@@ -21,6 +21,17 @@ enum State {
   MULTIPLY_ASSIGN = 'MULTIPLY_ASSIGN',
   DIVIDE_ASSIGN = 'DIVIDE_ASSIGN',
   ASSIGN = 'ASSIGN',
+  COMMA = 'COMMA',
+  DOT = 'DOT',
+
+  LEFT_PAREN = 'LEFT_PAREN',
+  RIGHT_PAREN = 'RIGHT_PAREN',
+  SEMI_COLON = 'SEMI_COLON',
+  LEFT_CURLY_BRACE = 'LEFT_CURLY_BRACE',
+  RIGHT_CURLY_BRACE = 'RIGHT_CURLY_BRACE',
+  LEFT_SQUARE_BRACKET = 'LEFT_SQUARE_BRACKET',
+  RIGHT_SQUARE_BRACKET = 'RIGHT_SQUARE_BRACKET',
+  COLON = 'COLON',
 
   START_OR = 'START_OR',
   EQUAL = 'EQUAL',
@@ -42,10 +53,16 @@ const keywordTokenTypeLookup: {[k: string]: TOKEN_TYPE} = {
   [NULL]: TOKEN_TYPE.NULL,
   [TRUE]: TOKEN_TYPE.TRUE,
   [FALSE]: TOKEN_TYPE.FALSE,
-  [NEW]: TOKEN_TYPE.NEW
+  [NEW]: TOKEN_TYPE.NEW,
+  [CLASS]: TOKEN_TYPE.CLASS
 }
 
 const keywordChecker = (value) => {
+  if (value === 'constructor') {
+    // object has an attribute named constructor in js...
+    return TOKEN_TYPE.IDENTIFER
+  }
+
   const tokenType = keywordTokenTypeLookup[value]
   return tokenType || TOKEN_TYPE.IDENTIFER
 }
@@ -58,7 +75,7 @@ const config: IConfig = {
       transitions: [
         {
           state: State.NUMBER_LITERAL,
-          checker: /[0-9\.]/
+          checker: /[0-9]/
         },
         {
           state: State.START_IDENTIFIER,
@@ -95,6 +112,46 @@ const config: IConfig = {
         {
           state: State.START_AND,
           checker: "&"
+        },
+        {
+          state: State.COLON,
+          checker: ':'
+        },
+        {
+          state: State.SEMI_COLON,
+          checker: ';'
+        },
+        {
+          state: State.LEFT_PAREN,
+          checker: '('
+        },
+        {
+          state: State.RIGHT_PAREN,
+          checker: ')'
+        },
+        {
+          state: State.LEFT_CURLY_BRACE,
+          checker: '{'
+        },
+        {
+          state: State.RIGHT_CURLY_BRACE,
+          checker: '}'
+        },
+        {
+          state: State.COMMA,
+          checker: ','
+        },
+        {
+          state: State.DOT,
+          checker: '.'
+        },
+        {
+          state: State.LEFT_SQUARE_BRACKET,
+          checker: '['
+        },
+        {
+          state: State.RIGHT_SQUARE_BRACKET,
+          checker: ']'
         }
       ]
     },
@@ -252,6 +309,46 @@ const config: IConfig = {
     [State.AND]: {
       isEnd: true,
       TokenType: TOKEN_TYPE.AND
+    },
+    [State.SEMI_COLON]: {
+      isEnd: true,
+      TokenType: TOKEN_TYPE.SEMI_COLON
+    },
+    [State.LEFT_PAREN]: {
+      isEnd: true,
+      TokenType: TOKEN_TYPE.LEFT_PAREN
+    },
+    [State.RIGHT_PAREN]: {
+      isEnd: true,
+      TokenType: TOKEN_TYPE.RIGHT_PAREN
+    },
+    [State.LEFT_CURLY_BRACE]: {
+      isEnd: true,
+      TokenType: TOKEN_TYPE.LEFT_CURLY_BRACE
+    },
+    [State.RIGHT_CURLY_BRACE]: {
+      isEnd: true,
+      TokenType: TOKEN_TYPE.RIGHT_CURLY_BRACE
+    },
+    [State.COMMA]: {
+      isEnd: true,
+      TokenType: TOKEN_TYPE.COMMA
+    },
+    [State.DOT]: {
+      isEnd: true,
+      TokenType: TOKEN_TYPE.DOT
+    },
+    [State.LEFT_SQUARE_BRACKET]: {
+      isEnd: true,
+      TokenType: TOKEN_TYPE.LEFT_SQUARE_BRACKET
+    },
+    [State.RIGHT_SQUARE_BRACKET]: {
+      isEnd: true,
+      TokenType: TOKEN_TYPE.RIGHT_SQUARE_BRACKET
+    },
+    [State.COLON]: {
+      isEnd: true,
+      TokenType: TOKEN_TYPE.COLON
     }
   }
 }

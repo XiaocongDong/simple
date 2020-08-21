@@ -1,0 +1,1140 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tokenizer with config it should generate correct buffer 1`] = `
+Array [
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 3,
+        "line": 1,
+      },
+      "start": Object {
+        "column": 1,
+        "line": 1,
+      },
+    },
+    "type": "LET",
+    "value": "let",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 5,
+        "line": 1,
+      },
+      "start": Object {
+        "column": 5,
+        "line": 1,
+      },
+    },
+    "type": "IDENTIFIER",
+    "value": "f",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 7,
+        "line": 1,
+      },
+      "start": Object {
+        "column": 7,
+        "line": 1,
+      },
+    },
+    "type": "ASSIGN",
+    "value": "=",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 16,
+        "line": 1,
+      },
+      "start": Object {
+        "column": 9,
+        "line": 1,
+      },
+    },
+    "type": "FUNCTION",
+    "value": "function",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 17,
+        "line": 1,
+      },
+      "start": Object {
+        "column": 17,
+        "line": 1,
+      },
+    },
+    "type": "LEFT_PAREN",
+    "value": "(",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 18,
+        "line": 1,
+      },
+      "start": Object {
+        "column": 18,
+        "line": 1,
+      },
+    },
+    "type": "IDENTIFIER",
+    "value": "x",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 19,
+        "line": 1,
+      },
+      "start": Object {
+        "column": 19,
+        "line": 1,
+      },
+    },
+    "type": "COMMA",
+    "value": ",",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 21,
+        "line": 1,
+      },
+      "start": Object {
+        "column": 21,
+        "line": 1,
+      },
+    },
+    "type": "IDENTIFIER",
+    "value": "y",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 22,
+        "line": 1,
+      },
+      "start": Object {
+        "column": 22,
+        "line": 1,
+      },
+    },
+    "type": "COMMA",
+    "value": ",",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 24,
+        "line": 1,
+      },
+      "start": Object {
+        "column": 24,
+        "line": 1,
+      },
+    },
+    "type": "IDENTIFIER",
+    "value": "z",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 25,
+        "line": 1,
+      },
+      "start": Object {
+        "column": 25,
+        "line": 1,
+      },
+    },
+    "type": "RIGHT_PAREN",
+    "value": ")",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 27,
+        "line": 1,
+      },
+      "start": Object {
+        "column": 27,
+        "line": 1,
+      },
+    },
+    "type": "LEFT_CURLY_BRACE",
+    "value": "{",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 12,
+        "line": 2,
+      },
+      "start": Object {
+        "column": 7,
+        "line": 2,
+      },
+    },
+    "type": "IDENTIFIER",
+    "value": "return",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 14,
+        "line": 2,
+      },
+      "start": Object {
+        "column": 14,
+        "line": 2,
+      },
+    },
+    "type": "IDENTIFIER",
+    "value": "x",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 15,
+        "line": 2,
+      },
+      "start": Object {
+        "column": 15,
+        "line": 2,
+      },
+    },
+    "type": "PLUS",
+    "value": "+",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 16,
+        "line": 2,
+      },
+      "start": Object {
+        "column": 16,
+        "line": 2,
+      },
+    },
+    "type": "IDENTIFIER",
+    "value": "y",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 17,
+        "line": 2,
+      },
+      "start": Object {
+        "column": 17,
+        "line": 2,
+      },
+    },
+    "type": "MULTIPLY",
+    "value": "*",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 18,
+        "line": 2,
+      },
+      "start": Object {
+        "column": 18,
+        "line": 2,
+      },
+    },
+    "type": "IDENTIFIER",
+    "value": "z",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 5,
+        "line": 3,
+      },
+      "start": Object {
+        "column": 5,
+        "line": 3,
+      },
+    },
+    "type": "RIGHT_CURLY_BRACE",
+    "value": "}",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 9,
+        "line": 4,
+      },
+      "start": Object {
+        "column": 5,
+        "line": 4,
+      },
+    },
+    "type": "CONST",
+    "value": "const",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 11,
+        "line": 4,
+      },
+      "start": Object {
+        "column": 11,
+        "line": 4,
+      },
+    },
+    "type": "IDENTIFIER",
+    "value": "c",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 13,
+        "line": 4,
+      },
+      "start": Object {
+        "column": 13,
+        "line": 4,
+      },
+    },
+    "type": "ASSIGN",
+    "value": "=",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 19,
+        "line": 4,
+      },
+      "start": Object {
+        "column": 15,
+        "line": 4,
+      },
+    },
+    "type": "CLASS",
+    "value": "class",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 26,
+        "line": 4,
+      },
+      "start": Object {
+        "column": 21,
+        "line": 4,
+      },
+    },
+    "type": "IDENTIFIER",
+    "value": "Person",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 28,
+        "line": 4,
+      },
+      "start": Object {
+        "column": 28,
+        "line": 4,
+      },
+    },
+    "type": "LEFT_CURLY_BRACE",
+    "value": "{",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 17,
+        "line": 5,
+      },
+      "start": Object {
+        "column": 7,
+        "line": 5,
+      },
+    },
+    "type": "IDENTIFIER",
+    "value": "constructor",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 18,
+        "line": 5,
+      },
+      "start": Object {
+        "column": 18,
+        "line": 5,
+      },
+    },
+    "type": "LEFT_PAREN",
+    "value": "(",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 19,
+        "line": 5,
+      },
+      "start": Object {
+        "column": 19,
+        "line": 5,
+      },
+    },
+    "type": "RIGHT_PAREN",
+    "value": ")",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 21,
+        "line": 5,
+      },
+      "start": Object {
+        "column": 21,
+        "line": 5,
+      },
+    },
+    "type": "LEFT_CURLY_BRACE",
+    "value": "{",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 12,
+        "line": 6,
+      },
+      "start": Object {
+        "column": 9,
+        "line": 6,
+      },
+    },
+    "type": "IDENTIFIER",
+    "value": "this",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 13,
+        "line": 6,
+      },
+      "start": Object {
+        "column": 13,
+        "line": 6,
+      },
+    },
+    "type": "DOT",
+    "value": ".",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 17,
+        "line": 6,
+      },
+      "start": Object {
+        "column": 14,
+        "line": 6,
+      },
+    },
+    "type": "IDENTIFIER",
+    "value": "name",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 19,
+        "line": 6,
+      },
+      "start": Object {
+        "column": 19,
+        "line": 6,
+      },
+    },
+    "type": "ASSIGN",
+    "value": "=",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 24,
+        "line": 6,
+      },
+      "start": Object {
+        "column": 21,
+        "line": 6,
+      },
+    },
+    "type": "IDENTIFIER",
+    "value": "name",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 7,
+        "line": 7,
+      },
+      "start": Object {
+        "column": 7,
+        "line": 7,
+      },
+    },
+    "type": "RIGHT_CURLY_BRACE",
+    "value": "}",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 13,
+        "line": 9,
+      },
+      "start": Object {
+        "column": 7,
+        "line": 9,
+      },
+    },
+    "type": "IDENTIFIER",
+    "value": "sayName",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 14,
+        "line": 9,
+      },
+      "start": Object {
+        "column": 14,
+        "line": 9,
+      },
+    },
+    "type": "LEFT_PAREN",
+    "value": "(",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 15,
+        "line": 9,
+      },
+      "start": Object {
+        "column": 15,
+        "line": 9,
+      },
+    },
+    "type": "RIGHT_PAREN",
+    "value": ")",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 17,
+        "line": 9,
+      },
+      "start": Object {
+        "column": 17,
+        "line": 9,
+      },
+    },
+    "type": "LEFT_CURLY_BRACE",
+    "value": "{",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 15,
+        "line": 10,
+      },
+      "start": Object {
+        "column": 9,
+        "line": 10,
+      },
+    },
+    "type": "IDENTIFIER",
+    "value": "console",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 16,
+        "line": 10,
+      },
+      "start": Object {
+        "column": 16,
+        "line": 10,
+      },
+    },
+    "type": "DOT",
+    "value": ".",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 19,
+        "line": 10,
+      },
+      "start": Object {
+        "column": 17,
+        "line": 10,
+      },
+    },
+    "type": "IDENTIFIER",
+    "value": "log",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 20,
+        "line": 10,
+      },
+      "start": Object {
+        "column": 20,
+        "line": 10,
+      },
+    },
+    "type": "LEFT_PAREN",
+    "value": "(",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 24,
+        "line": 10,
+      },
+      "start": Object {
+        "column": 21,
+        "line": 10,
+      },
+    },
+    "type": "IDENTIFIER",
+    "value": "this",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 25,
+        "line": 10,
+      },
+      "start": Object {
+        "column": 25,
+        "line": 10,
+      },
+    },
+    "type": "DOT",
+    "value": ".",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 29,
+        "line": 10,
+      },
+      "start": Object {
+        "column": 26,
+        "line": 10,
+      },
+    },
+    "type": "IDENTIFIER",
+    "value": "name",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 30,
+        "line": 10,
+      },
+      "start": Object {
+        "column": 30,
+        "line": 10,
+      },
+    },
+    "type": "RIGHT_PAREN",
+    "value": ")",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 7,
+        "line": 11,
+      },
+      "start": Object {
+        "column": 7,
+        "line": 11,
+      },
+    },
+    "type": "RIGHT_CURLY_BRACE",
+    "value": "}",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 5,
+        "line": 12,
+      },
+      "start": Object {
+        "column": 5,
+        "line": 12,
+      },
+    },
+    "type": "RIGHT_CURLY_BRACE",
+    "value": "}",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 9,
+        "line": 13,
+      },
+      "start": Object {
+        "column": 5,
+        "line": 13,
+      },
+    },
+    "type": "CONST",
+    "value": "const",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 11,
+        "line": 13,
+      },
+      "start": Object {
+        "column": 11,
+        "line": 13,
+      },
+    },
+    "type": "IDENTIFIER",
+    "value": "a",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 13,
+        "line": 13,
+      },
+      "start": Object {
+        "column": 13,
+        "line": 13,
+      },
+    },
+    "type": "ASSIGN",
+    "value": "=",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 15,
+        "line": 13,
+      },
+      "start": Object {
+        "column": 15,
+        "line": 13,
+      },
+    },
+    "type": "LEFT_SQUARE_BRACKET",
+    "value": "[",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 16,
+        "line": 13,
+      },
+      "start": Object {
+        "column": 16,
+        "line": 13,
+      },
+    },
+    "type": "NUMBER_LITERAL",
+    "value": "1",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 17,
+        "line": 13,
+      },
+      "start": Object {
+        "column": 17,
+        "line": 13,
+      },
+    },
+    "type": "COMMA",
+    "value": ",",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 19,
+        "line": 13,
+      },
+      "start": Object {
+        "column": 19,
+        "line": 13,
+      },
+    },
+    "type": "NUMBER_LITERAL",
+    "value": "2",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 20,
+        "line": 13,
+      },
+      "start": Object {
+        "column": 20,
+        "line": 13,
+      },
+    },
+    "type": "COMMA",
+    "value": ",",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 22,
+        "line": 13,
+      },
+      "start": Object {
+        "column": 22,
+        "line": 13,
+      },
+    },
+    "type": "NUMBER_LITERAL",
+    "value": "3",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 23,
+        "line": 13,
+      },
+      "start": Object {
+        "column": 23,
+        "line": 13,
+      },
+    },
+    "type": "COMMA",
+    "value": ",",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 25,
+        "line": 13,
+      },
+      "start": Object {
+        "column": 25,
+        "line": 13,
+      },
+    },
+    "type": "LEFT_CURLY_BRACE",
+    "value": "{",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 26,
+        "line": 13,
+      },
+      "start": Object {
+        "column": 26,
+        "line": 13,
+      },
+    },
+    "type": "NUMBER_LITERAL",
+    "value": "1",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 27,
+        "line": 13,
+      },
+      "start": Object {
+        "column": 27,
+        "line": 13,
+      },
+    },
+    "type": "COMMA",
+    "value": ",",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 29,
+        "line": 13,
+      },
+      "start": Object {
+        "column": 29,
+        "line": 13,
+      },
+    },
+    "type": "NUMBER_LITERAL",
+    "value": "2",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 30,
+        "line": 13,
+      },
+      "start": Object {
+        "column": 30,
+        "line": 13,
+      },
+    },
+    "type": "COMMA",
+    "value": ",",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 32,
+        "line": 13,
+      },
+      "start": Object {
+        "column": 32,
+        "line": 13,
+      },
+    },
+    "type": "NUMBER_LITERAL",
+    "value": "3",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 33,
+        "line": 13,
+      },
+      "start": Object {
+        "column": 33,
+        "line": 13,
+      },
+    },
+    "type": "RIGHT_CURLY_BRACE",
+    "value": "}",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 34,
+        "line": 13,
+      },
+      "start": Object {
+        "column": 34,
+        "line": 13,
+      },
+    },
+    "type": "COMMA",
+    "value": ",",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 39,
+        "line": 13,
+      },
+      "start": Object {
+        "column": 36,
+        "line": 13,
+      },
+    },
+    "type": "STRING_LITERAL",
+    "value": "'hi'",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 40,
+        "line": 13,
+      },
+      "start": Object {
+        "column": 40,
+        "line": 13,
+      },
+    },
+    "type": "RIGHT_SQUARE_BRACKET",
+    "value": "]",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 9,
+        "line": 14,
+      },
+      "start": Object {
+        "column": 5,
+        "line": 14,
+      },
+    },
+    "type": "CONST",
+    "value": "const",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 11,
+        "line": 14,
+      },
+      "start": Object {
+        "column": 11,
+        "line": 14,
+      },
+    },
+    "type": "IDENTIFIER",
+    "value": "o",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 13,
+        "line": 14,
+      },
+      "start": Object {
+        "column": 13,
+        "line": 14,
+      },
+    },
+    "type": "ASSIGN",
+    "value": "=",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 15,
+        "line": 14,
+      },
+      "start": Object {
+        "column": 15,
+        "line": 14,
+      },
+    },
+    "type": "LEFT_CURLY_BRACE",
+    "value": "{",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 10,
+        "line": 15,
+      },
+      "start": Object {
+        "column": 7,
+        "line": 15,
+      },
+    },
+    "type": "IDENTIFIER",
+    "value": "name",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 11,
+        "line": 15,
+      },
+      "start": Object {
+        "column": 11,
+        "line": 15,
+      },
+    },
+    "type": "COLON",
+    "value": ":",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 18,
+        "line": 15,
+      },
+      "start": Object {
+        "column": 13,
+        "line": 15,
+      },
+    },
+    "type": "STRING_LITERAL",
+    "value": "'sean'",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 19,
+        "line": 15,
+      },
+      "start": Object {
+        "column": 19,
+        "line": 15,
+      },
+    },
+    "type": "COMMA",
+    "value": ",",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 9,
+        "line": 16,
+      },
+      "start": Object {
+        "column": 7,
+        "line": 16,
+      },
+    },
+    "type": "IDENTIFIER",
+    "value": "age",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 10,
+        "line": 16,
+      },
+      "start": Object {
+        "column": 10,
+        "line": 16,
+      },
+    },
+    "type": "COLON",
+    "value": ":",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 13,
+        "line": 16,
+      },
+      "start": Object {
+        "column": 12,
+        "line": 16,
+      },
+    },
+    "type": "NUMBER_LITERAL",
+    "value": "27",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 5,
+        "line": 17,
+      },
+      "start": Object {
+        "column": 5,
+        "line": 17,
+      },
+    },
+    "type": "RIGHT_CURLY_BRACE",
+    "value": "}",
+  },
+]
+`;

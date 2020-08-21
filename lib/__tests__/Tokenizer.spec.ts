@@ -1,8 +1,7 @@
 import Tokenizer from '../Tokenizer'
-import { IConfig } from '../types/Tokenizer'
-import { TOKEN_TYPE, IToken } from '../types/token'
-import { SPACE, NEW_LINE } from '../constants'
 import LocationKeeper from '../LocationKeeper'
+import { IConfig } from '../types/Tokenizer'
+import { TOKEN_TYPE } from '../types/token'
 import { ILocation } from '../types/location'
 
 enum State {
@@ -10,7 +9,7 @@ enum State {
   NUMBER_LITERAL = 'NUMBER_LITERAL',
   START_STRING_LITERAL = 'START_STRING_LITERAL',
   STRING_LITERAL = 'STRING_LITERAL',
-  UNKNONW = 'UNKNOWN'
+  UNKNOWN = 'UNKNOWN'
 }
 
 const testConfig: IConfig = {
@@ -62,7 +61,7 @@ const prevLocation: ILocation = {
   column: 0
 }
 
-const testCases: Array<{state: State, buffer?: string, expectedState?: State, input: string, toThrow?: string, expectedTokenType?: TOKEN_TYPE , description: string}> = [
+const stateTransferTestCases: Array<{state: State, buffer?: string, expectedState?: State, input: string, toThrow?: string, expectedTokenType?: TOKEN_TYPE , description: string}> = [
   {
     state: State.INITIAL,
     expectedState: State.NUMBER_LITERAL,
@@ -119,17 +118,17 @@ describe('Tokenizer', () => {
       originalAddToken = tokenizer.addToken
       
       tokenizer.addToken = jest.fn()
+      tokenizer.locationKeeper = locationKeeper
     })
 
     afterEach(() => {
       tokenizer.addToken = originalAddToken
     })
 
-    testCases.forEach(({ state, buffer, expectedState, input, toThrow, expectedTokenType, description }) => {
+    stateTransferTestCases.forEach(({ state, buffer, expectedState, input, toThrow, expectedTokenType, description }) => {
       test(description, () => {
         
         tokenizer.state = state
-        tokenizer.locationKeeper = locationKeeper
 
         if (buffer) {
           tokenizer.buffer = buffer
@@ -149,6 +148,14 @@ describe('Tokenizer', () => {
           expect(tokenizer.addToken).toBeCalledWith(expectedTokenType)
         }
       })
+    })
+
+    test('it should invoke locationKeeper.markLocation when state change from initial to other', () => {
+      tokenizer.state = State.INITIAL
+      
+      tokenizer.consume('1')
+
+      expect(locationKeeper.markLocation).toBeCalledTimes(1)
     })
   })
 })
