@@ -7,15 +7,6 @@ const testCases: Array<{code: string, description: string}> = [
     `let f = function(x, y, z) {
       return x+y*z
     }
-    const c = class Person {
-      constructor() {
-        this.name = name
-      }
-
-      sayName() {
-        console.log(this.name)
-      }
-    }
     const a = [1, 2, 3, {1, 2, 3}, 'hi']
     const o = {
       name: 'sean',

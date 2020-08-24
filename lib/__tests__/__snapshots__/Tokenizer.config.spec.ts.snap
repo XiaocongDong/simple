@@ -294,437 +294,17 @@ Array [
       },
     },
     "type": "IDENTIFIER",
-    "value": "c",
-  },
-  Object {
-    "range": Object {
-      "end": Object {
-        "column": 13,
-        "line": 4,
-      },
-      "start": Object {
-        "column": 13,
-        "line": 4,
-      },
-    },
-    "type": "ASSIGN",
-    "value": "=",
-  },
-  Object {
-    "range": Object {
-      "end": Object {
-        "column": 19,
-        "line": 4,
-      },
-      "start": Object {
-        "column": 15,
-        "line": 4,
-      },
-    },
-    "type": "CLASS",
-    "value": "class",
-  },
-  Object {
-    "range": Object {
-      "end": Object {
-        "column": 26,
-        "line": 4,
-      },
-      "start": Object {
-        "column": 21,
-        "line": 4,
-      },
-    },
-    "type": "IDENTIFIER",
-    "value": "Person",
-  },
-  Object {
-    "range": Object {
-      "end": Object {
-        "column": 28,
-        "line": 4,
-      },
-      "start": Object {
-        "column": 28,
-        "line": 4,
-      },
-    },
-    "type": "LEFT_CURLY_BRACE",
-    "value": "{",
-  },
-  Object {
-    "range": Object {
-      "end": Object {
-        "column": 17,
-        "line": 5,
-      },
-      "start": Object {
-        "column": 7,
-        "line": 5,
-      },
-    },
-    "type": "IDENTIFIER",
-    "value": "constructor",
-  },
-  Object {
-    "range": Object {
-      "end": Object {
-        "column": 18,
-        "line": 5,
-      },
-      "start": Object {
-        "column": 18,
-        "line": 5,
-      },
-    },
-    "type": "LEFT_PAREN",
-    "value": "(",
-  },
-  Object {
-    "range": Object {
-      "end": Object {
-        "column": 19,
-        "line": 5,
-      },
-      "start": Object {
-        "column": 19,
-        "line": 5,
-      },
-    },
-    "type": "RIGHT_PAREN",
-    "value": ")",
-  },
-  Object {
-    "range": Object {
-      "end": Object {
-        "column": 21,
-        "line": 5,
-      },
-      "start": Object {
-        "column": 21,
-        "line": 5,
-      },
-    },
-    "type": "LEFT_CURLY_BRACE",
-    "value": "{",
-  },
-  Object {
-    "range": Object {
-      "end": Object {
-        "column": 12,
-        "line": 6,
-      },
-      "start": Object {
-        "column": 9,
-        "line": 6,
-      },
-    },
-    "type": "IDENTIFIER",
-    "value": "this",
-  },
-  Object {
-    "range": Object {
-      "end": Object {
-        "column": 13,
-        "line": 6,
-      },
-      "start": Object {
-        "column": 13,
-        "line": 6,
-      },
-    },
-    "type": "DOT",
-    "value": ".",
-  },
-  Object {
-    "range": Object {
-      "end": Object {
-        "column": 17,
-        "line": 6,
-      },
-      "start": Object {
-        "column": 14,
-        "line": 6,
-      },
-    },
-    "type": "IDENTIFIER",
-    "value": "name",
-  },
-  Object {
-    "range": Object {
-      "end": Object {
-        "column": 19,
-        "line": 6,
-      },
-      "start": Object {
-        "column": 19,
-        "line": 6,
-      },
-    },
-    "type": "ASSIGN",
-    "value": "=",
-  },
-  Object {
-    "range": Object {
-      "end": Object {
-        "column": 24,
-        "line": 6,
-      },
-      "start": Object {
-        "column": 21,
-        "line": 6,
-      },
-    },
-    "type": "IDENTIFIER",
-    "value": "name",
-  },
-  Object {
-    "range": Object {
-      "end": Object {
-        "column": 7,
-        "line": 7,
-      },
-      "start": Object {
-        "column": 7,
-        "line": 7,
-      },
-    },
-    "type": "RIGHT_CURLY_BRACE",
-    "value": "}",
-  },
-  Object {
-    "range": Object {
-      "end": Object {
-        "column": 13,
-        "line": 9,
-      },
-      "start": Object {
-        "column": 7,
-        "line": 9,
-      },
-    },
-    "type": "IDENTIFIER",
-    "value": "sayName",
-  },
-  Object {
-    "range": Object {
-      "end": Object {
-        "column": 14,
-        "line": 9,
-      },
-      "start": Object {
-        "column": 14,
-        "line": 9,
-      },
-    },
-    "type": "LEFT_PAREN",
-    "value": "(",
-  },
-  Object {
-    "range": Object {
-      "end": Object {
-        "column": 15,
-        "line": 9,
-      },
-      "start": Object {
-        "column": 15,
-        "line": 9,
-      },
-    },
-    "type": "RIGHT_PAREN",
-    "value": ")",
-  },
-  Object {
-    "range": Object {
-      "end": Object {
-        "column": 17,
-        "line": 9,
-      },
-      "start": Object {
-        "column": 17,
-        "line": 9,
-      },
-    },
-    "type": "LEFT_CURLY_BRACE",
-    "value": "{",
-  },
-  Object {
-    "range": Object {
-      "end": Object {
-        "column": 15,
-        "line": 10,
-      },
-      "start": Object {
-        "column": 9,
-        "line": 10,
-      },
-    },
-    "type": "IDENTIFIER",
-    "value": "console",
-  },
-  Object {
-    "range": Object {
-      "end": Object {
-        "column": 16,
-        "line": 10,
-      },
-      "start": Object {
-        "column": 16,
-        "line": 10,
-      },
-    },
-    "type": "DOT",
-    "value": ".",
-  },
-  Object {
-    "range": Object {
-      "end": Object {
-        "column": 19,
-        "line": 10,
-      },
-      "start": Object {
-        "column": 17,
-        "line": 10,
-      },
-    },
-    "type": "IDENTIFIER",
-    "value": "log",
-  },
-  Object {
-    "range": Object {
-      "end": Object {
-        "column": 20,
-        "line": 10,
-      },
-      "start": Object {
-        "column": 20,
-        "line": 10,
-      },
-    },
-    "type": "LEFT_PAREN",
-    "value": "(",
-  },
-  Object {
-    "range": Object {
-      "end": Object {
-        "column": 24,
-        "line": 10,
-      },
-      "start": Object {
-        "column": 21,
-        "line": 10,
-      },
-    },
-    "type": "IDENTIFIER",
-    "value": "this",
-  },
-  Object {
-    "range": Object {
-      "end": Object {
-        "column": 25,
-        "line": 10,
-      },
-      "start": Object {
-        "column": 25,
-        "line": 10,
-      },
-    },
-    "type": "DOT",
-    "value": ".",
-  },
-  Object {
-    "range": Object {
-      "end": Object {
-        "column": 29,
-        "line": 10,
-      },
-      "start": Object {
-        "column": 26,
-        "line": 10,
-      },
-    },
-    "type": "IDENTIFIER",
-    "value": "name",
-  },
-  Object {
-    "range": Object {
-      "end": Object {
-        "column": 30,
-        "line": 10,
-      },
-      "start": Object {
-        "column": 30,
-        "line": 10,
-      },
-    },
-    "type": "RIGHT_PAREN",
-    "value": ")",
-  },
-  Object {
-    "range": Object {
-      "end": Object {
-        "column": 7,
-        "line": 11,
-      },
-      "start": Object {
-        "column": 7,
-        "line": 11,
-      },
-    },
-    "type": "RIGHT_CURLY_BRACE",
-    "value": "}",
-  },
-  Object {
-    "range": Object {
-      "end": Object {
-        "column": 5,
-        "line": 12,
-      },
-      "start": Object {
-        "column": 5,
-        "line": 12,
-      },
-    },
-    "type": "RIGHT_CURLY_BRACE",
-    "value": "}",
-  },
-  Object {
-    "range": Object {
-      "end": Object {
-        "column": 9,
-        "line": 13,
-      },
-      "start": Object {
-        "column": 5,
-        "line": 13,
-      },
-    },
-    "type": "CONST",
-    "value": "const",
-  },
-  Object {
-    "range": Object {
-      "end": Object {
-        "column": 11,
-        "line": 13,
-      },
-      "start": Object {
-        "column": 11,
-        "line": 13,
-      },
-    },
-    "type": "IDENTIFIER",
     "value": "a",
   },
   Object {
     "range": Object {
       "end": Object {
         "column": 13,
-        "line": 13,
+        "line": 4,
       },
       "start": Object {
         "column": 13,
-        "line": 13,
+        "line": 4,
       },
     },
     "type": "ASSIGN",
@@ -734,11 +314,11 @@ Array [
     "range": Object {
       "end": Object {
         "column": 15,
-        "line": 13,
+        "line": 4,
       },
       "start": Object {
         "column": 15,
-        "line": 13,
+        "line": 4,
       },
     },
     "type": "LEFT_SQUARE_BRACKET",
@@ -748,11 +328,11 @@ Array [
     "range": Object {
       "end": Object {
         "column": 16,
-        "line": 13,
+        "line": 4,
       },
       "start": Object {
         "column": 16,
-        "line": 13,
+        "line": 4,
       },
     },
     "type": "NUMBER_LITERAL",
@@ -762,11 +342,11 @@ Array [
     "range": Object {
       "end": Object {
         "column": 17,
-        "line": 13,
+        "line": 4,
       },
       "start": Object {
         "column": 17,
-        "line": 13,
+        "line": 4,
       },
     },
     "type": "COMMA",
@@ -776,11 +356,11 @@ Array [
     "range": Object {
       "end": Object {
         "column": 19,
-        "line": 13,
+        "line": 4,
       },
       "start": Object {
         "column": 19,
-        "line": 13,
+        "line": 4,
       },
     },
     "type": "NUMBER_LITERAL",
@@ -790,11 +370,11 @@ Array [
     "range": Object {
       "end": Object {
         "column": 20,
-        "line": 13,
+        "line": 4,
       },
       "start": Object {
         "column": 20,
-        "line": 13,
+        "line": 4,
       },
     },
     "type": "COMMA",
@@ -804,11 +384,11 @@ Array [
     "range": Object {
       "end": Object {
         "column": 22,
-        "line": 13,
+        "line": 4,
       },
       "start": Object {
         "column": 22,
-        "line": 13,
+        "line": 4,
       },
     },
     "type": "NUMBER_LITERAL",
@@ -818,11 +398,11 @@ Array [
     "range": Object {
       "end": Object {
         "column": 23,
-        "line": 13,
+        "line": 4,
       },
       "start": Object {
         "column": 23,
-        "line": 13,
+        "line": 4,
       },
     },
     "type": "COMMA",
@@ -832,11 +412,11 @@ Array [
     "range": Object {
       "end": Object {
         "column": 25,
-        "line": 13,
+        "line": 4,
       },
       "start": Object {
         "column": 25,
-        "line": 13,
+        "line": 4,
       },
     },
     "type": "LEFT_CURLY_BRACE",
@@ -846,11 +426,11 @@ Array [
     "range": Object {
       "end": Object {
         "column": 26,
-        "line": 13,
+        "line": 4,
       },
       "start": Object {
         "column": 26,
-        "line": 13,
+        "line": 4,
       },
     },
     "type": "NUMBER_LITERAL",
@@ -860,11 +440,11 @@ Array [
     "range": Object {
       "end": Object {
         "column": 27,
-        "line": 13,
+        "line": 4,
       },
       "start": Object {
         "column": 27,
-        "line": 13,
+        "line": 4,
       },
     },
     "type": "COMMA",
@@ -874,11 +454,11 @@ Array [
     "range": Object {
       "end": Object {
         "column": 29,
-        "line": 13,
+        "line": 4,
       },
       "start": Object {
         "column": 29,
-        "line": 13,
+        "line": 4,
       },
     },
     "type": "NUMBER_LITERAL",
@@ -888,11 +468,11 @@ Array [
     "range": Object {
       "end": Object {
         "column": 30,
-        "line": 13,
+        "line": 4,
       },
       "start": Object {
         "column": 30,
-        "line": 13,
+        "line": 4,
       },
     },
     "type": "COMMA",
@@ -902,11 +482,11 @@ Array [
     "range": Object {
       "end": Object {
         "column": 32,
-        "line": 13,
+        "line": 4,
       },
       "start": Object {
         "column": 32,
-        "line": 13,
+        "line": 4,
       },
     },
     "type": "NUMBER_LITERAL",
@@ -916,11 +496,11 @@ Array [
     "range": Object {
       "end": Object {
         "column": 33,
-        "line": 13,
+        "line": 4,
       },
       "start": Object {
         "column": 33,
-        "line": 13,
+        "line": 4,
       },
     },
     "type": "RIGHT_CURLY_BRACE",
@@ -930,11 +510,11 @@ Array [
     "range": Object {
       "end": Object {
         "column": 34,
-        "line": 13,
+        "line": 4,
       },
       "start": Object {
         "column": 34,
-        "line": 13,
+        "line": 4,
       },
     },
     "type": "COMMA",
@@ -944,11 +524,11 @@ Array [
     "range": Object {
       "end": Object {
         "column": 39,
-        "line": 13,
+        "line": 4,
       },
       "start": Object {
         "column": 36,
-        "line": 13,
+        "line": 4,
       },
     },
     "type": "STRING_LITERAL",
@@ -958,11 +538,11 @@ Array [
     "range": Object {
       "end": Object {
         "column": 40,
-        "line": 13,
+        "line": 4,
       },
       "start": Object {
         "column": 40,
-        "line": 13,
+        "line": 4,
       },
     },
     "type": "RIGHT_SQUARE_BRACKET",
@@ -972,11 +552,11 @@ Array [
     "range": Object {
       "end": Object {
         "column": 9,
-        "line": 14,
+        "line": 5,
       },
       "start": Object {
         "column": 5,
-        "line": 14,
+        "line": 5,
       },
     },
     "type": "CONST",
@@ -986,11 +566,11 @@ Array [
     "range": Object {
       "end": Object {
         "column": 11,
-        "line": 14,
+        "line": 5,
       },
       "start": Object {
         "column": 11,
-        "line": 14,
+        "line": 5,
       },
     },
     "type": "IDENTIFIER",
@@ -1000,11 +580,11 @@ Array [
     "range": Object {
       "end": Object {
         "column": 13,
-        "line": 14,
+        "line": 5,
       },
       "start": Object {
         "column": 13,
-        "line": 14,
+        "line": 5,
       },
     },
     "type": "ASSIGN",
@@ -1014,11 +594,11 @@ Array [
     "range": Object {
       "end": Object {
         "column": 15,
-        "line": 14,
+        "line": 5,
       },
       "start": Object {
         "column": 15,
-        "line": 14,
+        "line": 5,
       },
     },
     "type": "LEFT_CURLY_BRACE",
@@ -1028,11 +608,11 @@ Array [
     "range": Object {
       "end": Object {
         "column": 10,
-        "line": 15,
+        "line": 6,
       },
       "start": Object {
         "column": 7,
-        "line": 15,
+        "line": 6,
       },
     },
     "type": "IDENTIFIER",
@@ -1042,11 +622,11 @@ Array [
     "range": Object {
       "end": Object {
         "column": 11,
-        "line": 15,
+        "line": 6,
       },
       "start": Object {
         "column": 11,
-        "line": 15,
+        "line": 6,
       },
     },
     "type": "COLON",
@@ -1056,11 +636,11 @@ Array [
     "range": Object {
       "end": Object {
         "column": 18,
-        "line": 15,
+        "line": 6,
       },
       "start": Object {
         "column": 13,
-        "line": 15,
+        "line": 6,
       },
     },
     "type": "STRING_LITERAL",
@@ -1070,11 +650,11 @@ Array [
     "range": Object {
       "end": Object {
         "column": 19,
-        "line": 15,
+        "line": 6,
       },
       "start": Object {
         "column": 19,
-        "line": 15,
+        "line": 6,
       },
     },
     "type": "COMMA",
@@ -1084,11 +664,11 @@ Array [
     "range": Object {
       "end": Object {
         "column": 9,
-        "line": 16,
+        "line": 7,
       },
       "start": Object {
         "column": 7,
-        "line": 16,
+        "line": 7,
       },
     },
     "type": "IDENTIFIER",
@@ -1098,11 +678,11 @@ Array [
     "range": Object {
       "end": Object {
         "column": 10,
-        "line": 16,
+        "line": 7,
       },
       "start": Object {
         "column": 10,
-        "line": 16,
+        "line": 7,
       },
     },
     "type": "COLON",
@@ -1112,11 +692,11 @@ Array [
     "range": Object {
       "end": Object {
         "column": 13,
-        "line": 16,
+        "line": 7,
       },
       "start": Object {
         "column": 12,
-        "line": 16,
+        "line": 7,
       },
     },
     "type": "NUMBER_LITERAL",
@@ -1126,11 +706,11 @@ Array [
     "range": Object {
       "end": Object {
         "column": 5,
-        "line": 17,
+        "line": 8,
       },
       "start": Object {
         "column": 5,
-        "line": 17,
+        "line": 8,
       },
     },
     "type": "RIGHT_CURLY_BRACE",

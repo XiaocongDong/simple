@@ -1,6 +1,6 @@
 import { IConfig } from "../types/Tokenizer";
 import { TOKEN_TYPE } from "../types/token";
-import { LET, CONST, BREAK, CONTINUE, IF, ELSE, WHILE, FUNCTION, UNDEFINED, NULL, TRUE, FALSE, NEW, CLASS } from "../constants";
+import { LET, CONST, BREAK, CONTINUE, IF, ELSE, WHILE, FUNCTION, UNDEFINED, NULL, TRUE, FALSE, NEW } from "../constants";
 
 enum State {
   INITIAL = 'INITIAL',
@@ -53,8 +53,7 @@ const keywordTokenTypeLookup: {[k: string]: TOKEN_TYPE} = {
   [NULL]: TOKEN_TYPE.NULL,
   [TRUE]: TOKEN_TYPE.TRUE,
   [FALSE]: TOKEN_TYPE.FALSE,
-  [NEW]: TOKEN_TYPE.NEW,
-  [CLASS]: TOKEN_TYPE.CLASS
+  [NEW]: TOKEN_TYPE.NEW
 }
 
 const keywordChecker = (value) => {

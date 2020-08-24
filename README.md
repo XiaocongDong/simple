@@ -11,7 +11,6 @@ Currently simple support the following data types:
 * array
 * object
 * function
-* class (we are object-oriented language!)
 
 ### Variable Declaration
 Using `let` to declare variable and `const` to declare constant:
@@ -26,15 +25,6 @@ let h = {
   name: 'sean',
   age: 27
 }; // object
-let i = class Person {
-  constructor() {
-    this.name = name
-  }
-
-  sayName() {
-    console.log(this.name)
-  }
-};
 ```
 ### 运算
 ```javascript

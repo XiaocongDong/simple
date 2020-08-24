@@ -1,0 +1,136 @@
+program: {statement (";" | EOL)}
+
+statement
+  : block
+  | variableStatement
+  | singleExpression
+  | ifStatement
+  | iterationStatement
+  | functionDeclaration
+  | continueStatement
+  | breakStatement
+  | returnStatement
+  ;
+
+block
+  : '{' [statementList] '}'
+  ;
+
+statementList
+  : {statement}
+  ;
+
+variableStatement
+  : varModifier variableDeclaration
+  ;
+
+varModifier
+  : 'let'
+  : 'const'
+  ;
+
+variableDeclaration
+  : IDENTIFIER ['=' singleExpression]
+  ;
+
+singleExpression
+  : bracketAccess # access with open bracket
+  : dotAccess # access with dot expression
+  : functionInvoke # function invoke
+  : quoteExpression
+  : assignmentExpression
+  : updateExpression
+  : binaryExpression
+  : arrayLiteral
+  : objectLiteral
+  : NUMBER
+  : IDENTIFIER
+  : STRING_LITERAL
+  : BOOLEAN
+  ;
+
+updateExpression
+  : "++" singleExpression
+  : "--" singleExpression
+  : singleExpression "++"
+  : singleExpression "--"
+  ;
+
+assignmentExpression
+  : IDENTIFIER assignmentOperator singleExpression
+  ;
+
+assignmentOperator
+  : "="
+  : "+="
+  : "-="
+  : "/="
+  : "*="
+  ;
+
+bracketAccess
+  : IDENTIFIER '[' singleExpression ']'
+  ;
+
+dotAccess
+  : IDENTIFIER {'.' dotAccess }
+  ;
+
+functionInvode
+  : IDENTIFIER  '(' [singleExpression {',' singleExpression}] ')'
+  ;
+
+quoteExpression
+  : '(' singleExpression ')'
+  ;
+
+binaryExpression
+  : singleExpression {op singleExpression}
+  ;
+
+op
+  : '+'
+  : '-'
+  : '*'
+  : '/'
+  : '>'
+  : '<'
+  : '=='
+  : '>='
+  : '<='
+  : '&&'
+  : '||'
+  ;
+
+arrayLiteral
+  : '[' [singleExpression {',' singleExpression}] ']'
+  ;
+
+objectLiteral
+  : '{' [propertyAssignment {',' propertyAssignment}] '}'
+
+propertyAssignment
+  : propertyName ':' singleExpression
+  ;
+
+ifStatement
+  : 'if' '(' singleExpression ')' block ['else' block]
+  ;
+
+iterationStatement
+  : 'for' '(' variableDeclaration ';' singleExpression ';' singleExpression ')' block
+  : 'while' '(' singleExpression ')' block
+  ;
+
+functionDeclaration
+  : 'function' IDENTIFIER '(' [IDENTIFIER {',' IDENTIFIER}] ')' block
+  ;
+
+continueStatement
+  : 'continue' [singleExpression]
+  ;
+
+breakStatement
+  : 'break'
+  ;
+

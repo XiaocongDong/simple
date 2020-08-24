@@ -20,7 +20,6 @@ export enum TOKEN_TYPE {
   TRUE = 'TRUE',
   FALSE = 'FALSE',
   NEW = 'NEW',
-  CLASS = 'CLASS',
 
   LEFT_PAREN = 'LEFT_PAREN',
   RIGHT_PAREN = 'RIGHT_PAREN',
