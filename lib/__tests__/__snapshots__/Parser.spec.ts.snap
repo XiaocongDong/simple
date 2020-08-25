@@ -1,0 +1,469 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Parser parse it should generate node but no children is created when no rule in repeat is found 1`] = `
+Node {
+  "children": Array [],
+  "loc": Object {
+    "end": null,
+    "start": null,
+  },
+}
+`;
+
+exports[`Parser parse it should generate node when one of option of the or exists 1`] = `
+Token {
+  "children": Array [],
+  "loc": Object {
+    "end": Object {
+      "column": 3,
+      "line": 0,
+    },
+    "start": Object {
+      "column": 1,
+      "line": 0,
+    },
+  },
+  "token": Object {
+    "range": Object {
+      "end": Object {
+        "column": 3,
+        "line": 0,
+      },
+      "start": Object {
+        "column": 1,
+        "line": 0,
+      },
+    },
+    "type": "LET",
+    "value": "let",
+  },
+  "type": "TOKEN",
+}
+`;
+
+exports[`Parser parse it should generate node when option node exists 1`] = `
+Token {
+  "children": Array [],
+  "loc": Object {
+    "end": Object {
+      "column": 3,
+      "line": 0,
+    },
+    "start": Object {
+      "column": 1,
+      "line": 0,
+    },
+  },
+  "token": Object {
+    "range": Object {
+      "end": Object {
+        "column": 3,
+        "line": 0,
+      },
+      "start": Object {
+        "column": 1,
+        "line": 0,
+      },
+    },
+    "type": "LET",
+    "value": "let",
+  },
+  "type": "TOKEN",
+}
+`;
+
+exports[`Parser parse it should generate root node but no separator children node 1`] = `
+Node {
+  "children": Array [],
+  "loc": Object {
+    "end": null,
+    "start": null,
+  },
+}
+`;
+
+exports[`Parser parse it should generate root node but no token type children node 1`] = `
+Node {
+  "children": Array [],
+  "loc": Object {
+    "end": null,
+    "start": null,
+  },
+}
+`;
+
+exports[`Parser parse it should generate token node 1`] = `
+Token {
+  "children": Array [],
+  "loc": Object {
+    "end": Object {
+      "column": 3,
+      "line": 0,
+    },
+    "start": Object {
+      "column": 1,
+      "line": 0,
+    },
+  },
+  "token": Object {
+    "range": Object {
+      "end": Object {
+        "column": 3,
+        "line": 0,
+      },
+      "start": Object {
+        "column": 1,
+        "line": 0,
+      },
+    },
+    "type": "LET",
+    "value": "let",
+  },
+  "type": "TOKEN",
+}
+`;
+
+exports[`Parser parse it should match as many as token when the rule is repeat 1`] = `
+Node {
+  "children": Array [
+    Token {
+      "children": Array [],
+      "loc": Object {
+        "end": Object {
+          "column": 3,
+          "line": 0,
+        },
+        "start": Object {
+          "column": 1,
+          "line": 0,
+        },
+      },
+      "token": Object {
+        "range": Object {
+          "end": Object {
+            "column": 3,
+            "line": 0,
+          },
+          "start": Object {
+            "column": 1,
+            "line": 0,
+          },
+        },
+        "type": "LET",
+        "value": "let",
+      },
+      "type": "TOKEN",
+    },
+    Token {
+      "children": Array [],
+      "loc": Object {
+        "end": Object {
+          "column": 3,
+          "line": 0,
+        },
+        "start": Object {
+          "column": 1,
+          "line": 0,
+        },
+      },
+      "token": Object {
+        "range": Object {
+          "end": Object {
+            "column": 3,
+            "line": 0,
+          },
+          "start": Object {
+            "column": 1,
+            "line": 0,
+          },
+        },
+        "type": "LET",
+        "value": "let",
+      },
+      "type": "TOKEN",
+    },
+  ],
+  "loc": Object {
+    "end": Object {
+      "column": 3,
+      "line": 0,
+    },
+    "start": Object {
+      "column": 1,
+      "line": 0,
+    },
+  },
+}
+`;
+
+exports[`Parser parse it should match the snapshot when rule is nested and complicated 1`] = `
+VariableStatement {
+  "children": Array [
+    Token {
+      "children": Array [],
+      "loc": Object {
+        "end": Object {
+          "column": 3,
+          "line": 0,
+        },
+        "start": Object {
+          "column": 1,
+          "line": 0,
+        },
+      },
+      "token": Object {
+        "range": Object {
+          "end": Object {
+            "column": 3,
+            "line": 0,
+          },
+          "start": Object {
+            "column": 1,
+            "line": 0,
+          },
+        },
+        "type": "LET",
+        "value": "let",
+      },
+      "type": "TOKEN",
+    },
+    Token {
+      "children": Array [],
+      "loc": Object {
+        "end": Object {
+          "column": 5,
+          "line": 0,
+        },
+        "start": Object {
+          "column": 5,
+          "line": 0,
+        },
+      },
+      "token": Object {
+        "range": Object {
+          "end": Object {
+            "column": 5,
+            "line": 0,
+          },
+          "start": Object {
+            "column": 5,
+            "line": 0,
+          },
+        },
+        "type": "IDENTIFIER",
+        "value": "a",
+      },
+      "type": "TOKEN",
+    },
+    Node {
+      "children": Array [
+        Token {
+          "children": Array [],
+          "loc": Object {
+            "end": Object {
+              "column": 7,
+              "line": 0,
+            },
+            "start": Object {
+              "column": 7,
+              "line": 0,
+            },
+          },
+          "token": Object {
+            "range": Object {
+              "end": Object {
+                "column": 7,
+                "line": 0,
+              },
+              "start": Object {
+                "column": 7,
+                "line": 0,
+              },
+            },
+            "type": "EQUAL",
+            "value": "=",
+          },
+          "type": "TOKEN",
+        },
+        Token {
+          "children": Array [],
+          "loc": Object {
+            "end": Object {
+              "column": 10,
+              "line": 0,
+            },
+            "start": Object {
+              "column": 9,
+              "line": 0,
+            },
+          },
+          "token": Object {
+            "range": Object {
+              "end": Object {
+                "column": 10,
+                "line": 0,
+              },
+              "start": Object {
+                "column": 9,
+                "line": 0,
+              },
+            },
+            "type": "NUMBER_LITERAL",
+            "value": "10",
+          },
+          "type": "TOKEN",
+        },
+      ],
+      "loc": Object {
+        "end": Object {
+          "column": 10,
+          "line": 0,
+        },
+        "start": Object {
+          "column": 7,
+          "line": 0,
+        },
+      },
+    },
+  ],
+  "declarations": Array [
+    Token {
+      "children": Array [],
+      "loc": Object {
+        "end": Object {
+          "column": 3,
+          "line": 0,
+        },
+        "start": Object {
+          "column": 1,
+          "line": 0,
+        },
+      },
+      "token": Object {
+        "range": Object {
+          "end": Object {
+            "column": 3,
+            "line": 0,
+          },
+          "start": Object {
+            "column": 1,
+            "line": 0,
+          },
+        },
+        "type": "LET",
+        "value": "let",
+      },
+      "type": "TOKEN",
+    },
+    Token {
+      "children": Array [],
+      "loc": Object {
+        "end": Object {
+          "column": 5,
+          "line": 0,
+        },
+        "start": Object {
+          "column": 5,
+          "line": 0,
+        },
+      },
+      "token": Object {
+        "range": Object {
+          "end": Object {
+            "column": 5,
+            "line": 0,
+          },
+          "start": Object {
+            "column": 5,
+            "line": 0,
+          },
+        },
+        "type": "IDENTIFIER",
+        "value": "a",
+      },
+      "type": "TOKEN",
+    },
+    Node {
+      "children": Array [
+        Token {
+          "children": Array [],
+          "loc": Object {
+            "end": Object {
+              "column": 7,
+              "line": 0,
+            },
+            "start": Object {
+              "column": 7,
+              "line": 0,
+            },
+          },
+          "token": Object {
+            "range": Object {
+              "end": Object {
+                "column": 7,
+                "line": 0,
+              },
+              "start": Object {
+                "column": 7,
+                "line": 0,
+              },
+            },
+            "type": "EQUAL",
+            "value": "=",
+          },
+          "type": "TOKEN",
+        },
+        Token {
+          "children": Array [],
+          "loc": Object {
+            "end": Object {
+              "column": 10,
+              "line": 0,
+            },
+            "start": Object {
+              "column": 9,
+              "line": 0,
+            },
+          },
+          "token": Object {
+            "range": Object {
+              "end": Object {
+                "column": 10,
+                "line": 0,
+              },
+              "start": Object {
+                "column": 9,
+                "line": 0,
+              },
+            },
+            "type": "NUMBER_LITERAL",
+            "value": "10",
+          },
+          "type": "TOKEN",
+        },
+      ],
+      "loc": Object {
+        "end": Object {
+          "column": 10,
+          "line": 0,
+        },
+        "start": Object {
+          "column": 7,
+          "line": 0,
+        },
+      },
+    },
+  ],
+  "loc": Object {
+    "end": Object {
+      "column": 10,
+      "line": 0,
+    },
+    "start": Object {
+      "column": 1,
+      "line": 0,
+    },
+  },
+  "type": "VARIABLE_STATEMENT",
+}
+`;

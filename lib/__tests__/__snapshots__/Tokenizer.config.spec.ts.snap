@@ -173,6 +173,21 @@ Array [
   Object {
     "range": Object {
       "end": Object {
+        "column": 0,
+        "line": 2,
+      },
+      "start": Object {
+        "column": 0,
+        "line": 2,
+      },
+    },
+    "type": "EOL",
+    "value": "
+",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
         "column": 12,
         "line": 2,
       },
@@ -257,6 +272,21 @@ Array [
   Object {
     "range": Object {
       "end": Object {
+        "column": 0,
+        "line": 3,
+      },
+      "start": Object {
+        "column": 0,
+        "line": 3,
+      },
+    },
+    "type": "EOL",
+    "value": "
+",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
         "column": 5,
         "line": 3,
       },
@@ -267,6 +297,21 @@ Array [
     },
     "type": "RIGHT_CURLY_BRACE",
     "value": "}",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 0,
+        "line": 4,
+      },
+      "start": Object {
+        "column": 0,
+        "line": 4,
+      },
+    },
+    "type": "EOL",
+    "value": "
+",
   },
   Object {
     "range": Object {
@@ -551,6 +596,21 @@ Array [
   Object {
     "range": Object {
       "end": Object {
+        "column": 0,
+        "line": 5,
+      },
+      "start": Object {
+        "column": 0,
+        "line": 5,
+      },
+    },
+    "type": "EOL",
+    "value": "
+",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
         "column": 9,
         "line": 5,
       },
@@ -603,6 +663,21 @@ Array [
     },
     "type": "LEFT_CURLY_BRACE",
     "value": "{",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 0,
+        "line": 6,
+      },
+      "start": Object {
+        "column": 0,
+        "line": 6,
+      },
+    },
+    "type": "EOL",
+    "value": "
+",
   },
   Object {
     "range": Object {
@@ -663,6 +738,21 @@ Array [
   Object {
     "range": Object {
       "end": Object {
+        "column": 0,
+        "line": 7,
+      },
+      "start": Object {
+        "column": 0,
+        "line": 7,
+      },
+    },
+    "type": "EOL",
+    "value": "
+",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
         "column": 9,
         "line": 7,
       },
@@ -705,6 +795,21 @@ Array [
   Object {
     "range": Object {
       "end": Object {
+        "column": 0,
+        "line": 8,
+      },
+      "start": Object {
+        "column": 0,
+        "line": 8,
+      },
+    },
+    "type": "EOL",
+    "value": "
+",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
         "column": 5,
         "line": 8,
       },
@@ -715,6 +820,21 @@ Array [
     },
     "type": "RIGHT_CURLY_BRACE",
     "value": "}",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 0,
+        "line": 9,
+      },
+      "start": Object {
+        "column": 0,
+        "line": 9,
+      },
+    },
+    "type": "EOL",
+    "value": "
+",
   },
 ]
 `;

@@ -1,5 +1,5 @@
-import { IConfig } from "../types/Tokenizer";
-import { TOKEN_TYPE } from "../types/token";
+import { IConfig } from "../lexer/types/Tokenizer";
+import { TOKEN_TYPE } from "../lexer/types/token";
 import { LET, CONST, BREAK, CONTINUE, IF, ELSE, WHILE, FUNCTION, UNDEFINED, NULL, TRUE, FALSE, NEW } from "../constants";
 
 enum State {
@@ -37,7 +37,9 @@ enum State {
   EQUAL = 'EQUAL',
   OR = 'OR',
   START_AND = 'START_AND',
-  AND = 'AND'
+  AND = 'AND',
+
+  EOL = 'EOL'
 }
 
 const keywordTokenTypeLookup: {[k: string]: TOKEN_TYPE} = {
@@ -151,6 +153,10 @@ const config: IConfig = {
         {
           state: State.RIGHT_SQUARE_BRACKET,
           checker: ']'
+        },
+        {
+          state: State.EOL,
+          checker: '\n'
         }
       ]
     },
@@ -348,6 +354,10 @@ const config: IConfig = {
     [State.COLON]: {
       isEnd: true,
       TokenType: TOKEN_TYPE.COLON
+    },
+    [State.EOL]: {
+      isEnd: true,
+      TokenType: TOKEN_TYPE.EOL
     }
   }
 }

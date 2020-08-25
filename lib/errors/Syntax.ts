@@ -1,4 +1,4 @@
-import { ILocation } from "../types/location"
+import { ILocation } from "../lexer/types/location"
 
 class SyntaxError extends Error {
   constructor(msg: string, location: ILocation) {

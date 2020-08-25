@@ -1,8 +1,8 @@
-import Tokenizer from '../Tokenizer'
-import LocationKeeper from '../LocationKeeper'
-import { IConfig } from '../types/Tokenizer'
-import { TOKEN_TYPE } from '../types/token'
-import { ILocation } from '../types/location'
+import Tokenizer from '../lexer/Tokenizer'
+import LocationKeeper from '../lexer/LocationKeeper'
+import { IConfig } from '../lexer/types/Tokenizer'
+import { TOKEN_TYPE } from '../lexer/types/token'
+import { ILocation } from '../lexer/types/location'
 
 enum State {
   INITIAL = 'INITIAL',

@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`parse variable declaration 1`] = `
+Node {
+  "children": Array [],
+  "loc": Object {
+    "end": null,
+    "start": null,
+  },
+}
+`;

@@ -1,4 +1,4 @@
-import { NEW_LINE } from "./constants"
+import { NEW_LINE } from "../constants"
 import { ILocation } from "./types/location"
 
 export default class LocationKeeper {

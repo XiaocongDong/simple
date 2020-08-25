@@ -1,4 +1,4 @@
-import LocationKeeper from '../LocationKeeper'
+import LocationKeeper from '../lexer/LocationKeeper'
 
 const testCases: Array<{inputChars: string, expectedLine: number, expectedColumn, description: string}> = [
   {

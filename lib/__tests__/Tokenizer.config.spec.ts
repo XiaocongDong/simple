@@ -1,5 +1,5 @@
 import config from '../config/Tokenizer'
-import Tokenizer from '../Tokenizer'
+import Tokenizer from '../lexer/Tokenizer'
 
 const testCases: Array<{code: string, description: string}> = [
   {

@@ -43,6 +43,7 @@ singleExpression
   : binaryExpression
   : arrayLiteral
   : objectLiteral
+  : booleanLiteral
   : NUMBER
   : IDENTIFIER
   : STRING_LITERAL
@@ -108,6 +109,11 @@ arrayLiteral
 
 objectLiteral
   : '{' [propertyAssignment {',' propertyAssignment}] '}'
+
+booleanLiteral
+  : 'true'
+  : 'false'
+;
 
 propertyAssignment
   : propertyName ':' singleExpression
