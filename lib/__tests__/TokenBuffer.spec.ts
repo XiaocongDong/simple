@@ -17,6 +17,20 @@ describe('TokenBuffer', () => {
       }
     }
   }
+  const anotherDummyToken: IToken = {
+    value: 'anotherDummyToken',
+    type: TOKEN_TYPE.IDENTIFER,
+    range: {
+      start: {
+        line: 1,
+        column: 2
+      },
+      end: {
+        line: 2,
+        column: 3
+      }
+    }
+  }
 
   beforeEach(() => {   
     tokenBuffer = new TokenBuffer()
@@ -30,6 +44,13 @@ describe('TokenBuffer', () => {
     it('it should be false after token is written to the buffer', () => {
       tokenBuffer.write(dummyToken)
       expect(tokenBuffer.isEmpty()).toBeFalsy()
+    })
+
+    it('it should be true when all of the token is read', () => {
+      tokenBuffer.write(dummyToken)
+      expect(tokenBuffer.isEmpty()).toBeFalsy()
+      tokenBuffer.read()
+      expect(tokenBuffer.isEmpty()).toBeTruthy()
     })
   })
 
@@ -62,6 +83,41 @@ describe('TokenBuffer', () => {
       const token = tokenBuffer.read()
       expect(token).toEqual(dummyToken)
       expect(tokenBuffer.getCursor()).toEqual(1)
+    })
+
+    it('it should not read the token out and the current cursor remain the length of tokens after the tokens are all read out', () => {
+      tokenBuffer.write(dummyToken)
+
+      const token = tokenBuffer.read()
+      tokenBuffer.read()
+      tokenBuffer.read()
+
+      expect(token).toEqual(dummyToken)
+      expect(tokenBuffer.getCursor()).toEqual(1)
+    })
+
+    it('it should read', () => {
+      tokenBuffer.write(dummyToken)
+      tokenBuffer.write(anotherDummyToken)
+
+      const firstToken = tokenBuffer.read()
+      const secondToken = tokenBuffer.read()
+
+      expect(firstToken).toEqual(dummyToken)
+      expect(secondToken).toEqual(anotherDummyToken)
+    })
+  })
+
+  describe('unread', () => {
+    it('it should read the last read token out', () => {
+      tokenBuffer.write(dummyToken)
+
+      tokenBuffer.read()
+      tokenBuffer.read()
+      const token = tokenBuffer.unread()
+
+      expect(token).toEqual(dummyToken)
+      expect(tokenBuffer.getCursor()).toEqual(0)
     })
   })
 

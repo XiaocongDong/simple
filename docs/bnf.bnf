@@ -13,7 +13,7 @@ statement
   ;
 
 block
-  : '{' [statementList] '}'
+  : '{' [statementList] (";" | EOL)'}'
   ;
 
 statementList

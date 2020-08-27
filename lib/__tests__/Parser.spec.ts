@@ -79,7 +79,7 @@ const testCases: Array<{tokens: Array<IToken>, parser: Parser, description: stri
   },
   {
     tokens: [testTokens[0]],
-    parser: rule().separator('let'),
+    parser: rule().separator(TOKEN_TYPE.LET),
     isSnapshotTest: true,
     description: 'it should generate root node but no separator children node'
   },
@@ -112,12 +112,6 @@ const testCases: Array<{tokens: Array<IToken>, parser: Parser, description: stri
     parser: rule().repeat(rule().token(TOKEN_TYPE.LET)),
     isSnapshotTest: true,
     description: 'it should match as many as token when the rule is repeat'
-  },
-  {
-    tokens: [testTokens[1]],
-    parser: rule().repeat(rule().token(TOKEN_TYPE.LET)),
-    isSnapshotTest: true,
-    description: 'it should generate node but no children is created when no rule in repeat is found'
   },
   {
     tokens: [testTokens[0], testTokens[1], testTokens[2], testTokens[3]],

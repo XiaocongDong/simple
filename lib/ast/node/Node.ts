@@ -1,17 +1,12 @@
 import { ILocation } from "../../lexer/types/location"
 
 class Node {
-  children: Array<Node> = []
   loc: {
     start: ILocation,
     end: ILocation
   } = {
     start: null,
     end: null
-  }
-
-  addChildren(node: Node) {
-    this.children.push(node)
   }
 
   create(children: Array<Node>): Node {

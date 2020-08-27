@@ -8,7 +8,7 @@ class BooleanLiteral extends Node {
   value: boolean
 
   create(children: Array<Node>): Node {
-    const token = this.children[0] as Token
+    const token = children[0] as Token
     this.value = token.token.type === TOKEN_TYPE.FALSE ? false : true
     return this
   }

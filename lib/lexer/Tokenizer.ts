@@ -66,7 +66,7 @@ class Tokenizer {
   }
 
   consume(ch: string) {
-    if ((ch === SPACE) && this.state === this.initialState) {
+    if ((ch === SPACE || ch === NEW_LINE) && this.state === this.initialState) {
       this.locationKeeper.consume(ch)
       return
     }

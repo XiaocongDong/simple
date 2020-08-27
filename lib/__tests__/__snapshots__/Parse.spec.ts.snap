@@ -1,11 +1,169 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`parse variable declaration 1`] = `
-Node {
-  "children": Array [],
-  "loc": Object {
-    "end": null,
-    "start": null,
+exports[`parse ifStatement 1`] = `
+IfStatement {
+  "consequent": VariableStatement {
+    "declarations": Array [
+      VariableDeclarator {
+        "id": "c",
+        "init": NumberLiteral {
+          "loc": Object {
+            "end": Object {
+              "column": 16,
+              "line": 2,
+            },
+            "start": Object {
+              "column": 15,
+              "line": 2,
+            },
+          },
+          "type": "NUMBER_LITERAL",
+          "value": 10,
+        },
+        "loc": Object {
+          "end": Object {
+            "column": 16,
+            "line": 2,
+          },
+          "start": Object {
+            "column": 11,
+            "line": 2,
+          },
+        },
+        "type": "VARIABLE_DECLARATOR",
+      },
+    ],
+    "kind": "LET",
+    "loc": Object {
+      "end": Object {
+        "column": 16,
+        "line": 2,
+      },
+      "start": Object {
+        "column": 7,
+        "line": 2,
+      },
+    },
+    "type": "VARIABLE_STATEMENT",
   },
+  "loc": Object {
+    "end": Object {
+      "column": 16,
+      "line": 2,
+    },
+    "start": Object {
+      "column": 4,
+      "line": 1,
+    },
+  },
+  "test": BooleanLiteral {
+    "loc": Object {
+      "end": Object {
+        "column": 7,
+        "line": 1,
+      },
+      "start": Object {
+        "column": 4,
+        "line": 1,
+      },
+    },
+    "type": "BOOLEAN_LITERAL",
+    "value": true,
+  },
+  "type": "BOOLEAN_LITERAL",
+}
+`;
+
+exports[`parse number variableDeclaration 1`] = `
+VariableStatement {
+  "declarations": Array [
+    VariableDeclarator {
+      "id": "a",
+      "init": NumberLiteral {
+        "loc": Object {
+          "end": Object {
+            "column": 10,
+            "line": 1,
+          },
+          "start": Object {
+            "column": 9,
+            "line": 1,
+          },
+        },
+        "type": "NUMBER_LITERAL",
+        "value": 10,
+      },
+      "loc": Object {
+        "end": Object {
+          "column": 10,
+          "line": 1,
+        },
+        "start": Object {
+          "column": 5,
+          "line": 1,
+        },
+      },
+      "type": "VARIABLE_DECLARATOR",
+    },
+  ],
+  "kind": "LET",
+  "loc": Object {
+    "end": Object {
+      "column": 10,
+      "line": 1,
+    },
+    "start": Object {
+      "column": 1,
+      "line": 1,
+    },
+  },
+  "type": "VARIABLE_STATEMENT",
+}
+`;
+
+exports[`parse string variableDeclaration 1`] = `
+VariableStatement {
+  "declarations": Array [
+    VariableDeclarator {
+      "id": "a",
+      "init": StringLiteral {
+        "loc": Object {
+          "end": Object {
+            "column": 21,
+            "line": 1,
+          },
+          "start": Object {
+            "column": 9,
+            "line": 1,
+          },
+        },
+        "type": "STRING_LITERAL",
+        "value": "hello world'",
+      },
+      "loc": Object {
+        "end": Object {
+          "column": 21,
+          "line": 1,
+        },
+        "start": Object {
+          "column": 5,
+          "line": 1,
+        },
+      },
+      "type": "VARIABLE_DECLARATOR",
+    },
+  ],
+  "kind": "LET",
+  "loc": Object {
+    "end": Object {
+      "column": 21,
+      "line": 1,
+    },
+    "start": Object {
+      "column": 1,
+      "line": 1,
+    },
+  },
+  "type": "VARIABLE_STATEMENT",
 }
 `;

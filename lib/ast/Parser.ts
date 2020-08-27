@@ -3,7 +3,7 @@ import Token from './node/Token'
 import SyntaxError from '../errors/Syntax'
 import { TOKEN_TYPE, IToken } from '../lexer/types/token'
 import Node from './node/Node'
-import { ILocation } from '../lexer/types/location'
+import ListNode from './node/ListNode'
 
 enum SyntaxType {
   SEPARATOR = 'SEPARATOR',
@@ -11,12 +11,14 @@ enum SyntaxType {
   OPTION = 'OPTION',
   OR = 'OR',
   REPEAT = 'REPEAT',
-  TOKEN = 'TOKEN'
+  TOKEN = 'TOKEN',
+  EXPRESSION = 'EXPRESSION',
+  THROW = 'THROW'
 }
 
 type SyntaxNode = {
   type: SyntaxType.SEPARATOR
-  value: string
+  value: TOKEN_TYPE
 } | {
   type: SyntaxType.AST,
   value: Parser
@@ -32,6 +34,9 @@ type SyntaxNode = {
 } | {
   type: SyntaxType.TOKEN,
   value: TOKEN_TYPE
+} | {
+  type: SyntaxType.THROW,
+  value: string
 }
 
 class Parser {
@@ -43,17 +48,35 @@ class Parser {
   }
 
   parse(tokenBuffer: TokenBuffer): Node {
-    const node = this.NodeClass ? new this.NodeClass() : new Node()
-    const currentCursor = tokenBuffer.getCursor()
+    const node = this.NodeClass ? new this.NodeClass() : new ListNode()
+    const startCursor = tokenBuffer.getCursor()
+    const childrenNodes = []
+    let isCritical = false
+    let errMsg = null
+
+    const handleNotMatch = (token?: IToken) => {
+      if (isCritical) {
+        const errToken = token || tokenBuffer.peek() || tokenBuffer.unread()
+        tokenBuffer.setCursor(startCursor)
+        throw new SyntaxError(`${errMsg || 'Unknown error'} token: ${errToken.value}`, errToken.range.start)
+      }
+
+      tokenBuffer.setCursor(startCursor)
+    }
 
     for (let i = 0; i < this.nodes.length; i++) {
       const syntaxNode = this.nodes[i]
 
       switch(syntaxNode.type) {
+        case SyntaxType.THROW: {
+          isCritical = true
+          errMsg = syntaxNode.value
+          break
+        }
         case SyntaxType.SEPARATOR: {
           const token = tokenBuffer.read()
-          if (!token || token.value !== syntaxNode.value) {
-            tokenBuffer.setCursor(currentCursor)
+          if (!token || token.type !== syntaxNode.value) {
+            handleNotMatch(token)
             return null
           }
           break
@@ -61,40 +84,41 @@ class Parser {
         case SyntaxType.AST: {
           const parsedNode = syntaxNode.value.parse(tokenBuffer)
           if (!parsedNode) {
-            tokenBuffer.setCursor(currentCursor)
+            handleNotMatch()
             return null
           }
-          node.addChildren(parsedNode)
+          childrenNodes.push(parsedNode)
           break
         }
         case SyntaxType.OPTION: {
           const parsedNode = syntaxNode.value.parse(tokenBuffer)
           if (parsedNode) {
-            node.addChildren(parsedNode)
+            childrenNodes.push(parsedNode)
           }
           break
         }
         case SyntaxType.OR: {
           let found = false
+
           for (const parser of syntaxNode.value) {
             const parsedNode = parser.parse(tokenBuffer)
             if (parsedNode) {
               found = true
-              node.addChildren(parsedNode)
+              childrenNodes.push(parsedNode)
               break
             }
           }
           if (!found) {
-            tokenBuffer.setCursor(currentCursor)
+            handleNotMatch()
             return null
           }
           break
         }
         case SyntaxType.REPEAT: {
-          while(true) {
+          while(!tokenBuffer.isEmpty()) {
             const parsedNode = syntaxNode.value.parse(tokenBuffer)
             if (parsedNode) {
-              node.addChildren(parsedNode)
+              childrenNodes.push(parsedNode)
             } else {
               break
             }
@@ -104,12 +128,13 @@ class Parser {
         case SyntaxType.TOKEN: {
           const token = tokenBuffer.read()
           if (!token || token.type !== syntaxNode.value) {
-            tokenBuffer.setCursor(currentCursor)
+            handleNotMatch()
             return null
           }
+
           const newNode = new Token(token)
           newNode.loc = token.range
-          node.addChildren(newNode)
+          childrenNodes.push(newNode)
           break
         }
         default:
@@ -117,18 +142,19 @@ class Parser {
       }
     }
 
-    if (node.children.length) {
-      const firstNode = node.children[0]
-      const lastNode = node.children[node.children.length - 1]
+    // update node location info with children info
+    if (childrenNodes.length) {
+      const firstNode = childrenNodes[0]
+      const lastNode = childrenNodes[childrenNodes.length - 1]
       
       node.loc.start = firstNode.loc.start
       node.loc.end = lastNode.loc.end
     }
 
-    return node.create(node.children)
+    return node.create(childrenNodes)
   }
 
-  separator(sep: string) {
+  separator(sep: TOKEN_TYPE) {
     this.nodes.push({
       type: SyntaxType.SEPARATOR,
       value: sep
@@ -174,6 +200,14 @@ class Parser {
     this.nodes.push({
       type: SyntaxType.REPEAT,
       value: p
+    })
+    return this
+  }
+
+  throw(errMsg: string) {
+    this.nodes.push({
+      type: SyntaxType.THROW,
+      value: errMsg
     })
     return this
   }

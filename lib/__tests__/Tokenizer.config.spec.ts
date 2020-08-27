@@ -6,12 +6,12 @@ const testCases: Array<{code: string, description: string}> = [
     code:
     `let f = function(x, y, z) {
       return x+y*z
-    }
-    const a = [1, 2, 3, {1, 2, 3}, 'hi']
+    };
+    const a = [1, 2, 3, {1, 2, 3}, 'hi'];
     const o = {
       name: 'sean',
       age: 27
-    }
+    };
     `,
     description: 'it should generate correct buffer'
   }

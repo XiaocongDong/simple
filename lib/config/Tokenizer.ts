@@ -37,9 +37,7 @@ enum State {
   EQUAL = 'EQUAL',
   OR = 'OR',
   START_AND = 'START_AND',
-  AND = 'AND',
-
-  EOL = 'EOL'
+  AND = 'AND'
 }
 
 const keywordTokenTypeLookup: {[k: string]: TOKEN_TYPE} = {
@@ -153,10 +151,6 @@ const config: IConfig = {
         {
           state: State.RIGHT_SQUARE_BRACKET,
           checker: ']'
-        },
-        {
-          state: State.EOL,
-          checker: '\n'
         }
       ]
     },
@@ -354,10 +348,6 @@ const config: IConfig = {
     [State.COLON]: {
       isEnd: true,
       TokenType: TOKEN_TYPE.COLON
-    },
-    [State.EOL]: {
-      isEnd: true,
-      TokenType: TOKEN_TYPE.EOL
     }
   }
 }

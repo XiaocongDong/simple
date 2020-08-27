@@ -173,21 +173,6 @@ Array [
   Object {
     "range": Object {
       "end": Object {
-        "column": 0,
-        "line": 2,
-      },
-      "start": Object {
-        "column": 0,
-        "line": 2,
-      },
-    },
-    "type": "EOL",
-    "value": "
-",
-  },
-  Object {
-    "range": Object {
-      "end": Object {
         "column": 12,
         "line": 2,
       },
@@ -272,21 +257,6 @@ Array [
   Object {
     "range": Object {
       "end": Object {
-        "column": 0,
-        "line": 3,
-      },
-      "start": Object {
-        "column": 0,
-        "line": 3,
-      },
-    },
-    "type": "EOL",
-    "value": "
-",
-  },
-  Object {
-    "range": Object {
-      "end": Object {
         "column": 5,
         "line": 3,
       },
@@ -301,17 +271,16 @@ Array [
   Object {
     "range": Object {
       "end": Object {
-        "column": 0,
-        "line": 4,
+        "column": 6,
+        "line": 3,
       },
       "start": Object {
-        "column": 0,
-        "line": 4,
+        "column": 6,
+        "line": 3,
       },
     },
-    "type": "EOL",
-    "value": "
-",
+    "type": "SEMICOLON",
+    "value": ";",
   },
   Object {
     "range": Object {
@@ -596,17 +565,16 @@ Array [
   Object {
     "range": Object {
       "end": Object {
-        "column": 0,
-        "line": 5,
+        "column": 41,
+        "line": 4,
       },
       "start": Object {
-        "column": 0,
-        "line": 5,
+        "column": 41,
+        "line": 4,
       },
     },
-    "type": "EOL",
-    "value": "
-",
+    "type": "SEMICOLON",
+    "value": ";",
   },
   Object {
     "range": Object {
@@ -667,21 +635,6 @@ Array [
   Object {
     "range": Object {
       "end": Object {
-        "column": 0,
-        "line": 6,
-      },
-      "start": Object {
-        "column": 0,
-        "line": 6,
-      },
-    },
-    "type": "EOL",
-    "value": "
-",
-  },
-  Object {
-    "range": Object {
-      "end": Object {
         "column": 10,
         "line": 6,
       },
@@ -738,21 +691,6 @@ Array [
   Object {
     "range": Object {
       "end": Object {
-        "column": 0,
-        "line": 7,
-      },
-      "start": Object {
-        "column": 0,
-        "line": 7,
-      },
-    },
-    "type": "EOL",
-    "value": "
-",
-  },
-  Object {
-    "range": Object {
-      "end": Object {
         "column": 9,
         "line": 7,
       },
@@ -795,21 +733,6 @@ Array [
   Object {
     "range": Object {
       "end": Object {
-        "column": 0,
-        "line": 8,
-      },
-      "start": Object {
-        "column": 0,
-        "line": 8,
-      },
-    },
-    "type": "EOL",
-    "value": "
-",
-  },
-  Object {
-    "range": Object {
-      "end": Object {
         "column": 5,
         "line": 8,
       },
@@ -824,17 +747,16 @@ Array [
   Object {
     "range": Object {
       "end": Object {
-        "column": 0,
-        "line": 9,
+        "column": 6,
+        "line": 8,
       },
       "start": Object {
-        "column": 0,
-        "line": 9,
+        "column": 6,
+        "line": 8,
       },
     },
-    "type": "EOL",
-    "value": "
-",
+    "type": "SEMICOLON",
+    "value": ";",
   },
 ]
 `;

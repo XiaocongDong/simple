@@ -9,7 +9,16 @@ class TokenBuffer {
   }
 
   read() {
-    return this.tokens[this.cursor++]
+    const currentToken = this.tokens[this.cursor]
+    const nextCursor = this.cursor < this.tokens.length ? ++this.cursor : this.tokens.length
+    this.cursor = nextCursor
+    return currentToken
+  }
+
+  unread() {
+    const lastCursor = --this.cursor
+    this.cursor = lastCursor
+    return this.tokens[lastCursor]
   }
 
   write(token: IToken) {

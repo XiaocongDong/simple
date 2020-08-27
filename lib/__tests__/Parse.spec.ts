@@ -1,81 +1,31 @@
-import { IToken, TOKEN_TYPE } from "../lexer/types/token"
-import { LET } from "../constants"
-import TokenBuffer from "../lexer/TokenBuffer"
+import config from '../config/Tokenizer'
 import parse from "../parser"
+import Tokenizer from "../lexer/Tokenizer"
 
-const testCases: Array<{tokens: Array<IToken>, description: string}> = [
+const testCases: Array<{code: string, description: string}> = [
   {
-    tokens: [
-      {
-        type: TOKEN_TYPE.LET,
-        value: LET,
-        range: {
-          start: {
-            line: 0,
-            column: 1
-          },
-          end: {
-            line: 0,
-            column: 3
-          }
-        }
-      },
-      {
-        type: TOKEN_TYPE.IDENTIFER,
-        value: 'a',
-        range: {
-          start: {
-            line: 0,
-            column: 5
-          },
-          end: {
-            line: 0,
-            column: 5
-          }
-        }
-      },
-      {
-        type: TOKEN_TYPE.EQUAL,
-        value: '=',
-        range: {
-          start: {
-            line: 0,
-            column: 7
-          },
-          end: {
-            line: 0,
-            column: 7
-          }
-        }
-      },
-      {
-        type: TOKEN_TYPE.NUMBER_LITERAL,
-        value: '10',
-        range: {
-          start: {
-            line: 0,
-            column: 9
-          },
-          end: {
-            line: 0,
-            column: 10
-          }
-        }
-      }
-    ],
-    description: 'variable declaration'
+    code: `let a = 10;`,
+    description: 'number variableDeclaration'
+  },
+  {
+    code: `let a = 'hello world';`,
+    description: 'string variableDeclaration'
+  },
+  {
+    code: `if(true) {
+      let c = 10;
+    };`,
+    description: 'ifStatement'
   }
 ]
 
-let tokenBuffer = null
-beforeEach(() => {
-  tokenBuffer = new TokenBuffer() as any
-})
 
 describe('parse', () => {
-  testCases.forEach(({ tokens, description }) => {
+  testCases.forEach(({ code, description }) => {
     it(description, () => {
-      tokenBuffer.tokens = tokens
+      const tokenizer = new Tokenizer(config)
+      tokenizer.parse(code)
+      const tokenBuffer = tokenizer.getTokenBuffer()
       const ast = parse(tokenBuffer)
       expect(ast).toMatchSnapshot()
     })
