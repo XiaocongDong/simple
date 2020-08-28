@@ -20,6 +20,11 @@ enum State {
   MINUS_ASSIGN = 'MINUS_ASSIGN',
   MULTIPLY_ASSIGN = 'MULTIPLY_ASSIGN',
   DIVIDE_ASSIGN = 'DIVIDE_ASSIGN',
+  LESS_THAN = 'LESS_THAN',
+  LESS_EQUAL_THAN = 'LESS_EQUAL_THAN',
+  GREATER_THAN = 'GREATER_THAN',
+  GREATER_EQUAL_THAN = 'GREATER_EQUAL_THAN',
+
   ASSIGN = 'ASSIGN',
   COMMA = 'COMMA',
   DOT = 'DOT',
@@ -151,7 +156,15 @@ const config: IConfig = {
         {
           state: State.RIGHT_SQUARE_BRACKET,
           checker: ']'
-        }
+        },
+        {
+          state: State.LESS_THAN,
+          checker: '<'
+        },
+       {
+         state: State.GREATER_THAN,
+         checker: '>'
+       }
       ]
     },
     [State.NUMBER_LITERAL]: {
@@ -348,6 +361,34 @@ const config: IConfig = {
     [State.COLON]: {
       isEnd: true,
       TokenType: TOKEN_TYPE.COLON
+    },
+    [State.LESS_THAN]: {
+      isEnd: true,
+      TokenType: TOKEN_TYPE.LESS_THAN,
+      transitions: [
+        {
+          checker: '=',
+          state: State.LESS_EQUAL_THAN
+        }
+      ]
+    },
+    [State.LESS_EQUAL_THAN]: {
+      isEnd: true,
+      TokenType: TOKEN_TYPE.LESS_EQUAL_THAN,
+    },
+    [State.GREATER_THAN]: {
+      isEnd: true,
+      TokenType: TOKEN_TYPE.GREATER_THAN,
+      transitions: [
+        {
+          checker: '=',
+          state: TOKEN_TYPE.GREATER_EQUAL_THAN
+        }
+      ]
+    },
+    [State.GREATER_EQUAL_THAN]: {
+      isEnd: true,
+      TokenType: TOKEN_TYPE.GREATER_EQUAL_THAN
     }
   }
 }

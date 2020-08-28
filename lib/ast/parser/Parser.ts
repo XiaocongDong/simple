@@ -1,19 +1,18 @@
-import TokenBuffer from '../lexer/TokenBuffer'
-import Token from './node/Token'
-import SyntaxError from '../errors/Syntax'
-import { TOKEN_TYPE, IToken } from '../lexer/types/token'
-import Node from './node/Node'
-import ListNode from './node/ListNode'
-import Operators from './Operators'
-import SyntaxNode from './parser/SyntaxNode'
-import ThrowNode from './parser/ThrowNode'
-import SeparatorNode from './parser/SeparatorNode'
-import TokenNode from './parser/TokenNode'
-import AstNode from './parser/AstNode'
-import OptionNode from './parser/OptionNode'
-import OrNode from './parser/OrNode'
-import RepeatNode from './parser/RepeatNode'
-import ExpressionNode from './parser/ExpressionNode'
+import TokenBuffer from '../../lexer/TokenBuffer'
+import SyntaxError from '../../errors/Syntax'
+import { TOKEN_TYPE, IToken } from '../../lexer/types/token'
+import Node from '../node/Node'
+import ListNode from '../node/ListNode'
+import Operators from '../Operators'
+import SyntaxNode from './SyntaxNode'
+import SeparatorNode from './SeparatorNode'
+import TokenNode from './TokenNode'
+import AstNode from './AstNode'
+import OptionNode from './OptionNode'
+import OrNode from './OrNode'
+import RepeatNode from './RepeatNode'
+import ExpressionNode from './ExpressionNode'
+import ThrowNode from './ThrowNode'
 
 type NodeConstructor = new () => Node
 
@@ -51,7 +50,6 @@ class Parser {
       }
 
       const parsedNodes = syntaxNode.process(tokenBuffer)
-
       if (!parsedNodes || (parsedNodes instanceof Array && !parsedNodes.length)) {
         if (!syntaxNode.isOptional) {
           handleNotMatch()
@@ -71,6 +69,7 @@ class Parser {
       node.loc.start = firstNode.loc.start
       node.loc.end = lastNode.loc.end
     }
+
     return node.create(childrenNodes)
   }
 

@@ -1,6 +1,137 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`parse ifStatement 1`] = `
+exports[`parse it should parse equal 1`] = `
+VariableStatement {
+  "declarations": Array [
+    VariableDeclarator {
+      "id": "a",
+      "init": BinaryExpression {
+        "left": NumberLiteral {
+          "loc": Object {
+            "end": Object {
+              "column": 9,
+              "line": 1,
+            },
+            "start": Object {
+              "column": 9,
+              "line": 1,
+            },
+          },
+          "type": "NUMBER_LITERAL",
+          "value": 1,
+        },
+        "loc": Object {
+          "end": Object {
+            "column": 22,
+            "line": 1,
+          },
+          "start": Object {
+            "column": 9,
+            "line": 1,
+          },
+        },
+        "operator": "EQUAL",
+        "right": BinaryExpression {
+          "left": NumberLiteral {
+            "loc": Object {
+              "end": Object {
+                "column": 14,
+                "line": 1,
+              },
+              "start": Object {
+                "column": 14,
+                "line": 1,
+              },
+            },
+            "type": "NUMBER_LITERAL",
+            "value": 1,
+          },
+          "loc": Object {
+            "end": Object {
+              "column": 22,
+              "line": 1,
+            },
+            "start": Object {
+              "column": 14,
+              "line": 1,
+            },
+          },
+          "operator": "PLUS",
+          "right": BinaryExpression {
+            "left": NumberLiteral {
+              "loc": Object {
+                "end": Object {
+                  "column": 18,
+                  "line": 1,
+                },
+                "start": Object {
+                  "column": 18,
+                  "line": 1,
+                },
+              },
+              "type": "NUMBER_LITERAL",
+              "value": 2,
+            },
+            "loc": Object {
+              "end": Object {
+                "column": 22,
+                "line": 1,
+              },
+              "start": Object {
+                "column": 18,
+                "line": 1,
+              },
+            },
+            "operator": "MULTIPLY",
+            "right": NumberLiteral {
+              "loc": Object {
+                "end": Object {
+                  "column": 22,
+                  "line": 1,
+                },
+                "start": Object {
+                  "column": 22,
+                  "line": 1,
+                },
+              },
+              "type": "NUMBER_LITERAL",
+              "value": 3,
+            },
+            "type": "BINARY_EXPRESSION",
+          },
+          "type": "BINARY_EXPRESSION",
+        },
+        "type": "BINARY_EXPRESSION",
+      },
+      "loc": Object {
+        "end": Object {
+          "column": 22,
+          "line": 1,
+        },
+        "start": Object {
+          "column": 5,
+          "line": 1,
+        },
+      },
+      "type": "VARIABLE_DECLARATOR",
+    },
+  ],
+  "kind": "LET",
+  "loc": Object {
+    "end": Object {
+      "column": 22,
+      "line": 1,
+    },
+    "start": Object {
+      "column": 1,
+      "line": 1,
+    },
+  },
+  "type": "VARIABLE_STATEMENT",
+}
+`;
+
+exports[`parse it should parse if statement 1`] = `
 IfStatement {
   "consequent": VariableStatement {
     "declarations": Array [
@@ -74,7 +205,213 @@ IfStatement {
 }
 `;
 
-exports[`parse number variableDeclaration 1`] = `
+exports[`parse it should parse number add 1`] = `
+VariableStatement {
+  "declarations": Array [
+    VariableDeclarator {
+      "id": "a",
+      "init": BinaryExpression {
+        "left": NumberLiteral {
+          "loc": Object {
+            "end": Object {
+              "column": 10,
+              "line": 1,
+            },
+            "start": Object {
+              "column": 9,
+              "line": 1,
+            },
+          },
+          "type": "NUMBER_LITERAL",
+          "value": 10,
+        },
+        "loc": Object {
+          "end": Object {
+            "column": 15,
+            "line": 1,
+          },
+          "start": Object {
+            "column": 9,
+            "line": 1,
+          },
+        },
+        "operator": "PLUS",
+        "right": NumberLiteral {
+          "loc": Object {
+            "end": Object {
+              "column": 15,
+              "line": 1,
+            },
+            "start": Object {
+              "column": 14,
+              "line": 1,
+            },
+          },
+          "type": "NUMBER_LITERAL",
+          "value": 10,
+        },
+        "type": "BINARY_EXPRESSION",
+      },
+      "loc": Object {
+        "end": Object {
+          "column": 15,
+          "line": 1,
+        },
+        "start": Object {
+          "column": 5,
+          "line": 1,
+        },
+      },
+      "type": "VARIABLE_DECLARATOR",
+    },
+  ],
+  "kind": "LET",
+  "loc": Object {
+    "end": Object {
+      "column": 15,
+      "line": 1,
+    },
+    "start": Object {
+      "column": 1,
+      "line": 1,
+    },
+  },
+  "type": "VARIABLE_STATEMENT",
+}
+`;
+
+exports[`parse it should parse number add and multiplication 1`] = `
+VariableStatement {
+  "declarations": Array [
+    VariableDeclarator {
+      "id": "a",
+      "init": BinaryExpression {
+        "left": BinaryExpression {
+          "left": NumberLiteral {
+            "loc": Object {
+              "end": Object {
+                "column": 9,
+                "line": 1,
+              },
+              "start": Object {
+                "column": 9,
+                "line": 1,
+              },
+            },
+            "type": "NUMBER_LITERAL",
+            "value": 1,
+          },
+          "loc": Object {
+            "end": Object {
+              "column": 17,
+              "line": 1,
+            },
+            "start": Object {
+              "column": 9,
+              "line": 1,
+            },
+          },
+          "operator": "PLUS",
+          "right": BinaryExpression {
+            "left": NumberLiteral {
+              "loc": Object {
+                "end": Object {
+                  "column": 13,
+                  "line": 1,
+                },
+                "start": Object {
+                  "column": 13,
+                  "line": 1,
+                },
+              },
+              "type": "NUMBER_LITERAL",
+              "value": 2,
+            },
+            "loc": Object {
+              "end": Object {
+                "column": 17,
+                "line": 1,
+              },
+              "start": Object {
+                "column": 13,
+                "line": 1,
+              },
+            },
+            "operator": "MULTIPLY",
+            "right": NumberLiteral {
+              "loc": Object {
+                "end": Object {
+                  "column": 17,
+                  "line": 1,
+                },
+                "start": Object {
+                  "column": 17,
+                  "line": 1,
+                },
+              },
+              "type": "NUMBER_LITERAL",
+              "value": 3,
+            },
+            "type": "BINARY_EXPRESSION",
+          },
+          "type": "BINARY_EXPRESSION",
+        },
+        "loc": Object {
+          "end": Object {
+            "column": 22,
+            "line": 1,
+          },
+          "start": Object {
+            "column": 9,
+            "line": 1,
+          },
+        },
+        "operator": "PLUS",
+        "right": NumberLiteral {
+          "loc": Object {
+            "end": Object {
+              "column": 22,
+              "line": 1,
+            },
+            "start": Object {
+              "column": 21,
+              "line": 1,
+            },
+          },
+          "type": "NUMBER_LITERAL",
+          "value": 10,
+        },
+        "type": "BINARY_EXPRESSION",
+      },
+      "loc": Object {
+        "end": Object {
+          "column": 22,
+          "line": 1,
+        },
+        "start": Object {
+          "column": 5,
+          "line": 1,
+        },
+      },
+      "type": "VARIABLE_DECLARATOR",
+    },
+  ],
+  "kind": "LET",
+  "loc": Object {
+    "end": Object {
+      "column": 22,
+      "line": 1,
+    },
+    "start": Object {
+      "column": 1,
+      "line": 1,
+    },
+  },
+  "type": "VARIABLE_STATEMENT",
+}
+`;
+
+exports[`parse it should parse number literal expression 1`] = `
 VariableStatement {
   "declarations": Array [
     VariableDeclarator {
@@ -121,7 +458,531 @@ VariableStatement {
 }
 `;
 
-exports[`parse string variableDeclaration 1`] = `
+exports[`parse it should parse number multi-add 1`] = `
+VariableStatement {
+  "declarations": Array [
+    VariableDeclarator {
+      "id": "a",
+      "init": BinaryExpression {
+        "left": BinaryExpression {
+          "left": NumberLiteral {
+            "loc": Object {
+              "end": Object {
+                "column": 10,
+                "line": 1,
+              },
+              "start": Object {
+                "column": 9,
+                "line": 1,
+              },
+            },
+            "type": "NUMBER_LITERAL",
+            "value": 10,
+          },
+          "loc": Object {
+            "end": Object {
+              "column": 15,
+              "line": 1,
+            },
+            "start": Object {
+              "column": 9,
+              "line": 1,
+            },
+          },
+          "operator": "PLUS",
+          "right": NumberLiteral {
+            "loc": Object {
+              "end": Object {
+                "column": 15,
+                "line": 1,
+              },
+              "start": Object {
+                "column": 14,
+                "line": 1,
+              },
+            },
+            "type": "NUMBER_LITERAL",
+            "value": 10,
+          },
+          "type": "BINARY_EXPRESSION",
+        },
+        "loc": Object {
+          "end": Object {
+            "column": 20,
+            "line": 1,
+          },
+          "start": Object {
+            "column": 9,
+            "line": 1,
+          },
+        },
+        "operator": "PLUS",
+        "right": NumberLiteral {
+          "loc": Object {
+            "end": Object {
+              "column": 20,
+              "line": 1,
+            },
+            "start": Object {
+              "column": 19,
+              "line": 1,
+            },
+          },
+          "type": "NUMBER_LITERAL",
+          "value": 10,
+        },
+        "type": "BINARY_EXPRESSION",
+      },
+      "loc": Object {
+        "end": Object {
+          "column": 20,
+          "line": 1,
+        },
+        "start": Object {
+          "column": 5,
+          "line": 1,
+        },
+      },
+      "type": "VARIABLE_DECLARATOR",
+    },
+  ],
+  "kind": "LET",
+  "loc": Object {
+    "end": Object {
+      "column": 20,
+      "line": 1,
+    },
+    "start": Object {
+      "column": 1,
+      "line": 1,
+    },
+  },
+  "type": "VARIABLE_STATEMENT",
+}
+`;
+
+exports[`parse it should parse parenthesis as higher priority 1`] = `
+VariableStatement {
+  "declarations": Array [
+    VariableDeclarator {
+      "id": "a",
+      "init": BinaryExpression {
+        "left": BinaryExpression {
+          "left": NumberLiteral {
+            "loc": Object {
+              "end": Object {
+                "column": 9,
+                "line": 1,
+              },
+              "start": Object {
+                "column": 9,
+                "line": 1,
+              },
+            },
+            "type": "NUMBER_LITERAL",
+            "value": 1,
+          },
+          "loc": Object {
+            "end": Object {
+              "column": 18,
+              "line": 1,
+            },
+            "start": Object {
+              "column": 9,
+              "line": 1,
+            },
+          },
+          "operator": "PLUS",
+          "right": BinaryExpression {
+            "left": NumberLiteral {
+              "loc": Object {
+                "end": Object {
+                  "column": 14,
+                  "line": 1,
+                },
+                "start": Object {
+                  "column": 14,
+                  "line": 1,
+                },
+              },
+              "type": "NUMBER_LITERAL",
+              "value": 2,
+            },
+            "loc": Object {
+              "end": Object {
+                "column": 18,
+                "line": 1,
+              },
+              "start": Object {
+                "column": 14,
+                "line": 1,
+              },
+            },
+            "operator": "PLUS",
+            "right": NumberLiteral {
+              "loc": Object {
+                "end": Object {
+                  "column": 18,
+                  "line": 1,
+                },
+                "start": Object {
+                  "column": 18,
+                  "line": 1,
+                },
+              },
+              "type": "NUMBER_LITERAL",
+              "value": 2,
+            },
+            "type": "BINARY_EXPRESSION",
+          },
+          "type": "BINARY_EXPRESSION",
+        },
+        "loc": Object {
+          "end": Object {
+            "column": 23,
+            "line": 1,
+          },
+          "start": Object {
+            "column": 9,
+            "line": 1,
+          },
+        },
+        "operator": "PLUS",
+        "right": NumberLiteral {
+          "loc": Object {
+            "end": Object {
+              "column": 23,
+              "line": 1,
+            },
+            "start": Object {
+              "column": 23,
+              "line": 1,
+            },
+          },
+          "type": "NUMBER_LITERAL",
+          "value": 3,
+        },
+        "type": "BINARY_EXPRESSION",
+      },
+      "loc": Object {
+        "end": Object {
+          "column": 23,
+          "line": 1,
+        },
+        "start": Object {
+          "column": 5,
+          "line": 1,
+        },
+      },
+      "type": "VARIABLE_DECLARATOR",
+    },
+  ],
+  "kind": "LET",
+  "loc": Object {
+    "end": Object {
+      "column": 23,
+      "line": 1,
+    },
+    "start": Object {
+      "column": 1,
+      "line": 1,
+    },
+  },
+  "type": "VARIABLE_STATEMENT",
+}
+`;
+
+exports[`parse it should parse parenthesis as higher priority and multiplication and add 1`] = `
+VariableStatement {
+  "declarations": Array [
+    VariableDeclarator {
+      "id": "a",
+      "init": BinaryExpression {
+        "left": NumberLiteral {
+          "loc": Object {
+            "end": Object {
+              "column": 9,
+              "line": 1,
+            },
+            "start": Object {
+              "column": 9,
+              "line": 1,
+            },
+          },
+          "type": "NUMBER_LITERAL",
+          "value": 1,
+        },
+        "loc": Object {
+          "end": Object {
+            "column": 26,
+            "line": 1,
+          },
+          "start": Object {
+            "column": 9,
+            "line": 1,
+          },
+        },
+        "operator": "PLUS",
+        "right": BinaryExpression {
+          "left": NumberLiteral {
+            "loc": Object {
+              "end": Object {
+                "column": 13,
+                "line": 1,
+              },
+              "start": Object {
+                "column": 13,
+                "line": 1,
+              },
+            },
+            "type": "NUMBER_LITERAL",
+            "value": 2,
+          },
+          "loc": Object {
+            "end": Object {
+              "column": 26,
+              "line": 1,
+            },
+            "start": Object {
+              "column": 13,
+              "line": 1,
+            },
+          },
+          "operator": "MULTIPLY",
+          "right": BinaryExpression {
+            "left": BinaryExpression {
+              "left": NumberLiteral {
+                "loc": Object {
+                  "end": Object {
+                    "column": 18,
+                    "line": 1,
+                  },
+                  "start": Object {
+                    "column": 18,
+                    "line": 1,
+                  },
+                },
+                "type": "NUMBER_LITERAL",
+                "value": 4,
+              },
+              "loc": Object {
+                "end": Object {
+                  "column": 22,
+                  "line": 1,
+                },
+                "start": Object {
+                  "column": 18,
+                  "line": 1,
+                },
+              },
+              "operator": "PLUS",
+              "right": NumberLiteral {
+                "loc": Object {
+                  "end": Object {
+                    "column": 22,
+                    "line": 1,
+                  },
+                  "start": Object {
+                    "column": 22,
+                    "line": 1,
+                  },
+                },
+                "type": "NUMBER_LITERAL",
+                "value": 5,
+              },
+              "type": "BINARY_EXPRESSION",
+            },
+            "loc": Object {
+              "end": Object {
+                "column": 26,
+                "line": 1,
+              },
+              "start": Object {
+                "column": 18,
+                "line": 1,
+              },
+            },
+            "operator": "MINUS",
+            "right": NumberLiteral {
+              "loc": Object {
+                "end": Object {
+                  "column": 26,
+                  "line": 1,
+                },
+                "start": Object {
+                  "column": 26,
+                  "line": 1,
+                },
+              },
+              "type": "NUMBER_LITERAL",
+              "value": 1,
+            },
+            "type": "BINARY_EXPRESSION",
+          },
+          "type": "BINARY_EXPRESSION",
+        },
+        "type": "BINARY_EXPRESSION",
+      },
+      "loc": Object {
+        "end": Object {
+          "column": 26,
+          "line": 1,
+        },
+        "start": Object {
+          "column": 5,
+          "line": 1,
+        },
+      },
+      "type": "VARIABLE_DECLARATOR",
+    },
+  ],
+  "kind": "LET",
+  "loc": Object {
+    "end": Object {
+      "column": 26,
+      "line": 1,
+    },
+    "start": Object {
+      "column": 1,
+      "line": 1,
+    },
+  },
+  "type": "VARIABLE_STATEMENT",
+}
+`;
+
+exports[`parse it should parse plus and logic operator together 1`] = `
+VariableStatement {
+  "declarations": Array [
+    VariableDeclarator {
+      "id": "a",
+      "init": BinaryExpression {
+        "left": BinaryExpression {
+          "left": NumberLiteral {
+            "loc": Object {
+              "end": Object {
+                "column": 9,
+                "line": 1,
+              },
+              "start": Object {
+                "column": 9,
+                "line": 1,
+              },
+            },
+            "type": "NUMBER_LITERAL",
+            "value": 1,
+          },
+          "loc": Object {
+            "end": Object {
+              "column": 13,
+              "line": 1,
+            },
+            "start": Object {
+              "column": 9,
+              "line": 1,
+            },
+          },
+          "operator": "PLUS",
+          "right": NumberLiteral {
+            "loc": Object {
+              "end": Object {
+                "column": 13,
+                "line": 1,
+              },
+              "start": Object {
+                "column": 13,
+                "line": 1,
+              },
+            },
+            "type": "NUMBER_LITERAL",
+            "value": 1,
+          },
+          "type": "BINARY_EXPRESSION",
+        },
+        "loc": Object {
+          "end": Object {
+            "column": 21,
+            "line": 1,
+          },
+          "start": Object {
+            "column": 9,
+            "line": 1,
+          },
+        },
+        "operator": "GREATER_THAN",
+        "right": BinaryExpression {
+          "left": NumberLiteral {
+            "loc": Object {
+              "end": Object {
+                "column": 17,
+                "line": 1,
+              },
+              "start": Object {
+                "column": 17,
+                "line": 1,
+              },
+            },
+            "type": "NUMBER_LITERAL",
+            "value": 2,
+          },
+          "loc": Object {
+            "end": Object {
+              "column": 21,
+              "line": 1,
+            },
+            "start": Object {
+              "column": 17,
+              "line": 1,
+            },
+          },
+          "operator": "PLUS",
+          "right": NumberLiteral {
+            "loc": Object {
+              "end": Object {
+                "column": 21,
+                "line": 1,
+              },
+              "start": Object {
+                "column": 21,
+                "line": 1,
+              },
+            },
+            "type": "NUMBER_LITERAL",
+            "value": 3,
+          },
+          "type": "BINARY_EXPRESSION",
+        },
+        "type": "BINARY_EXPRESSION",
+      },
+      "loc": Object {
+        "end": Object {
+          "column": 21,
+          "line": 1,
+        },
+        "start": Object {
+          "column": 5,
+          "line": 1,
+        },
+      },
+      "type": "VARIABLE_DECLARATOR",
+    },
+  ],
+  "kind": "LET",
+  "loc": Object {
+    "end": Object {
+      "column": 21,
+      "line": 1,
+    },
+    "start": Object {
+      "column": 1,
+      "line": 1,
+    },
+  },
+  "type": "VARIABLE_STATEMENT",
+}
+`;
+
+exports[`parse it should parse string expression 1`] = `
 VariableStatement {
   "declarations": Array [
     VariableDeclarator {
