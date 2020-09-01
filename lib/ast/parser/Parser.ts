@@ -69,6 +69,7 @@ class Parser {
       node.loc.start = firstNode.loc.start
       node.loc.end = lastNode.loc.end
     }
+    // TODO update location even if childrenNodes is empty
 
     return node.create(childrenNodes)
   }

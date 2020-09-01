@@ -31,13 +31,13 @@ class ExpressionNode extends SyntaxNode {
       // consume operator
       tokenBuffer.read()
 
-      result = this.doShift2(result, currOperator, tokenBuffer)
+      result = this.doShift(result, currOperator, tokenBuffer)
     }
 
     return result
   }
 
-  doShift2(left: Node, currOperator: IOperation, tokenBuffer: TokenBuffer): Node {
+  doShift(left: Node, currOperator: IOperation, tokenBuffer: TokenBuffer): Node {
     const result = new BinaryExpression()
 
     let right = this.factor.parse(tokenBuffer)
@@ -55,7 +55,7 @@ class ExpressionNode extends SyntaxNode {
       if (this.operators.rightIsExpression(currOperator, nextOperator)) {
         // consume operator token
         tokenBuffer.read()
-        right = this.doShift2(right, nextOperator, tokenBuffer)
+        right = this.doShift(right, nextOperator, tokenBuffer)
       } else {
         break
       }
@@ -68,47 +68,6 @@ class ExpressionNode extends SyntaxNode {
     result.operator = currOperator.tokenType
 
     return result
-  }
-
-  doShift(left: Node, currOperator: IOperation, right: Node, nextOperator: IOperation, tokenBuffer: TokenBuffer): Node {
-    let nextRight: any = this.factor.parse(tokenBuffer)
-    let nextNextOperator = this.peekNextOperator(tokenBuffer)
-
-    if (!nextRight) {
-      const operator = tokenBuffer.unread()
-      throw new SyntaxError('missing right-hand operator in binary expression', operator.range.end)
-    }
-
-    const node = new BinaryExpression()
-
-    if (this.operators.rightIsExpression(currOperator, nextOperator)) {
-
-      // const rightNode = this.doShift(right, nextOperator, nextRight, nextNextOperator, tokenBuffer)
-
-      // let rightNode = null
-      // if (!nextNextOperator) {
-      //   rightNode = new BinaryExpression()
-      //   rightNode.left = right
-      //   rightNode.right = nextRight
-      //   rightNode.operator = nextOperator.tokenType
-      // } else {
-      //   rightNode = this.doShift(right, nextOperator, nextRight, nextNextOperator, tokenBuffer)
-      // }
-
-      // node.right = rightNode
-
-      // node.loc.start = node.left.loc.start
-      // node.loc.end = node.right.loc.end
-    } else {
-      const node = new BinaryExpression()
-      node.left = left
-      node.right = right
-      node.operator = currOperator.tokenType
-      
-      return node
-    }
-  
-    return node
   }
 
   peekNextOperator(tokenBuffer: TokenBuffer): IOperation {

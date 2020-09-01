@@ -1,5 +1,4 @@
 import TokenBuffer from '../lexer/TokenBuffer'
-import Token from './node/Token'
 import SyntaxError from '../errors/Syntax'
 import { TOKEN_TYPE, IToken } from '../lexer/types/token'
 import Node from './node/Node'

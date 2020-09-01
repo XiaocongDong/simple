@@ -1,16 +1,22 @@
 import rule from "../ast/rule"
 import BooleanLiteral from "../ast/node/BooleanLiteral"
-import SingleExpression from "../ast/node/SingleExpression"
 import VariableModifier from "../ast/node/variableModifier"
 import VariableDeclarator from "../ast/node/VariableDeclarator"
 import VariableStatement from "../ast/node/VariableStatement"
 import NumberLiteral from "../ast/node/NumberLiteral"
 import StringLiteral from "../ast/node/StringLiteral"
-import { TOKEN_TYPE } from "../lexer/types/token"
 import BlockStatement from "../ast/node/BlockStatement"
 import IfStatement from "../ast/node/IfStatement"
 import Operators, { ASSOCIATIVITY } from "../ast/Operators"
 import BinaryExpression from "../ast/node/BinaryExpression"
+import Identifier from "../ast/node/Identifier"
+import MemberExpression from "../ast/node/MemberExpression"
+import AccessExpression from "../ast/node/AccessExpression"
+
+import { TOKEN_TYPE } from "../lexer/types/token"
+import FunctionDeclaration from "../ast/node/FunctionDeclaration"
+import FunctionParams from "../ast/node/FunctionParams"
+import StatementList from "../ast/node/StatementList"
 
 const booleanLiteral = rule(BooleanLiteral).or(
   rule().token(TOKEN_TYPE.TRUE),
@@ -18,6 +24,8 @@ const booleanLiteral = rule(BooleanLiteral).or(
 )
 const numberLiteral = rule(NumberLiteral).token(TOKEN_TYPE.NUMBER_LITERAL)
 const stringLiteral = rule(StringLiteral).token(TOKEN_TYPE.STRING_LITERAL)
+const identifier = rule(Identifier).token(TOKEN_TYPE.IDENTIFER)
+const memberExpression = rule(MemberExpression)
 
 const operators = new Operators()
 operators.add(TOKEN_TYPE.EQUAL, 1, ASSOCIATIVITY.LEFT)
@@ -30,12 +38,20 @@ operators.add(TOKEN_TYPE.MINUS, 3, ASSOCIATIVITY.LEFT)
 operators.add(TOKEN_TYPE.MULTIPLY, 4, ASSOCIATIVITY.LEFT)
 operators.add(TOKEN_TYPE.DIVIDE, 4, ASSOCIATIVITY.LEFT)
 const binaryExpression = rule(BinaryExpression)
+const accessExpression = rule(AccessExpression).or(
+  rule().separator(TOKEN_TYPE.LEFT_SQUARE_BRACKET).ast(binaryExpression).separator(TOKEN_TYPE.RIGHT_SQUARE_BRACKET),
+  rule().separator(TOKEN_TYPE.DOT).ast(identifier)
+)
+
+memberExpression.ast(identifier).ast(accessExpression).repeat(accessExpression)
 
 const factor = rule().or(
   rule()
     .separator(TOKEN_TYPE.LEFT_PAREN)
     .ast(binaryExpression)
     .separator(TOKEN_TYPE.RIGHT_PAREN),
+  memberExpression,
+  identifier,
   stringLiteral,
   booleanLiteral,
   numberLiteral
@@ -61,7 +77,7 @@ const variableStatement = rule(VariableStatement)
 
 const statement = rule()
 
-const statementList = rule()
+const statementList = rule(StatementList)
   .repeat(
     rule()
       .ast(statement)
@@ -74,16 +90,29 @@ const blockStatement = rule(BlockStatement)
   .separator(TOKEN_TYPE.RIGHT_CURLY_BRACE)
 
 const ifStatement = rule(IfStatement)
-.separator(TOKEN_TYPE.IF)
-.separator(TOKEN_TYPE.LEFT_PAREN)
-.ast(binaryExpression)
-.separator(TOKEN_TYPE.RIGHT_PAREN)
-.ast(blockStatement)
+  .separator(TOKEN_TYPE.IF)
+  .separator(TOKEN_TYPE.LEFT_PAREN)
+  .ast(binaryExpression)
+  .separator(TOKEN_TYPE.RIGHT_PAREN)
+  .ast(blockStatement)
+const functionParams = rule(FunctionParams)
+  .ast(identifier).repeat(
+    rule().separator(TOKEN_TYPE.COMMA).ast(identifier)
+  )
+const functionStatement = rule(FunctionDeclaration)
+  .separator(TOKEN_TYPE.FUNCTION)
+  .separator(TOKEN_TYPE.LEFT_PAREN)
+  .option(
+    functionParams
+  )
+  .separator(TOKEN_TYPE.RIGHT_PAREN)
+  .ast(blockStatement)
 
 statement
   .or(
     variableStatement,
-    ifStatement
+    ifStatement,
+    functionStatement
   )
 
 
