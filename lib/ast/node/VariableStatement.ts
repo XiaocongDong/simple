@@ -1,6 +1,5 @@
 import Node from './Node'
 import { NODE_TYPE } from '../types/node'
-import ListNode from './ListNode'
 import VariableModifier from './VariableModifier'
 import VariableDeclarator from './VariableDeclarator'
 

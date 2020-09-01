@@ -40,6 +40,10 @@ const testCases: Array<{code: string, description: string}> = [
     description: 'it should parse mixed bracket and dot member expression'
   },
   {
+    code: 'let a = arr[10](1,2).a;',
+    description: 'it should parse mixed bracket, dot and call expression'
+  },
+  {
     code: `if(true) {
       let c = 10;
     };`,
@@ -77,6 +81,20 @@ const testCases: Array<{code: string, description: string}> = [
   {
     code: `let a = 1 == 1 + 2 * 3;`,
     description: 'it should parse equal'
+  },
+  {
+    code: `a = 10;`,
+    description: 'it should parse assignment'
+  },
+  {
+    code: `a = b = 10;`,
+    description: 'it should parse chaining assignment'
+  },
+  {
+    code: `while(1+1){
+      
+    };`,
+    description: 'it should parse while statement'
   }
 ]
 

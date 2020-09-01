@@ -1,5 +1,63 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`parse it should parse assignment 1`] = `
+StatementList {
+  "loc": Object {
+    "end": Object {
+      "column": 6,
+      "line": 1,
+    },
+    "start": Object {
+      "column": 1,
+      "line": 1,
+    },
+  },
+  "statements": Array [
+    AssignmentExpression {
+      "left": Identifier {
+        "loc": Object {
+          "end": Object {
+            "column": 1,
+            "line": 1,
+          },
+          "start": Object {
+            "column": 1,
+            "line": 1,
+          },
+        },
+        "name": "a",
+      },
+      "loc": Object {
+        "end": Object {
+          "column": 6,
+          "line": 1,
+        },
+        "start": Object {
+          "column": 1,
+          "line": 1,
+        },
+      },
+      "right": NumberLiteral {
+        "loc": Object {
+          "end": Object {
+            "column": 6,
+            "line": 1,
+          },
+          "start": Object {
+            "column": 5,
+            "line": 1,
+          },
+        },
+        "type": "NUMBER_LITERAL",
+        "value": 10,
+      },
+      "type": "ASSIGNMENT_EXPRESSION",
+    },
+  ],
+  "type": "STATEMENT_LIST",
+}
+`;
+
 exports[`parse it should parse bracket member expression 1`] = `
 StatementList {
   "loc": Object {
@@ -81,6 +139,90 @@ StatementList {
         },
       },
       "type": "VARIABLE_STATEMENT",
+    },
+  ],
+  "type": "STATEMENT_LIST",
+}
+`;
+
+exports[`parse it should parse chaining assignment 1`] = `
+StatementList {
+  "loc": Object {
+    "end": Object {
+      "column": 10,
+      "line": 1,
+    },
+    "start": Object {
+      "column": 1,
+      "line": 1,
+    },
+  },
+  "statements": Array [
+    AssignmentExpression {
+      "left": Identifier {
+        "loc": Object {
+          "end": Object {
+            "column": 1,
+            "line": 1,
+          },
+          "start": Object {
+            "column": 1,
+            "line": 1,
+          },
+        },
+        "name": "a",
+      },
+      "loc": Object {
+        "end": Object {
+          "column": 10,
+          "line": 1,
+        },
+        "start": Object {
+          "column": 1,
+          "line": 1,
+        },
+      },
+      "right": AssignmentExpression {
+        "left": Identifier {
+          "loc": Object {
+            "end": Object {
+              "column": 5,
+              "line": 1,
+            },
+            "start": Object {
+              "column": 5,
+              "line": 1,
+            },
+          },
+          "name": "b",
+        },
+        "loc": Object {
+          "end": Object {
+            "column": 10,
+            "line": 1,
+          },
+          "start": Object {
+            "column": 5,
+            "line": 1,
+          },
+        },
+        "right": NumberLiteral {
+          "loc": Object {
+            "end": Object {
+              "column": 10,
+              "line": 1,
+            },
+            "start": Object {
+              "column": 9,
+              "line": 1,
+            },
+          },
+          "type": "NUMBER_LITERAL",
+          "value": 10,
+        },
+        "type": "ASSIGNMENT_EXPRESSION",
+      },
+      "type": "ASSIGNMENT_EXPRESSION",
     },
   ],
   "type": "STATEMENT_LIST",
@@ -780,7 +922,7 @@ exports[`parse it should parse mixed bracket and dot member expression 1`] = `
 StatementList {
   "loc": Object {
     "end": Object {
-      "column": 14,
+      "column": 23,
       "line": 1,
     },
     "start": Object {
@@ -796,7 +938,7 @@ StatementList {
           "init": MemberExpression {
             "loc": Object {
               "end": Object {
-                "column": 14,
+                "column": 23,
                 "line": 1,
               },
               "start": Object {
@@ -807,7 +949,7 @@ StatementList {
             "object": MemberExpression {
               "loc": Object {
                 "end": Object {
-                  "column": 14,
+                  "column": 20,
                   "line": 1,
                 },
                 "start": Object {
@@ -818,7 +960,7 @@ StatementList {
               "object": MemberExpression {
                 "loc": Object {
                   "end": Object {
-                    "column": 14,
+                    "column": 17,
                     "line": 1,
                   },
                   "start": Object {
@@ -910,7 +1052,7 @@ StatementList {
           },
           "loc": Object {
             "end": Object {
-              "column": 14,
+              "column": 23,
               "line": 1,
             },
             "start": Object {
@@ -924,7 +1066,162 @@ StatementList {
       "kind": "LET",
       "loc": Object {
         "end": Object {
-          "column": 14,
+          "column": 23,
+          "line": 1,
+        },
+        "start": Object {
+          "column": 1,
+          "line": 1,
+        },
+      },
+      "type": "VARIABLE_STATEMENT",
+    },
+  ],
+  "type": "STATEMENT_LIST",
+}
+`;
+
+exports[`parse it should parse mixed bracket, dot and call expression 1`] = `
+StatementList {
+  "loc": Object {
+    "end": Object {
+      "column": 22,
+      "line": 1,
+    },
+    "start": Object {
+      "column": 1,
+      "line": 1,
+    },
+  },
+  "statements": Array [
+    VariableStatement {
+      "declarations": Array [
+        VariableDeclarator {
+          "id": "a",
+          "init": MemberExpression {
+            "loc": Object {
+              "end": Object {
+                "column": 22,
+                "line": 1,
+              },
+              "start": Object {
+                "column": 9,
+                "line": 1,
+              },
+            },
+            "object": CallExpression {
+              "arguments": Array [
+                NumberLiteral {
+                  "loc": Object {
+                    "end": Object {
+                      "column": 17,
+                      "line": 1,
+                    },
+                    "start": Object {
+                      "column": 17,
+                      "line": 1,
+                    },
+                  },
+                  "type": "NUMBER_LITERAL",
+                  "value": 1,
+                },
+                NumberLiteral {
+                  "loc": Object {
+                    "end": Object {
+                      "column": 19,
+                      "line": 1,
+                    },
+                    "start": Object {
+                      "column": 19,
+                      "line": 1,
+                    },
+                  },
+                  "type": "NUMBER_LITERAL",
+                  "value": 2,
+                },
+              ],
+              "callee": MemberExpression {
+                "loc": Object {
+                  "end": Object {
+                    "column": 14,
+                    "line": 1,
+                  },
+                  "start": Object {
+                    "column": 9,
+                    "line": 1,
+                  },
+                },
+                "object": Identifier {
+                  "loc": Object {
+                    "end": Object {
+                      "column": 11,
+                      "line": 1,
+                    },
+                    "start": Object {
+                      "column": 9,
+                      "line": 1,
+                    },
+                  },
+                  "name": "arr",
+                },
+                "property": NumberLiteral {
+                  "loc": Object {
+                    "end": Object {
+                      "column": 14,
+                      "line": 1,
+                    },
+                    "start": Object {
+                      "column": 13,
+                      "line": 1,
+                    },
+                  },
+                  "type": "NUMBER_LITERAL",
+                  "value": 10,
+                },
+              },
+              "loc": Object {
+                "end": Object {
+                  "column": 19,
+                  "line": 1,
+                },
+                "start": Object {
+                  "column": 9,
+                  "line": 1,
+                },
+              },
+              "type": "CALL_EXPRESSION",
+            },
+            "property": Identifier {
+              "loc": Object {
+                "end": Object {
+                  "column": 22,
+                  "line": 1,
+                },
+                "start": Object {
+                  "column": 22,
+                  "line": 1,
+                },
+              },
+              "name": "a",
+            },
+          },
+          "loc": Object {
+            "end": Object {
+              "column": 22,
+              "line": 1,
+            },
+            "start": Object {
+              "column": 5,
+              "line": 1,
+            },
+          },
+          "type": "VARIABLE_DECLARATOR",
+        },
+      ],
+      "kind": "LET",
+      "loc": Object {
+        "end": Object {
+          "column": 22,
           "line": 1,
         },
         "start": Object {
@@ -1877,6 +2174,81 @@ StatementList {
         },
       },
       "type": "VARIABLE_STATEMENT",
+    },
+  ],
+  "type": "STATEMENT_LIST",
+}
+`;
+
+exports[`parse it should parse while statement 1`] = `
+StatementList {
+  "loc": Object {
+    "end": null,
+    "start": Object {
+      "column": 7,
+      "line": 1,
+    },
+  },
+  "statements": Array [
+    WhileStatement {
+      "body": BlockStatement {
+        "body": Array [],
+        "loc": Object {
+          "end": null,
+          "start": null,
+        },
+        "type": "BLOCK_STATEMENT",
+      },
+      "loc": Object {
+        "end": null,
+        "start": Object {
+          "column": 7,
+          "line": 1,
+        },
+      },
+      "test": BinaryExpression {
+        "left": NumberLiteral {
+          "loc": Object {
+            "end": Object {
+              "column": 7,
+              "line": 1,
+            },
+            "start": Object {
+              "column": 7,
+              "line": 1,
+            },
+          },
+          "type": "NUMBER_LITERAL",
+          "value": 1,
+        },
+        "loc": Object {
+          "end": Object {
+            "column": 9,
+            "line": 1,
+          },
+          "start": Object {
+            "column": 7,
+            "line": 1,
+          },
+        },
+        "operator": "PLUS",
+        "right": NumberLiteral {
+          "loc": Object {
+            "end": Object {
+              "column": 9,
+              "line": 1,
+            },
+            "start": Object {
+              "column": 9,
+              "line": 1,
+            },
+          },
+          "type": "NUMBER_LITERAL",
+          "value": 1,
+        },
+        "type": "BINARY_EXPRESSION",
+      },
+      "type": "WHILE_STATEMENT",
     },
   ],
   "type": "STATEMENT_LIST",

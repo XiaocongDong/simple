@@ -10,13 +10,18 @@ import IfStatement from "../ast/node/IfStatement"
 import Operators, { ASSOCIATIVITY } from "../ast/Operators"
 import BinaryExpression from "../ast/node/BinaryExpression"
 import Identifier from "../ast/node/Identifier"
-import MemberExpression from "../ast/node/MemberExpression"
-import AccessExpression from "../ast/node/AccessExpression"
 
-import { TOKEN_TYPE } from "../lexer/types/token"
 import FunctionDeclaration from "../ast/node/FunctionDeclaration"
 import FunctionParams from "../ast/node/FunctionParams"
 import StatementList from "../ast/node/StatementList"
+
+import { TOKEN_TYPE } from "../lexer/types/token"
+import CallArguments from "../ast/node/CallArguments"
+import MemberAccessTailer from "../ast/node/MemberAccessTailer"
+import FunctionCallTailer from "../ast/node/FunctionCallTailer"
+import ObjectAccessExpression from "../ast/node/ObjectAccessExpression"
+import AssignmentExpression from "../ast/node/AssignmentExpression"
+import WhileStatement from "../ast/node/WhileStatement"
 
 const booleanLiteral = rule(BooleanLiteral).or(
   rule().token(TOKEN_TYPE.TRUE),
@@ -25,7 +30,6 @@ const booleanLiteral = rule(BooleanLiteral).or(
 const numberLiteral = rule(NumberLiteral).token(TOKEN_TYPE.NUMBER_LITERAL)
 const stringLiteral = rule(StringLiteral).token(TOKEN_TYPE.STRING_LITERAL)
 const identifier = rule(Identifier).token(TOKEN_TYPE.IDENTIFER)
-const memberExpression = rule(MemberExpression)
 
 const operators = new Operators()
 operators.add(TOKEN_TYPE.EQUAL, 1, ASSOCIATIVITY.LEFT)
@@ -37,20 +41,30 @@ operators.add(TOKEN_TYPE.PLUS, 3, ASSOCIATIVITY.LEFT)
 operators.add(TOKEN_TYPE.MINUS, 3, ASSOCIATIVITY.LEFT)
 operators.add(TOKEN_TYPE.MULTIPLY, 4, ASSOCIATIVITY.LEFT)
 operators.add(TOKEN_TYPE.DIVIDE, 4, ASSOCIATIVITY.LEFT)
+
 const binaryExpression = rule(BinaryExpression)
-const accessExpression = rule(AccessExpression).or(
+const memberAccessTailer = rule(MemberAccessTailer).or(
   rule().separator(TOKEN_TYPE.LEFT_SQUARE_BRACKET).ast(binaryExpression).separator(TOKEN_TYPE.RIGHT_SQUARE_BRACKET),
   rule().separator(TOKEN_TYPE.DOT).ast(identifier)
 )
+const callArguments = rule(CallArguments).option(
+  rule().ast(binaryExpression).repeat(
+    rule().separator(TOKEN_TYPE.COMMA).ast(binaryExpression)
+  )
+)
+const functionCallTailer = rule(FunctionCallTailer).separator(TOKEN_TYPE.LEFT_PAREN).ast(callArguments).separator(TOKEN_TYPE.RIGHT_PAREN)
+const accessTailer = rule().or(memberAccessTailer, functionCallTailer)
+const objectAccessExpression = rule(ObjectAccessExpression).ast(identifier).ast(accessTailer).repeat(accessTailer)
 
-memberExpression.ast(identifier).ast(accessExpression).repeat(accessExpression)
+const assignmentExpression = rule(AssignmentExpression).ast(identifier).separator(TOKEN_TYPE.ASSIGN)
+assignmentExpression.or(assignmentExpression, binaryExpression)
 
 const factor = rule().or(
   rule()
     .separator(TOKEN_TYPE.LEFT_PAREN)
     .ast(binaryExpression)
     .separator(TOKEN_TYPE.RIGHT_PAREN),
-  memberExpression,
+  objectAccessExpression,
   identifier,
   stringLiteral,
   booleanLiteral,
@@ -107,10 +121,18 @@ const functionStatement = rule(FunctionDeclaration)
   )
   .separator(TOKEN_TYPE.RIGHT_PAREN)
   .ast(blockStatement)
+const whileStatement = rule(WhileStatement)
+  .separator(TOKEN_TYPE.WHILE)
+  .separator(TOKEN_TYPE.LEFT_PAREN)
+  .ast(binaryExpression)
+  .separator(TOKEN_TYPE.RIGHT_PAREN)
+  .ast(blockStatement)
 
 statement
   .or(
     variableStatement,
+    assignmentExpression,
+    whileStatement,
     ifStatement,
     functionStatement
   )
