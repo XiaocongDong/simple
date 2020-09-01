@@ -5,17 +5,45 @@ import Tokenizer from "../lexer/Tokenizer"
 const testCases: Array<{code: string, description: string}> = [
   {
     code: `let a = 10;`,
-    description: 'number variableDeclaration'
+    description: 'it should parse number literal expression'
   },
   {
     code: `let a = 'hello world';`,
-    description: 'string variableDeclaration'
+    description: 'it should parse string expression'
   },
   {
     code: `if(true) {
       let c = 10;
     };`,
-    description: 'ifStatement'
+    description: 'it should parse if statement'
+  },
+  {
+    code: `let a = 10 + 10;`,
+    description: 'it should parse number add'
+  },
+  {
+    code: `let a = 10 + 10 + 10;`,
+    description: 'it should parse number multi-add'
+  },
+  {
+    code: `let a = 1 + 2 * 3 + 10;`,
+    description: 'it should parse number add and multiplication'
+  },
+  {
+    code: `let a = 1 + (2 + 2) + 3;`,
+    description: 'it should parse parenthesis as higher priority'
+  },
+  {
+    code: `let a = 1 + 2 * (4 + 5 - 1);`,
+    description: 'it should parse parenthesis as higher priority and multiplication and add'
+  },
+  {
+    code: `let a = 1 + 1 > 2 + 3;`,
+    description: 'it should parse plus and logic operator together'
+  },
+  {
+    code: `let a = 1 == 1 + 2 * 3;`,
+    description: 'it should parse equal'
   }
 ]
 

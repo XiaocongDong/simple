@@ -9,6 +9,8 @@ import StringLiteral from "../ast/node/StringLiteral"
 import { TOKEN_TYPE } from "../lexer/types/token"
 import BlockStatement from "../ast/node/BlockStatement"
 import IfStatement from "../ast/node/IfStatement"
+import Operators, { ASSOCIATIVITY } from "../ast/Operators"
+import BinaryExpression from "../ast/node/BinaryExpression"
 
 const booleanLiteral = rule(BooleanLiteral).or(
   rule().token(TOKEN_TYPE.TRUE),
@@ -17,13 +19,28 @@ const booleanLiteral = rule(BooleanLiteral).or(
 const numberLiteral = rule(NumberLiteral).token(TOKEN_TYPE.NUMBER_LITERAL)
 const stringLiteral = rule(StringLiteral).token(TOKEN_TYPE.STRING_LITERAL)
 
-const singleExpression = rule(SingleExpression)
-  .throw('Unrecognized expression')
-  .or(
-    stringLiteral,
-    booleanLiteral,
-    numberLiteral
-  )
+const operators = new Operators()
+operators.add(TOKEN_TYPE.EQUAL, 1, ASSOCIATIVITY.LEFT)
+operators.add(TOKEN_TYPE.LESS_THAN, 2, ASSOCIATIVITY.LEFT)
+operators.add(TOKEN_TYPE.LESS_EQUAL_THAN, 2, ASSOCIATIVITY.LEFT)
+operators.add(TOKEN_TYPE.GREATER_THAN, 2, ASSOCIATIVITY.LEFT)
+operators.add(TOKEN_TYPE.GREATER_EQUAL_THAN, 2, ASSOCIATIVITY.LEFT)
+operators.add(TOKEN_TYPE.PLUS, 3, ASSOCIATIVITY.LEFT)
+operators.add(TOKEN_TYPE.MINUS, 3, ASSOCIATIVITY.LEFT)
+operators.add(TOKEN_TYPE.MULTIPLY, 4, ASSOCIATIVITY.LEFT)
+operators.add(TOKEN_TYPE.DIVIDE, 4, ASSOCIATIVITY.LEFT)
+const binaryExpression = rule(BinaryExpression)
+
+const factor = rule().or(
+  rule()
+    .separator(TOKEN_TYPE.LEFT_PAREN)
+    .ast(binaryExpression)
+    .separator(TOKEN_TYPE.RIGHT_PAREN),
+  stringLiteral,
+  booleanLiteral,
+  numberLiteral
+)
+binaryExpression.expression(factor, operators)
 
 const variableModifier = rule(VariableModifier)
   .or(
@@ -36,7 +53,7 @@ const variableDeclarator = rule(VariableDeclarator)
     rule()
     .token(TOKEN_TYPE.ASSIGN)
     .throw('incorrect right-hand expression')
-    .ast(singleExpression)
+    .ast(binaryExpression)
   )
 const variableStatement = rule(VariableStatement)
   .ast(variableModifier)
@@ -59,7 +76,7 @@ const blockStatement = rule(BlockStatement)
 const ifStatement = rule(IfStatement)
 .separator(TOKEN_TYPE.IF)
 .separator(TOKEN_TYPE.LEFT_PAREN)
-.ast(singleExpression)
+.ast(binaryExpression)
 .separator(TOKEN_TYPE.RIGHT_PAREN)
 .ast(blockStatement)
 
