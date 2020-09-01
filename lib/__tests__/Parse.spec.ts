@@ -8,14 +8,47 @@ const testCases: Array<{code: string, description: string}> = [
     description: 'it should parse number literal expression'
   },
   {
+    code: `let a = b;`,
+    description: 'it should parse identifier'
+  },
+  {
+    code: `function(a, b, c) {
+
+    };`,
+    description: 'it should parse function'
+  },
+  {
+    code: `function() {
+      let a = 10;
+    };`,
+    description: 'it should parse empty params function'
+  },
+  {
     code: `let a = 'hello world';`,
     description: 'it should parse string expression'
+  },
+  {
+    code: `let a = b[10];`,
+    description: 'it should parse bracket member expression'
+  },
+  {
+    code: `let a = b.a;`,
+    description: 'it should parse dot member expression'
+  },
+  {
+    code: `let a = arr[10].a[11].c;`,
+    description: 'it should parse mixed bracket and dot member expression'
   },
   {
     code: `if(true) {
       let c = 10;
     };`,
     description: 'it should parse if statement'
+  },
+  {
+    code: `if(a == b + 10 * 20) {
+    };`,
+    description: 'it should parse expression in if statement'
   },
   {
     code: `let a = 10 + 10;`,
