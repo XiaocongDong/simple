@@ -1,6 +1,6 @@
 import rule from "../ast/rule"
 import BooleanLiteral from "../ast/node/BooleanLiteral"
-import VariableModifier from "../ast/node/variableModifier"
+import VariableModifier from "../ast/node/VariableModifier"
 import VariableDeclarator from "../ast/node/VariableDeclarator"
 import VariableStatement from "../ast/node/VariableStatement"
 import NumberLiteral from "../ast/node/NumberLiteral"
