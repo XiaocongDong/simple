@@ -124,6 +124,12 @@ const testCases: Array<{code: string, description: string}> = [
       break;
     };`,
     description: 'it should parse break statement'
+  },
+  {
+    code: `for(let a = 10; a < 10; a++) {
+      console.log(a);
+    };`,
+    description: 'it should parse for statement'
   }
 ]
 

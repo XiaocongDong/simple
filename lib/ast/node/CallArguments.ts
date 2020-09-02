@@ -7,7 +7,10 @@ class CallArguments extends Node {
   arguments: Array<Node> = []
 
   create(children: Array<Node>): Node {
-    this.arguments = children.length ? (<ListNode>children[0]).children : []
+    this.arguments = children.length ? (
+      children[0] instanceof ListNode ? (<ListNode>children[0]).children
+      : [children[0]]
+    ) : []
     return this
   }
 }

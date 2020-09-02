@@ -21,6 +21,7 @@ export enum TOKEN_TYPE {
   FALSE = 'FALSE',
   NEW = 'NEW',
   RETURN = 'RETURN',
+  FOR = 'FOR',
 
   LEFT_PAREN = 'LEFT_PAREN',
   RIGHT_PAREN = 'RIGHT_PAREN',

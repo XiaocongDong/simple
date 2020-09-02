@@ -26,6 +26,7 @@ import BreakStatement from "../ast/node/BreakStatement"
 import ReturnStatement from "../ast/node/ReturnStatement"
 import UpdateExpression from "../ast/node/UpdateExpression"
 import ExpressionStatement from "../ast/node/ExpressionStatement"
+import ForStatement from "../ast/node/ForStatement"
 
 const booleanLiteral = rule(BooleanLiteral).or(
   rule().token(TOKEN_TYPE.TRUE),
@@ -145,8 +146,22 @@ const whileStatement = rule(WhileStatement)
   .ast(blockStatement)
 const expressionStatement = rule(ExpressionStatement).or(
   prefixUpdateExpression,
-  postfixUpdateExpression
+  postfixUpdateExpression,
+  objectAccessExpression
 )
+const forArguments = rule()
+  .option(statement)
+  .separator(TOKEN_TYPE.SEMI_COLON)
+  .option(binaryExpression)
+  .separator(TOKEN_TYPE.SEMI_COLON)
+  .ast(statement)
+
+const forStatement = rule(ForStatement)
+  .separator(TOKEN_TYPE.FOR)
+  .separator(TOKEN_TYPE.LEFT_PAREN)
+  .ast(forArguments)
+  .separator(TOKEN_TYPE.RIGHT_PAREN)
+  .ast(blockStatement)
 
 statement
   .or(
@@ -157,6 +172,7 @@ statement
     assignmentExpression,
     whileStatement,
     ifStatement,
+    forStatement,
     functionStatement
   )
 

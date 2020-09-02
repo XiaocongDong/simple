@@ -840,6 +840,257 @@ StatementList {
 }
 `;
 
+exports[`parse it should parse for statement 1`] = `
+StatementList {
+  "loc": Object {
+    "end": Object {
+      "column": 5,
+      "line": 3,
+    },
+    "start": Object {
+      "column": 1,
+      "line": 1,
+    },
+  },
+  "statements": Array [
+    ForStatement {
+      "body": BlockStatement {
+        "body": Array [
+          ExpressionStatement {
+            "expression": CallExpression {
+              "arguments": Array [
+                Identifier {
+                  "loc": Object {
+                    "end": Object {
+                      "column": 19,
+                      "line": 2,
+                    },
+                    "start": Object {
+                      "column": 19,
+                      "line": 2,
+                    },
+                  },
+                  "name": "a",
+                },
+              ],
+              "callee": MemberExpression {
+                "loc": Object {
+                  "end": Object {
+                    "column": 17,
+                    "line": 2,
+                  },
+                  "start": Object {
+                    "column": 7,
+                    "line": 2,
+                  },
+                },
+                "object": Identifier {
+                  "loc": Object {
+                    "end": Object {
+                      "column": 13,
+                      "line": 2,
+                    },
+                    "start": Object {
+                      "column": 7,
+                      "line": 2,
+                    },
+                  },
+                  "name": "console",
+                },
+                "property": Identifier {
+                  "loc": Object {
+                    "end": Object {
+                      "column": 17,
+                      "line": 2,
+                    },
+                    "start": Object {
+                      "column": 15,
+                      "line": 2,
+                    },
+                  },
+                  "name": "log",
+                },
+              },
+              "loc": Object {
+                "end": Object {
+                  "column": 20,
+                  "line": 2,
+                },
+                "start": Object {
+                  "column": 7,
+                  "line": 2,
+                },
+              },
+              "type": "CALL_EXPRESSION",
+            },
+            "loc": Object {
+              "end": Object {
+                "column": 20,
+                "line": 2,
+              },
+              "start": Object {
+                "column": 7,
+                "line": 2,
+              },
+            },
+            "type": "EXPRESSION_STATEMENT",
+          },
+        ],
+        "loc": Object {
+          "end": Object {
+            "column": 5,
+            "line": 3,
+          },
+          "start": Object {
+            "column": 30,
+            "line": 1,
+          },
+        },
+        "type": "BLOCK_STATEMENT",
+      },
+      "init": VariableStatement {
+        "declarations": Array [
+          VariableDeclarator {
+            "id": "a",
+            "init": NumberLiteral {
+              "loc": Object {
+                "end": Object {
+                  "column": 14,
+                  "line": 1,
+                },
+                "start": Object {
+                  "column": 13,
+                  "line": 1,
+                },
+              },
+              "type": "NUMBER_LITERAL",
+              "value": 10,
+            },
+            "loc": Object {
+              "end": Object {
+                "column": 14,
+                "line": 1,
+              },
+              "start": Object {
+                "column": 9,
+                "line": 1,
+              },
+            },
+            "type": "VARIABLE_DECLARATOR",
+          },
+        ],
+        "kind": "LET",
+        "loc": Object {
+          "end": Object {
+            "column": 14,
+            "line": 1,
+          },
+          "start": Object {
+            "column": 5,
+            "line": 1,
+          },
+        },
+        "type": "VARIABLE_STATEMENT",
+      },
+      "loc": Object {
+        "end": Object {
+          "column": 5,
+          "line": 3,
+        },
+        "start": Object {
+          "column": 1,
+          "line": 1,
+        },
+      },
+      "test": BinaryExpression {
+        "left": Identifier {
+          "loc": Object {
+            "end": Object {
+              "column": 17,
+              "line": 1,
+            },
+            "start": Object {
+              "column": 17,
+              "line": 1,
+            },
+          },
+          "name": "a",
+        },
+        "loc": Object {
+          "end": Object {
+            "column": 22,
+            "line": 1,
+          },
+          "start": Object {
+            "column": 17,
+            "line": 1,
+          },
+        },
+        "operator": "LESS_THAN",
+        "right": NumberLiteral {
+          "loc": Object {
+            "end": Object {
+              "column": 22,
+              "line": 1,
+            },
+            "start": Object {
+              "column": 21,
+              "line": 1,
+            },
+          },
+          "type": "NUMBER_LITERAL",
+          "value": 10,
+        },
+        "type": "BINARY_EXPRESSION",
+      },
+      "type": "FOR_STATEMENT",
+      "update": ExpressionStatement {
+        "expression": UpdateExpression {
+          "argument": Identifier {
+            "loc": Object {
+              "end": Object {
+                "column": 25,
+                "line": 1,
+              },
+              "start": Object {
+                "column": 25,
+                "line": 1,
+              },
+            },
+            "name": "a",
+          },
+          "loc": Object {
+            "end": Object {
+              "column": 27,
+              "line": 1,
+            },
+            "start": Object {
+              "column": 25,
+              "line": 1,
+            },
+          },
+          "operator": "PLUS_PLUS",
+          "prefix": false,
+          "type": "UPDATE_EXPRESSION",
+        },
+        "loc": Object {
+          "end": Object {
+            "column": 27,
+            "line": 1,
+          },
+          "start": Object {
+            "column": 25,
+            "line": 1,
+          },
+        },
+        "type": "EXPRESSION_STATEMENT",
+      },
+    },
+  ],
+  "type": "STATEMENT_LIST",
+}
+`;
+
 exports[`parse it should parse function 1`] = `
 StatementList {
   "loc": Object {
