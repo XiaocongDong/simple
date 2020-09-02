@@ -157,12 +157,18 @@ const testCases: Array<{code: string, description: string}> = [
   },
   {
     code: `    
-    function sum(a, b) {
-      return a + b;
+    function sumGenerator() {
+      let sum = 1;
+
+      return function(i) {
+        sum = sum + i;
+        return sum;
+      };
     };
 
+    let sum = sumGenerator();
     for (let i = 0; i < 10; i++) {
-      console.log(sum(i, i+1));
+      console.log(sum(i));
     };
     `,
     description: 'it should parse real program'
