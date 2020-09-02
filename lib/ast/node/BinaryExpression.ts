@@ -24,7 +24,7 @@ class BinaryExpression extends Node {
     return children[0]
   }
 
-  evaluate(env: Environment): any {
+  evaluate(env?: Environment): any {
     const leftValue = this.left.evaluate(env)
     const rightValue = this.right.evaluate(env)
 
@@ -43,6 +43,8 @@ class BinaryExpression extends Node {
         return leftValue == rightValue
       case TOKEN_TYPE.LESS_THAN:
         return leftValue < rightValue
+      case TOKEN_TYPE.LESS_EQUAL_THAN:
+        return leftValue <= rightValue
       case TOKEN_TYPE.GREATER_THAN:
         return leftValue > rightValue
       case TOKEN_TYPE.GREATER_EQUAL_THAN:
