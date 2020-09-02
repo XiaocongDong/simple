@@ -12,6 +12,10 @@ class StringLiteral extends Node {
     this.value = token.value.replace(/'/, '')
     return this
   }
+
+  evaluate(): any {
+    return this.value
+  }
 }
 
 export default StringLiteral

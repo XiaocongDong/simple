@@ -1,4 +1,4 @@
-import Environment from "../runtime/Environment"
+import Environment from "../Environment"
 
 const testKey = 'key'
 const testValue = 'value'

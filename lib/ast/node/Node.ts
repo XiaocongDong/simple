@@ -1,4 +1,5 @@
 import { ILocation } from "../../lexer/types/location"
+import Environment from "../../runtime/Environment"
 
 class Node {
   loc: {
@@ -15,6 +16,10 @@ class Node {
     } else {
       return this
     }
+  }
+
+  evaluate(env?: Environment): any {
+    throw new Error('Child Class must implement its evaluate method')
   }
 }
 

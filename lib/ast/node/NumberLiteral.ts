@@ -11,6 +11,10 @@ class NumberLiteral extends Node {
     this.value = parseInt(token.token.value)
     return this
   }
+
+  evaluate(): any {
+    return this.value
+  }
 }
 
 export default NumberLiteral

@@ -1,5 +1,5 @@
-import TokenBuffer from '../lexer/TokenBuffer'
-import { IToken, TOKEN_TYPE } from '../lexer/types/token'
+import TokenBuffer from '../TokenBuffer'
+import { IToken, TOKEN_TYPE } from '../types/token'
 
 describe('TokenBuffer', () => {
   let tokenBuffer: TokenBuffer = null

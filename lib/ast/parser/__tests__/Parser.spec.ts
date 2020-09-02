@@ -1,9 +1,9 @@
-import TokenBuffer from "../lexer/TokenBuffer"
-import VariableStatement from '../ast/node/VariableStatement'
-import { IToken, TOKEN_TYPE } from "../lexer/types/token"
-import { LET } from "../constants"
-import rule from "../ast/parser/rule"
-import Parser from "../ast/parser/Parser"
+import TokenBuffer from "../../../lexer/TokenBuffer"
+import VariableStatement from '../../../ast/node/VariableStatement'
+import { IToken, TOKEN_TYPE } from "../../../lexer/types/token"
+import { LET } from "../../../constants"
+import rule from "../../../ast/parser/rule"
+import Parser from "../../../ast/parser/Parser"
 
 const testTokens: Array<IToken> = [
   {
