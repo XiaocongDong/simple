@@ -52,7 +52,7 @@ class UpdateExpression extends Node {
         throw Error(`Unrecognized operator ${this.operator}`)
     }
 
-    env.set(this.argument.name, nextValue)
+    env.set(this.argument.name, nextValue, false)
     return this.prefix ? nextValue : currentValue
   }
 }
