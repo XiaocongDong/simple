@@ -1,5 +1,4 @@
 import { ILocation } from "../../lexer/types/location"
-import { NODE_TYPE } from "../types/node"
 
 class Node {
   loc: {

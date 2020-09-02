@@ -20,19 +20,43 @@ const testCases: Array<{code: string, description: string}> = [
     description: 'it should parse postfix update expression statement',
   },
   {
-    code: `function(a, b, c) {
+    code: `let a = [];`,
+    description: 'it should parse empty array'
+  },
+  {
+    code: `let a = [1];`,
+    description: 'it should parse single element array'
+  },
+  {
+    code: `let a = [1, 2];`,
+    description: 'it should parse multi-elements array'
+  },
+  {
+    code: `let a = {};`,
+    description: 'it should parse empty object'
+  },
+  {
+    code: `let a = {a: 1};`,
+    description: 'it should parse single property element'
+  },
+  {
+    code: `let a = {outer: {inner: function(){}}, outer2: b};`,
+    description: 'it should parse nested object'
+  },
+  {
+    code: `function sum(a, b, c) {
 
     };`,
     description: 'it should parse function'
   },
   {
-    code: `function() {
+    code: `function sum() {
       let a = 10;
     };`,
     description: 'it should parse empty params function'
   },
   {
-    code: `function() {
+    code: `function sum() {
       let a = 1 + 1;
       return a;
     };`,
@@ -130,6 +154,18 @@ const testCases: Array<{code: string, description: string}> = [
       console.log(a);
     };`,
     description: 'it should parse for statement'
+  },
+  {
+    code: `    
+    function sum(a, b) {
+      return a + b;
+    };
+
+    for (let i = 0; i < 10; i++) {
+      console.log(sum(i, i+1));
+    };
+    `,
+    description: 'it should parse real program'
   }
 ]
 

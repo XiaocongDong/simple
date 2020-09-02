@@ -27,6 +27,9 @@ import ReturnStatement from "../ast/node/ReturnStatement"
 import UpdateExpression from "../ast/node/UpdateExpression"
 import ExpressionStatement from "../ast/node/ExpressionStatement"
 import ForStatement from "../ast/node/ForStatement"
+import ArrayExpression from "../ast/node/ArrayExpression"
+import ObjectExpression from "../ast/node/ObjectExpression"
+import FunctionExpression from "../ast/node/FunctionExpression"
 
 const booleanLiteral = rule(BooleanLiteral).or(
   rule().token(TOKEN_TYPE.TRUE),
@@ -71,15 +74,44 @@ const objectAccessExpression = rule(ObjectAccessExpression).ast(identifier).ast(
 
 const assignmentExpression = rule(AssignmentExpression).ast(identifier).separator(TOKEN_TYPE.ASSIGN)
 assignmentExpression.or(assignmentExpression, binaryExpression)
+const arrayExpression = rule(ArrayExpression)
+  .separator(TOKEN_TYPE.LEFT_SQUARE_BRACKET)
+  .option(
+    rule().ast(binaryExpression).repeat(
+      rule().separator(TOKEN_TYPE.COMMA).ast(binaryExpression)
+    )
+  )
+  .separator(TOKEN_TYPE.RIGHT_SQUARE_BRACKET)
+const objectExpression = rule(ObjectExpression)
+  .separator(TOKEN_TYPE.LEFT_CURLY_BRACE)
+  .option(
+    rule()
+      .ast(identifier)
+      .separator(TOKEN_TYPE.COLON)
+      .ast(binaryExpression)
+      .repeat(
+        rule()
+          .separator(TOKEN_TYPE.COMMA)
+          .ast(identifier)
+          .separator(TOKEN_TYPE.COLON)
+          .ast(binaryExpression)
+      )
+  )
+  .separator(TOKEN_TYPE.RIGHT_CURLY_BRACE)
 
+const functionDeclaration = rule(FunctionDeclaration)
+const functionExpression = rule(FunctionExpression)
 const factor = rule().or(
   rule()
     .separator(TOKEN_TYPE.LEFT_PAREN)
     .ast(binaryExpression)
     .separator(TOKEN_TYPE.RIGHT_PAREN),
+  functionExpression,
   prefixUpdateExpression,
   postfixUpdateExpression,
+  objectExpression,
   objectAccessExpression,
+  arrayExpression,
   identifier,
   stringLiteral,
   booleanLiteral,
@@ -130,7 +162,16 @@ const functionParams = rule(FunctionParams)
   .ast(identifier).repeat(
     rule().separator(TOKEN_TYPE.COMMA).ast(identifier)
   )
-const functionStatement = rule(FunctionDeclaration)
+functionDeclaration
+  .separator(TOKEN_TYPE.FUNCTION)
+  .ast(identifier)
+  .separator(TOKEN_TYPE.LEFT_PAREN)
+  .option(
+    functionParams
+  )
+  .separator(TOKEN_TYPE.RIGHT_PAREN)
+  .ast(blockStatement)
+functionExpression
   .separator(TOKEN_TYPE.FUNCTION)
   .separator(TOKEN_TYPE.LEFT_PAREN)
   .option(
@@ -138,6 +179,7 @@ const functionStatement = rule(FunctionDeclaration)
   )
   .separator(TOKEN_TYPE.RIGHT_PAREN)
   .ast(blockStatement)
+
 const whileStatement = rule(WhileStatement)
   .separator(TOKEN_TYPE.WHILE)
   .separator(TOKEN_TYPE.LEFT_PAREN)
@@ -173,7 +215,7 @@ statement
     whileStatement,
     ifStatement,
     forStatement,
-    functionStatement
+    functionDeclaration,
   )
 
 
