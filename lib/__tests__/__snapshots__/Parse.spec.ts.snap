@@ -145,6 +145,79 @@ StatementList {
 }
 `;
 
+exports[`parse it should parse break statement 1`] = `
+StatementList {
+  "loc": Object {
+    "end": Object {
+      "column": 5,
+      "line": 3,
+    },
+    "start": Object {
+      "column": 1,
+      "line": 1,
+    },
+  },
+  "statements": Array [
+    WhileStatement {
+      "body": BlockStatement {
+        "body": Array [
+          BreakStatement {
+            "loc": Object {
+              "end": Object {
+                "column": 11,
+                "line": 2,
+              },
+              "start": Object {
+                "column": 7,
+                "line": 2,
+              },
+            },
+            "type": "BREAK_STATEMENT",
+          },
+        ],
+        "loc": Object {
+          "end": Object {
+            "column": 5,
+            "line": 3,
+          },
+          "start": Object {
+            "column": 12,
+            "line": 1,
+          },
+        },
+        "type": "BLOCK_STATEMENT",
+      },
+      "loc": Object {
+        "end": Object {
+          "column": 5,
+          "line": 3,
+        },
+        "start": Object {
+          "column": 1,
+          "line": 1,
+        },
+      },
+      "test": BooleanLiteral {
+        "loc": Object {
+          "end": Object {
+            "column": 10,
+            "line": 1,
+          },
+          "start": Object {
+            "column": 7,
+            "line": 1,
+          },
+        },
+        "type": "BOOLEAN_LITERAL",
+        "value": true,
+      },
+      "type": "WHILE_STATEMENT",
+    },
+  ],
+  "type": "STATEMENT_LIST",
+}
+`;
+
 exports[`parse it should parse call expression 1`] = `
 StatementList {
   "loc": Object {

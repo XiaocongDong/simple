@@ -106,6 +106,12 @@ const testCases: Array<{code: string, description: string}> = [
 
     };`,
     description: 'it should parse while statement'
+  },
+  {
+    code: `while(true){
+      break;
+    };`,
+    description: 'it should parse break statement'
   }
 ]
 
