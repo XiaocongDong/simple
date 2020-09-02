@@ -181,7 +181,7 @@ Array [
         "line": 2,
       },
     },
-    "type": "IDENTIFIER",
+    "type": "RETURN",
     "value": "return",
   },
   Object {

@@ -64,8 +64,14 @@ exports[`Parser parse it should generate root node but no separator children nod
 ListNode {
   "children": Array [],
   "loc": Object {
-    "end": null,
-    "start": null,
+    "end": Object {
+      "column": 3,
+      "line": 0,
+    },
+    "start": Object {
+      "column": 1,
+      "line": 0,
+    },
   },
 }
 `;

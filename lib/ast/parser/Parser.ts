@@ -3,7 +3,7 @@ import SyntaxError from '../../errors/Syntax'
 import { TOKEN_TYPE, IToken } from '../../lexer/types/token'
 import Node from '../node/Node'
 import ListNode from '../node/ListNode'
-import Operators from '../Operators'
+import Operators from './Operators'
 import SyntaxNode from './SyntaxNode'
 import SeparatorNode from './SeparatorNode'
 import TokenNode from './TokenNode'
@@ -27,7 +27,7 @@ class Parser {
   parse(tokenBuffer: TokenBuffer): Node {
     const node = this.NodeClass ? new this.NodeClass() : new ListNode()
     const startCursor = tokenBuffer.getCursor()
-    let childrenNodes = []
+    let childrenNodes: Array<{shouldAddToTree: boolean, node: Node}> = []
     let isCritical = false
     let errMsg = null
 
@@ -50,15 +50,19 @@ class Parser {
       }
 
       const parsedNodes = syntaxNode.process(tokenBuffer)
-      if (!parsedNodes || (parsedNodes instanceof Array && !parsedNodes.length)) {
+      const normalizedNodes = parsedNodes ? (parsedNodes instanceof Array ? parsedNodes : [parsedNodes]) : []
+
+      if (normalizedNodes.length === 0) {
         if (!syntaxNode.isOptional) {
           handleNotMatch()
           return null
         }
       }
-      if (syntaxNode.shouldAddToTree && parsedNodes) {
-        childrenNodes = childrenNodes.concat(parsedNodes)
-      }
+
+      childrenNodes = childrenNodes.concat(normalizedNodes.map(node => ({
+        shouldAddToTree: syntaxNode.shouldAddToTree,
+        node
+      })))
     }
 
     // update node location info with children info
@@ -66,11 +70,15 @@ class Parser {
       const firstNode = childrenNodes[0]
       const lastNode = childrenNodes[childrenNodes.length - 1]
       
-      node.loc.start = firstNode.loc.start
-      node.loc.end = lastNode.loc.end
+      node.loc.start = firstNode.node.loc.start
+      node.loc.end = lastNode.node.loc.end
     }
 
-    return node.create(childrenNodes)
+    const addToTreeNodes = childrenNodes
+      .filter(({ shouldAddToTree }) => shouldAddToTree)
+      .map(({ node }) => node)
+  
+    return node.create(addToTreeNodes)
   }
 
   separator(sep: TOKEN_TYPE) {

@@ -1,6 +1,6 @@
 import Node from '../node/Node'
 import SyntaxNode from "./SyntaxNode"
-import Parser from "../Parser"
+import Parser from "./Parser"
 
 class RepeatNode extends SyntaxNode {
   isOptional = true

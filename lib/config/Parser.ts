@@ -1,4 +1,4 @@
-import rule from "../ast/rule"
+import rule from "../ast/parser/rule"
 import BooleanLiteral from "../ast/node/BooleanLiteral"
 import VariableModifier from "../ast/node/VariableModifier"
 import VariableDeclarator from "../ast/node/VariableDeclarator"
@@ -7,7 +7,7 @@ import NumberLiteral from "../ast/node/NumberLiteral"
 import StringLiteral from "../ast/node/StringLiteral"
 import BlockStatement from "../ast/node/BlockStatement"
 import IfStatement from "../ast/node/IfStatement"
-import Operators, { ASSOCIATIVITY } from "../ast/Operators"
+import Operators, { ASSOCIATIVITY } from "../ast/parser/Operators"
 import BinaryExpression from "../ast/node/BinaryExpression"
 import Identifier from "../ast/node/Identifier"
 
@@ -22,6 +22,8 @@ import FunctionCallTailer from "../ast/node/FunctionCallTailer"
 import ObjectAccessExpression from "../ast/node/ObjectAccessExpression"
 import AssignmentExpression from "../ast/node/AssignmentExpression"
 import WhileStatement from "../ast/node/WhileStatement"
+import BreakStatement from "../ast/node/BreakStatement"
+import ReturnStatement from "../ast/node/ReturnStatement"
 
 const booleanLiteral = rule(BooleanLiteral).or(
   rule().token(TOKEN_TYPE.TRUE),
@@ -88,6 +90,8 @@ const variableDeclarator = rule(VariableDeclarator)
 const variableStatement = rule(VariableStatement)
   .ast(variableModifier)
   .ast(variableDeclarator)
+const breakStatement = rule(BreakStatement).separator(TOKEN_TYPE.BREAK)
+const returnStatement = rule(ReturnStatement).separator(TOKEN_TYPE.RETURN).ast(binaryExpression)
 
 const statement = rule()
 
@@ -130,6 +134,8 @@ const whileStatement = rule(WhileStatement)
 
 statement
   .or(
+    breakStatement,
+    returnStatement,
     variableStatement,
     assignmentExpression,
     whileStatement,

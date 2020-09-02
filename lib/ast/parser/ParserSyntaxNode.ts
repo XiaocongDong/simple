@@ -1,5 +1,5 @@
 import Node from '../node/Node'
-import Parser from "../Parser"
+import Parser from "./Parser"
 import SyntaxNode from "./SyntaxNode"
 import TokenBuffer from "../../lexer/TokenBuffer"
 

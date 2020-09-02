@@ -1,7 +1,7 @@
 import Node from '../node/Node'
 import SyntaxNode from "./SyntaxNode"
-import Parser from "../Parser"
-import Operators, { IOperation } from "../Operators"
+import Parser from "./Parser"
+import Operators, { IOperation } from "./Operators"
 import TokenBuffer from '../../lexer/TokenBuffer'
 import SyntaxError from '../../errors/Syntax'
 import BinaryExpression from '../node/BinaryExpression'

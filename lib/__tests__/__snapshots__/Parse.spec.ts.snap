@@ -148,7 +148,10 @@ StatementList {
 exports[`parse it should parse call expression 1`] = `
 StatementList {
   "loc": Object {
-    "end": null,
+    "end": Object {
+      "column": 14,
+      "line": 1,
+    },
     "start": Object {
       "column": 1,
       "line": 1,
@@ -175,7 +178,10 @@ StatementList {
               "name": "call",
             },
             "loc": Object {
-              "end": null,
+              "end": Object {
+                "column": 14,
+                "line": 1,
+              },
               "start": Object {
                 "column": 9,
                 "line": 1,
@@ -184,7 +190,10 @@ StatementList {
             "type": "CALL_EXPRESSION",
           },
           "loc": Object {
-            "end": null,
+            "end": Object {
+              "column": 14,
+              "line": 1,
+            },
             "start": Object {
               "column": 5,
               "line": 1,
@@ -195,7 +204,10 @@ StatementList {
       ],
       "kind": "LET",
       "loc": Object {
-        "end": null,
+        "end": Object {
+          "column": 14,
+          "line": 1,
+        },
         "start": Object {
           "column": 1,
           "line": 1,
@@ -382,12 +394,12 @@ exports[`parse it should parse empty params function 1`] = `
 StatementList {
   "loc": Object {
     "end": Object {
-      "column": 16,
-      "line": 2,
+      "column": 5,
+      "line": 3,
     },
     "start": Object {
-      "column": 7,
-      "line": 2,
+      "column": 1,
+      "line": 1,
     },
   },
   "statements": Array [
@@ -441,24 +453,24 @@ StatementList {
         ],
         "loc": Object {
           "end": Object {
-            "column": 16,
-            "line": 2,
+            "column": 5,
+            "line": 3,
           },
           "start": Object {
-            "column": 7,
-            "line": 2,
+            "column": 12,
+            "line": 1,
           },
         },
         "type": "BLOCK_STATEMENT",
       },
       "loc": Object {
         "end": Object {
-          "column": 16,
-          "line": 2,
+          "column": 5,
+          "line": 3,
         },
         "start": Object {
-          "column": 7,
-          "line": 2,
+          "column": 1,
+          "line": 1,
         },
       },
       "params": Array [],
@@ -617,9 +629,12 @@ StatementList {
 exports[`parse it should parse expression in if statement 1`] = `
 StatementList {
   "loc": Object {
-    "end": null,
+    "end": Object {
+      "column": 5,
+      "line": 2,
+    },
     "start": Object {
-      "column": 4,
+      "column": 1,
       "line": 1,
     },
   },
@@ -628,15 +643,24 @@ StatementList {
       "consequent": BlockStatement {
         "body": Array [],
         "loc": Object {
-          "end": null,
-          "start": null,
+          "end": Object {
+            "column": 5,
+            "line": 2,
+          },
+          "start": Object {
+            "column": 22,
+            "line": 1,
+          },
         },
         "type": "BLOCK_STATEMENT",
       },
       "loc": Object {
-        "end": null,
+        "end": Object {
+          "column": 5,
+          "line": 2,
+        },
         "start": Object {
-          "column": 4,
+          "column": 1,
           "line": 1,
         },
       },
@@ -746,9 +770,12 @@ StatementList {
 exports[`parse it should parse function 1`] = `
 StatementList {
   "loc": Object {
-    "end": null,
+    "end": Object {
+      "column": 5,
+      "line": 3,
+    },
     "start": Object {
-      "column": 10,
+      "column": 1,
       "line": 1,
     },
   },
@@ -757,15 +784,24 @@ StatementList {
       "body": BlockStatement {
         "body": Array [],
         "loc": Object {
-          "end": null,
-          "start": null,
+          "end": Object {
+            "column": 5,
+            "line": 3,
+          },
+          "start": Object {
+            "column": 19,
+            "line": 1,
+          },
         },
         "type": "BLOCK_STATEMENT",
       },
       "loc": Object {
-        "end": null,
+        "end": Object {
+          "column": 5,
+          "line": 3,
+        },
         "start": Object {
-          "column": 10,
+          "column": 1,
           "line": 1,
         },
       },
@@ -881,11 +917,11 @@ exports[`parse it should parse if statement 1`] = `
 StatementList {
   "loc": Object {
     "end": Object {
-      "column": 16,
-      "line": 2,
+      "column": 5,
+      "line": 3,
     },
     "start": Object {
-      "column": 4,
+      "column": 1,
       "line": 1,
     },
   },
@@ -940,23 +976,23 @@ StatementList {
         ],
         "loc": Object {
           "end": Object {
-            "column": 16,
-            "line": 2,
+            "column": 5,
+            "line": 3,
           },
           "start": Object {
-            "column": 7,
-            "line": 2,
+            "column": 10,
+            "line": 1,
           },
         },
         "type": "BLOCK_STATEMENT",
       },
       "loc": Object {
         "end": Object {
-          "column": 16,
-          "line": 2,
+          "column": 5,
+          "line": 3,
         },
         "start": Object {
-          "column": 4,
+          "column": 1,
           "line": 1,
         },
       },
@@ -1244,7 +1280,7 @@ StatementList {
               },
               "loc": Object {
                 "end": Object {
-                  "column": 19,
+                  "column": 20,
                   "line": 1,
                 },
                 "start": Object {
@@ -2246,9 +2282,12 @@ StatementList {
 exports[`parse it should parse while statement 1`] = `
 StatementList {
   "loc": Object {
-    "end": null,
+    "end": Object {
+      "column": 5,
+      "line": 3,
+    },
     "start": Object {
-      "column": 7,
+      "column": 1,
       "line": 1,
     },
   },
@@ -2257,15 +2296,24 @@ StatementList {
       "body": BlockStatement {
         "body": Array [],
         "loc": Object {
-          "end": null,
-          "start": null,
+          "end": Object {
+            "column": 5,
+            "line": 3,
+          },
+          "start": Object {
+            "column": 11,
+            "line": 1,
+          },
         },
         "type": "BLOCK_STATEMENT",
       },
       "loc": Object {
-        "end": null,
+        "end": Object {
+          "column": 5,
+          "line": 3,
+        },
         "start": Object {
-          "column": 7,
+          "column": 1,
           "line": 1,
         },
       },

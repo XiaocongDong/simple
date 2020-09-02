@@ -1,4 +1,4 @@
-import { TOKEN_TYPE } from "../lexer/types/token"
+import { TOKEN_TYPE } from "../../lexer/types/token"
 
 export enum ASSOCIATIVITY {
   LEFT = 'LEFT',

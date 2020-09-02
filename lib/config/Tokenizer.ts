@@ -1,6 +1,6 @@
 import { IConfig } from "../lexer/types/Tokenizer";
 import { TOKEN_TYPE } from "../lexer/types/token";
-import { LET, CONST, BREAK, CONTINUE, IF, ELSE, WHILE, FUNCTION, UNDEFINED, NULL, TRUE, FALSE, NEW } from "../constants";
+import { LET, CONST, BREAK, CONTINUE, IF, ELSE, WHILE, FUNCTION, UNDEFINED, NULL, TRUE, FALSE, NEW, RETURN } from "../constants";
 
 enum State {
   INITIAL = 'INITIAL',
@@ -58,7 +58,8 @@ const keywordTokenTypeLookup: {[k: string]: TOKEN_TYPE} = {
   [NULL]: TOKEN_TYPE.NULL,
   [TRUE]: TOKEN_TYPE.TRUE,
   [FALSE]: TOKEN_TYPE.FALSE,
-  [NEW]: TOKEN_TYPE.NEW
+  [NEW]: TOKEN_TYPE.NEW,
+  [RETURN]: TOKEN_TYPE.RETURN
 }
 
 const keywordChecker = (value) => {

@@ -1,5 +1,5 @@
 import Parser from "./Parser";
-import Node from './node/Node'
+import Node from '../node/Node'
 
 const rule = (NodeClass?: new () => Node): Parser => {
   return new Parser(NodeClass)
