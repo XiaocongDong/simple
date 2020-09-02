@@ -2217,6 +2217,150 @@ StatementList {
 }
 `;
 
+exports[`parse it should parse return statement 1`] = `
+StatementList {
+  "loc": Object {
+    "end": Object {
+      "column": 5,
+      "line": 4,
+    },
+    "start": Object {
+      "column": 1,
+      "line": 1,
+    },
+  },
+  "statements": Array [
+    FunctionDeclaration {
+      "body": BlockStatement {
+        "body": Array [
+          VariableStatement {
+            "declarations": Array [
+              VariableDeclarator {
+                "id": "a",
+                "init": BinaryExpression {
+                  "left": NumberLiteral {
+                    "loc": Object {
+                      "end": Object {
+                        "column": 15,
+                        "line": 2,
+                      },
+                      "start": Object {
+                        "column": 15,
+                        "line": 2,
+                      },
+                    },
+                    "type": "NUMBER_LITERAL",
+                    "value": 1,
+                  },
+                  "loc": Object {
+                    "end": Object {
+                      "column": 19,
+                      "line": 2,
+                    },
+                    "start": Object {
+                      "column": 15,
+                      "line": 2,
+                    },
+                  },
+                  "operator": "PLUS",
+                  "right": NumberLiteral {
+                    "loc": Object {
+                      "end": Object {
+                        "column": 19,
+                        "line": 2,
+                      },
+                      "start": Object {
+                        "column": 19,
+                        "line": 2,
+                      },
+                    },
+                    "type": "NUMBER_LITERAL",
+                    "value": 1,
+                  },
+                  "type": "BINARY_EXPRESSION",
+                },
+                "loc": Object {
+                  "end": Object {
+                    "column": 19,
+                    "line": 2,
+                  },
+                  "start": Object {
+                    "column": 11,
+                    "line": 2,
+                  },
+                },
+                "type": "VARIABLE_DECLARATOR",
+              },
+            ],
+            "kind": "LET",
+            "loc": Object {
+              "end": Object {
+                "column": 19,
+                "line": 2,
+              },
+              "start": Object {
+                "column": 7,
+                "line": 2,
+              },
+            },
+            "type": "VARIABLE_STATEMENT",
+          },
+          ReturnStatement {
+            "argument": Identifier {
+              "loc": Object {
+                "end": Object {
+                  "column": 14,
+                  "line": 3,
+                },
+                "start": Object {
+                  "column": 14,
+                  "line": 3,
+                },
+              },
+              "name": "a",
+            },
+            "loc": Object {
+              "end": Object {
+                "column": 14,
+                "line": 3,
+              },
+              "start": Object {
+                "column": 7,
+                "line": 3,
+              },
+            },
+            "type": "RETURN_STATEMENT",
+          },
+        ],
+        "loc": Object {
+          "end": Object {
+            "column": 5,
+            "line": 4,
+          },
+          "start": Object {
+            "column": 12,
+            "line": 1,
+          },
+        },
+        "type": "BLOCK_STATEMENT",
+      },
+      "loc": Object {
+        "end": Object {
+          "column": 5,
+          "line": 4,
+        },
+        "start": Object {
+          "column": 1,
+          "line": 1,
+        },
+      },
+      "params": Array [],
+    },
+  ],
+  "type": "STATEMENT_LIST",
+}
+`;
+
 exports[`parse it should parse string expression 1`] = `
 StatementList {
   "loc": Object {

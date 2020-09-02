@@ -24,6 +24,13 @@ const testCases: Array<{code: string, description: string}> = [
     description: 'it should parse empty params function'
   },
   {
+    code: `function() {
+      let a = 1 + 1;
+      return a;
+    };`,
+    description: 'it should parse return statement'
+  },
+  {
     code: `let a = 'hello world';`,
     description: 'it should parse string expression'
   },
