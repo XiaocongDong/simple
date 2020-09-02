@@ -1408,6 +1408,137 @@ StatementList {
 }
 `;
 
+exports[`parse it should parse mixed update and binary expression 1`] = `
+StatementList {
+  "loc": Object {
+    "end": Object {
+      "column": 20,
+      "line": 1,
+    },
+    "start": Object {
+      "column": 1,
+      "line": 1,
+    },
+  },
+  "statements": Array [
+    VariableStatement {
+      "declarations": Array [
+        VariableDeclarator {
+          "id": "a",
+          "init": BinaryExpression {
+            "left": Identifier {
+              "loc": Object {
+                "end": Object {
+                  "column": 9,
+                  "line": 1,
+                },
+                "start": Object {
+                  "column": 9,
+                  "line": 1,
+                },
+              },
+              "name": "b",
+            },
+            "loc": Object {
+              "end": Object {
+                "column": 20,
+                "line": 1,
+              },
+              "start": Object {
+                "column": 9,
+                "line": 1,
+              },
+            },
+            "operator": "PLUS",
+            "right": BinaryExpression {
+              "left": UpdateExpression {
+                "argument": Identifier {
+                  "loc": Object {
+                    "end": Object {
+                      "column": 13,
+                      "line": 1,
+                    },
+                    "start": Object {
+                      "column": 13,
+                      "line": 1,
+                    },
+                  },
+                  "name": "a",
+                },
+                "loc": Object {
+                  "end": Object {
+                    "column": 15,
+                    "line": 1,
+                  },
+                  "start": Object {
+                    "column": 13,
+                    "line": 1,
+                  },
+                },
+                "operator": "PLUS_PLUS",
+                "prefix": false,
+                "type": "UPDATE_EXPRESSION",
+              },
+              "loc": Object {
+                "end": Object {
+                  "column": 20,
+                  "line": 1,
+                },
+                "start": Object {
+                  "column": 13,
+                  "line": 1,
+                },
+              },
+              "operator": "MULTIPLY",
+              "right": NumberLiteral {
+                "loc": Object {
+                  "end": Object {
+                    "column": 20,
+                    "line": 1,
+                  },
+                  "start": Object {
+                    "column": 19,
+                    "line": 1,
+                  },
+                },
+                "type": "NUMBER_LITERAL",
+                "value": 10,
+              },
+              "type": "BINARY_EXPRESSION",
+            },
+            "type": "BINARY_EXPRESSION",
+          },
+          "loc": Object {
+            "end": Object {
+              "column": 20,
+              "line": 1,
+            },
+            "start": Object {
+              "column": 5,
+              "line": 1,
+            },
+          },
+          "type": "VARIABLE_DECLARATOR",
+        },
+      ],
+      "kind": "LET",
+      "loc": Object {
+        "end": Object {
+          "column": 20,
+          "line": 1,
+        },
+        "start": Object {
+          "column": 1,
+          "line": 1,
+        },
+      },
+      "type": "VARIABLE_STATEMENT",
+    },
+  ],
+  "type": "STATEMENT_LIST",
+}
+`;
+
 exports[`parse it should parse number add 1`] = `
 StatementList {
   "loc": Object {
@@ -2284,6 +2415,124 @@ StatementList {
         },
       },
       "type": "VARIABLE_STATEMENT",
+    },
+  ],
+  "type": "STATEMENT_LIST",
+}
+`;
+
+exports[`parse it should parse postfix update expression statement 1`] = `
+StatementList {
+  "loc": Object {
+    "end": Object {
+      "column": 3,
+      "line": 1,
+    },
+    "start": Object {
+      "column": 1,
+      "line": 1,
+    },
+  },
+  "statements": Array [
+    ExpressionStatement {
+      "expression": UpdateExpression {
+        "argument": Identifier {
+          "loc": Object {
+            "end": Object {
+              "column": 1,
+              "line": 1,
+            },
+            "start": Object {
+              "column": 1,
+              "line": 1,
+            },
+          },
+          "name": "a",
+        },
+        "loc": Object {
+          "end": Object {
+            "column": 3,
+            "line": 1,
+          },
+          "start": Object {
+            "column": 1,
+            "line": 1,
+          },
+        },
+        "operator": "PLUS_PLUS",
+        "prefix": false,
+        "type": "UPDATE_EXPRESSION",
+      },
+      "loc": Object {
+        "end": Object {
+          "column": 3,
+          "line": 1,
+        },
+        "start": Object {
+          "column": 1,
+          "line": 1,
+        },
+      },
+      "type": "EXPRESSION_STATEMENT",
+    },
+  ],
+  "type": "STATEMENT_LIST",
+}
+`;
+
+exports[`parse it should parse prefix update expression statement 1`] = `
+StatementList {
+  "loc": Object {
+    "end": Object {
+      "column": 3,
+      "line": 1,
+    },
+    "start": Object {
+      "column": 1,
+      "line": 1,
+    },
+  },
+  "statements": Array [
+    ExpressionStatement {
+      "expression": UpdateExpression {
+        "argument": Identifier {
+          "loc": Object {
+            "end": Object {
+              "column": 3,
+              "line": 1,
+            },
+            "start": Object {
+              "column": 3,
+              "line": 1,
+            },
+          },
+          "name": "a",
+        },
+        "loc": Object {
+          "end": Object {
+            "column": 3,
+            "line": 1,
+          },
+          "start": Object {
+            "column": 1,
+            "line": 1,
+          },
+        },
+        "operator": "PLUS_PLUS",
+        "prefix": true,
+        "type": "UPDATE_EXPRESSION",
+      },
+      "loc": Object {
+        "end": Object {
+          "column": 3,
+          "line": 1,
+        },
+        "start": Object {
+          "column": 1,
+          "line": 1,
+        },
+      },
+      "type": "EXPRESSION_STATEMENT",
     },
   ],
   "type": "STATEMENT_LIST",

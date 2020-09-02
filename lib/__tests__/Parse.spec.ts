@@ -12,6 +12,14 @@ const testCases: Array<{code: string, description: string}> = [
     description: 'it should parse identifier'
   },
   {
+    code: `++a;`,
+    description: 'it should parse prefix update expression statement',
+  },
+  {
+    code: `a++;`,
+    description: 'it should parse postfix update expression statement',
+  },
+  {
     code: `function(a, b, c) {
 
     };`,
@@ -49,6 +57,10 @@ const testCases: Array<{code: string, description: string}> = [
   {
     code: `let a = arr[10].a[11].c;`,
     description: 'it should parse mixed bracket and dot member expression'
+  },
+  {
+    code: `let a = b + a++ * 10;`,
+    description: 'it should parse mixed update and binary expression'
   },
   {
     code: 'let a = arr[10](1,2).a;',

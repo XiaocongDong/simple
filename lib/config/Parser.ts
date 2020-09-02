@@ -24,6 +24,8 @@ import AssignmentExpression from "../ast/node/AssignmentExpression"
 import WhileStatement from "../ast/node/WhileStatement"
 import BreakStatement from "../ast/node/BreakStatement"
 import ReturnStatement from "../ast/node/ReturnStatement"
+import UpdateExpression from "../ast/node/UpdateExpression"
+import ExpressionStatement from "../ast/node/ExpressionStatement"
 
 const booleanLiteral = rule(BooleanLiteral).or(
   rule().token(TOKEN_TYPE.TRUE),
@@ -44,6 +46,14 @@ operators.add(TOKEN_TYPE.MINUS, 3, ASSOCIATIVITY.LEFT)
 operators.add(TOKEN_TYPE.MULTIPLY, 4, ASSOCIATIVITY.LEFT)
 operators.add(TOKEN_TYPE.DIVIDE, 4, ASSOCIATIVITY.LEFT)
 
+const prefixUpdateExpression = rule(UpdateExpression).ast(identifier).or(
+  rule().token(TOKEN_TYPE.PLUS_PLUS),
+  rule().token(TOKEN_TYPE.MINUS_MINUS)
+)
+const postfixUpdateExpression = rule(UpdateExpression).or(
+  rule().token(TOKEN_TYPE.PLUS_PLUS),
+  rule().token(TOKEN_TYPE.MINUS_MINUS)
+).ast(identifier)
 const binaryExpression = rule(BinaryExpression)
 const memberAccessTailer = rule(MemberAccessTailer).or(
   rule().separator(TOKEN_TYPE.LEFT_SQUARE_BRACKET).ast(binaryExpression).separator(TOKEN_TYPE.RIGHT_SQUARE_BRACKET),
@@ -66,6 +76,8 @@ const factor = rule().or(
     .separator(TOKEN_TYPE.LEFT_PAREN)
     .ast(binaryExpression)
     .separator(TOKEN_TYPE.RIGHT_PAREN),
+  prefixUpdateExpression,
+  postfixUpdateExpression,
   objectAccessExpression,
   identifier,
   stringLiteral,
@@ -131,11 +143,16 @@ const whileStatement = rule(WhileStatement)
   .ast(binaryExpression)
   .separator(TOKEN_TYPE.RIGHT_PAREN)
   .ast(blockStatement)
+const expressionStatement = rule(ExpressionStatement).or(
+  prefixUpdateExpression,
+  postfixUpdateExpression
+)
 
 statement
   .or(
     breakStatement,
     returnStatement,
+    expressionStatement,
     variableStatement,
     assignmentExpression,
     whileStatement,
