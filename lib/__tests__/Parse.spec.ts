@@ -36,6 +36,10 @@ const testCases: Array<{code: string, description: string}> = [
     description: 'it should parse dot member expression'
   },
   {
+    code: `let a = call();`,
+    description: 'it should parse call expression'
+  },
+  {
     code: `let a = arr[10].a[11].c;`,
     description: 'it should parse mixed bracket and dot member expression'
   },
@@ -92,7 +96,7 @@ const testCases: Array<{code: string, description: string}> = [
   },
   {
     code: `while(1+1){
-      
+
     };`,
     description: 'it should parse while statement'
   }

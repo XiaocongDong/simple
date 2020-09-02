@@ -145,6 +145,69 @@ StatementList {
 }
 `;
 
+exports[`parse it should parse call expression 1`] = `
+StatementList {
+  "loc": Object {
+    "end": null,
+    "start": Object {
+      "column": 1,
+      "line": 1,
+    },
+  },
+  "statements": Array [
+    VariableStatement {
+      "declarations": Array [
+        VariableDeclarator {
+          "id": "a",
+          "init": CallExpression {
+            "arguments": Array [],
+            "callee": Identifier {
+              "loc": Object {
+                "end": Object {
+                  "column": 12,
+                  "line": 1,
+                },
+                "start": Object {
+                  "column": 9,
+                  "line": 1,
+                },
+              },
+              "name": "call",
+            },
+            "loc": Object {
+              "end": null,
+              "start": Object {
+                "column": 9,
+                "line": 1,
+              },
+            },
+            "type": "CALL_EXPRESSION",
+          },
+          "loc": Object {
+            "end": null,
+            "start": Object {
+              "column": 5,
+              "line": 1,
+            },
+          },
+          "type": "VARIABLE_DECLARATOR",
+        },
+      ],
+      "kind": "LET",
+      "loc": Object {
+        "end": null,
+        "start": Object {
+          "column": 1,
+          "line": 1,
+        },
+      },
+      "type": "VARIABLE_STATEMENT",
+    },
+  ],
+  "type": "STATEMENT_LIST",
+}
+`;
+
 exports[`parse it should parse chaining assignment 1`] = `
 StatementList {
   "loc": Object {
