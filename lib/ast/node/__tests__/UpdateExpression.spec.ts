@@ -12,7 +12,7 @@ beforeAll(() => {
   updateExpression.argument = new Identifier()
   updateExpression.argument.evaluate = jest.fn().mockReturnValue(currentValue)
   environment = new Environment()
-  environment.set = jest.fn()
+  environment.update = jest.fn()
 })
 
 describe('UpdateExpression', () => {

@@ -4,21 +4,23 @@ const testKey = 'key'
 const testValue = 'value'
 
 describe('environment', () => {
-  describe('set', () => {
-    it('it should set the value with key', () => {
+  describe('create', () => {
+    it('it should create the value with key', () => {
       const env = new Environment() as any
-      env.set(testKey, testValue)
+      env.create(testKey, testValue)
 
       expect(env.values).toEqual({[testKey]: testValue})
     })
+  })
 
-    it('it should set the parent values if key is not in current environment when isCreate is false', () => {
+  describe('update', () => {
+    it('it should update the parent values if key is not in current environment', () => {
       const parentEnv = new Environment() as any
       parentEnv.values = {[testKey]: testValue}
       const env = new Environment(parentEnv) as any
 
       const newValue = 'newValue'
-      env.set(testKey, newValue, false)
+      env.update(testKey, newValue)
 
       expect(env.values).toEqual({})
       expect(parentEnv.values).toEqual({[testKey]: newValue})

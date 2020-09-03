@@ -1,4 +1,4 @@
-import RuntimeError from "../errors/Runtime"
+import CallStack from "./CallStack"
 
 class Environment {
   private parent: Environment = null
@@ -8,21 +8,21 @@ class Environment {
     this.parent = env
   }
 
-  set(key: string, value: any, isCreate = true) {
-    if (isCreate) {
-      if(this.values.hasOwnProperty(key)) {
-        throw new Error(`${key} has been initialized`)
-      }
-      this.values[key] = value
-    } else {
-      const matchedEnvironment = this.getEnvironmentWithKey(key)
-      if (!matchedEnvironment) {
-        throw new Error(`${key} hasn't been defined`)
-      }
-      matchedEnvironment.values = {
-        ...matchedEnvironment.values,
-        [key]: value
-      }
+  create(key: string, value: any) {
+    if(this.values.hasOwnProperty(key)) {
+      throw new Error(`${key} has been initialized`)
+    }
+    this.values[key] = value
+  }
+
+  update(key: string, value: any) {
+    const matchedEnvironment = this.getEnvironmentWithKey(key)
+    if (!matchedEnvironment) {
+      throw new Error(`${key} hasn't been defined`)
+    }
+    matchedEnvironment.values = {
+      ...matchedEnvironment.values,
+      [key]: value
     }
   }
 

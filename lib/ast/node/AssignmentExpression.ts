@@ -24,7 +24,7 @@ class AssignmentExpression extends Node {
 
   evaluate(env: Environment): any {
     if (this.left instanceof Identifier) {
-      env.set(this.left.name, this.right.evaluate(env), false)
+      env.update(this.left.name, this.right.evaluate(env))
     } else if (this.left instanceof MemberExpression) {
       const value = this.left.object.evaluate()
 

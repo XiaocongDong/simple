@@ -22,7 +22,7 @@ class VariableDeclarator extends Node {
   }
 
   evaluate(env: Environment): any {
-    env.set(this.id, this.init.evaluate(env))
+    env.create(this.id, this.init.evaluate(env))
   }
 }
 
