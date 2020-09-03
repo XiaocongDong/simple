@@ -1,32 +1,24 @@
 import Node from './Node'
-import Identifier from './Identifier'
-import AccessExpression from './AccessExpression'
+import Environment from '../../runtime/Environment'
+import RuntimeError from '../../errors/Runtime'
 
 class MemberExpression extends Node {
   object: Node
   property: Node
 
-  create(children: Array<Node>): Node {
-    let currentNode = new MemberExpression()
-    const identifier = children[0] as Identifier
-    const accessExpression = children[1] as AccessExpression
+  evaluate(env: Environment): any {
+    const object = this.object.evaluate(env)
+    const key = this.property.evaluate(env)
 
-    currentNode.object = identifier
-    currentNode.property = accessExpression.property
-    currentNode.loc.start = identifier.loc.start
-    currentNode.loc.end = accessExpression.loc.end
+    let value
 
-    for(let i = 2; i < children.length; i++) {
-      const memberExpression = new MemberExpression()
-      const accessExpression = children[i] as AccessExpression
-      memberExpression.object = currentNode
-      memberExpression.property = accessExpression.property
-      memberExpression.loc.start = currentNode.loc.start
-      memberExpression.loc.end = currentNode.loc.end
-      currentNode = memberExpression
+    try {
+      value = object[key]
+    } catch (e) {
+      throw new RuntimeError(`${e.message}`, this.object.loc.start)
     }
 
-    return currentNode
+    return value
   }
 }
 

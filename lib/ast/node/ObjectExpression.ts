@@ -1,11 +1,14 @@
 import Node from './Node'
 import { NODE_TYPE } from '../types/node'
 import ListNode from './ListNode'
+import Environment from '../../runtime/Environment'
+import Identifier from './Identifier'
+import BinaryExpression from './BinaryExpression'
 
-class Property extends Node {
+export class Property extends Node {
   type: NODE_TYPE = NODE_TYPE.PROPERTY
-  key: Node
-  value: Node
+  key: Identifier
+  value: BinaryExpression
 
   create(children: Array<Node>): Node {
     return this
@@ -25,8 +28,8 @@ class ObjectExpression extends Node {
     
     if (listNode.children.length) {
       const property = new Property()
-      const key = listNode.children[0]
-      const value = listNode.children[1]
+      const key = listNode.children[0] as Identifier
+      const value = listNode.children[1] as BinaryExpression
       property.key = key
       property.value = value
       property.loc.start = key.loc.start
@@ -39,8 +42,8 @@ class ObjectExpression extends Node {
         let index = 0
         while(index < trailListNodeChildren.length) {
           const property = new Property()
-          const key = trailListNodeChildren[index]
-          const value = trailListNodeChildren[index + 1]
+          const key = trailListNodeChildren[index] as Identifier
+          const value = trailListNodeChildren[index + 1] as BinaryExpression
 
           property.key = key
           property.value = value
@@ -54,6 +57,16 @@ class ObjectExpression extends Node {
     }
 
     return this
+  }
+
+  evaluate(env: Environment): any {
+    let result = {}
+
+    for (let property of this.properties) {
+      result[property.key.name] = property.value.evaluate(env)
+    }
+    
+    return result
   }
 }
 

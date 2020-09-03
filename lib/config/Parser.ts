@@ -72,7 +72,10 @@ const functionCallTailer = rule(FunctionCallTailer).separator(TOKEN_TYPE.LEFT_PA
 const accessTailer = rule().or(memberAccessTailer, functionCallTailer)
 const objectAccessExpression = rule(ObjectAccessExpression).ast(identifier).ast(accessTailer).repeat(accessTailer)
 
-const assignmentExpression = rule(AssignmentExpression).ast(identifier).separator(TOKEN_TYPE.ASSIGN)
+const assignmentExpression = rule(AssignmentExpression).or(
+  identifier,
+  objectAccessExpression
+).separator(TOKEN_TYPE.ASSIGN)
 assignmentExpression.or(assignmentExpression, binaryExpression)
 const arrayExpression = rule(ArrayExpression)
   .separator(TOKEN_TYPE.LEFT_SQUARE_BRACKET)

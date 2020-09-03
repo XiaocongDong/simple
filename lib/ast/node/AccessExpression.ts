@@ -1,6 +1,5 @@
 import Node from './Node'
 import { NODE_TYPE } from '../types/node'
-import ListNode from './ListNode'
 
 class AccessExpression extends Node {
   type: NODE_TYPE.ACCESS_EXPRESSION

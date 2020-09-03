@@ -1,16 +1,18 @@
 import Node from './Node'
 import { NODE_TYPE } from '../types/node'
-import BlockStatement from './BlockStatement'
 import FunctionParams from './FunctionParams'
+import Environment from '../../runtime/Environment'
+import Identifier from './Identifier'
 
 class FunctionDeclaration extends Node {
   type: NODE_TYPE.FUNCTION_DECLARATION
-  id: Node
+  id: Identifier
   params: Array<Node> = []
   body: Node
+  parentEnv: Environment
 
   create(children: Array<Node>): Node {
-    const name = children[0]
+    const name = children[0] as Identifier
     this.id = name
   
     const params = children[1]
@@ -21,6 +23,11 @@ class FunctionDeclaration extends Node {
       this.body = params
     }
     return this
+  }
+
+  evaluate(env: Environment): any {
+    env.set(this.id.name, this)
+    this.parentEnv = env
   }
 }
 

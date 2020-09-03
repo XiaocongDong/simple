@@ -2,6 +2,7 @@ import Node from './Node'
 import { NODE_TYPE } from '../types/node'
 import Token from './Token'
 import ListNode from './ListNode'
+import Environment from '../../runtime/Environment'
 
 class VariableDeclarator extends Node {
   type: NODE_TYPE = NODE_TYPE.VARIABLE_DECLARATOR
@@ -18,6 +19,10 @@ class VariableDeclarator extends Node {
     }
 
     return this
+  }
+
+  evaluate(env: Environment): any {
+    env.set(this.id, this.init.evaluate(env))
   }
 }
 
