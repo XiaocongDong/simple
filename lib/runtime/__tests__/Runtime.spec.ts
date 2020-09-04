@@ -1,6 +1,8 @@
 import { Runtime } from '../runtime'
 import Node from '../../ast/node/Node'
 import Environment from '../Environment'
+import BreakStatement from '../../ast/node/BreakStatement'
+import ReturnStatement from '../../ast/node/ReturnStatement'
 
 let runtime: Runtime = null
 
@@ -9,16 +11,40 @@ beforeEach(() => {
 })
 
 describe('runtime', () => {
-  describe('markFunctionCallPosition', () => {
-    // it('it should mark function call position', () => {
-    //   runtime.callStack.add(new Environment(), new Node())
-    //   runtime.markFunctionCallPosition()
-    //   expect(runtime)
-    // })
+  describe('isBreak', () => {
+    it('it should be set to true after executing the break statement', () => {
+      const environment = new Environment()
+      const breakStatement = new BreakStatement()
+      runtime.callStack.add(environment, breakStatement)
+      runtime.moveBackToLastIterationCallPosition = jest.fn()
+  
+      breakStatement.evaluate = jest.fn()
+
+      runtime.resume()
+  
+      expect(breakStatement.evaluate).toHaveBeenCalledTimes(1)
+      expect(runtime.moveBackToLastIterationCallPosition).toHaveBeenCalledTimes(1)
+      expect(runtime.isBreak).toBe(true)
+    })
   })
 
-  describe('moveBackToLastFunctionCallPosition', () => {
-    
+  describe('isReturn', () => {
+    it('it should be set to true after executing the return', () => {
+      const environment = new Environment()
+      const returnStatement = new ReturnStatement()
+      const mockValue = 1
+      returnStatement.evaluate = jest.fn().mockReturnValue(mockValue)
+      runtime.callStack.add(environment, returnStatement)
+      runtime.moveBackToLastFunctionCallPosition = jest.fn()
+  
+
+      runtime.resume()
+  
+      expect(returnStatement.evaluate).toHaveBeenCalledTimes(1)
+      expect(runtime.moveBackToLastFunctionCallPosition).toHaveBeenCalledTimes(1)
+      expect(runtime.getLastFunctionExecutionResult()).toEqual(mockValue)
+      expect(runtime.isReturn).toBe(true)
+    })
   })
 
   describe('markIterationCallPosition', () => {
