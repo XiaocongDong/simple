@@ -134,6 +134,14 @@ const testCases: Array<{code: string, description: string}> = [
     description: 'it should parse assignment'
   },
   {
+    code: `a += 10;`,
+    description: 'it should parse plus assignment',
+  },
+  {
+    code: `a -= 10;`,
+    description: 'it should parse minus assignment'
+  },
+  {
     code: `a = b = 10;`,
     description: 'it should parse chaining assignment'
   },

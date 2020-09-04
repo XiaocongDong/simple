@@ -230,6 +230,10 @@ const config: IConfig = {
         }
       ]
     },
+    [State.PLUS_ASSIGN]: {
+      isEnd: true,
+      TokenType: TOKEN_TYPE.PLUS_ASSIGN,
+    },
     [State.PLUS_PLUS]: {
       isEnd: true,
       TokenType: TOKEN_TYPE.PLUS_PLUS

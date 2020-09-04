@@ -1,8 +1,7 @@
-import parser from './lib/parser'
-import tokenizer from './lib/tokenizer'
+import * as fs from 'fs'
+import simple from './lib/simple'
 
-tokenizer.parse('function(a,b,c){};')
-const tokenBuffer = tokenizer.getTokenBuffer()
-console.log(tokenBuffer)
-console.log(parser(tokenBuffer))
+const code = fs.readFileSync('./tests/a.js', 'utf-8')
+simple(code)
+
 

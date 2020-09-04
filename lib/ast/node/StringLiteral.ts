@@ -9,7 +9,7 @@ class StringLiteral extends Node {
   create(children: Array<Node>): Node {
     const tokenNode = children[0] as Token
     const token = tokenNode.token
-    this.value = token.value.replace(/'/, '')
+    this.value = token.value.replace(/'/g, '')
     return this
   }
 

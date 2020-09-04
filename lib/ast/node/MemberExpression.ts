@@ -1,6 +1,7 @@
 import Node from './Node'
 import Environment from '../../runtime/Environment'
 import RuntimeError from '../../errors/Runtime'
+import Identifier from './Identifier'
 
 class MemberExpression extends Node {
   object: Node
@@ -8,7 +9,13 @@ class MemberExpression extends Node {
 
   evaluate(env: Environment): any {
     const object = this.object.evaluate(env)
-    const key = this.property.evaluate(env)
+    
+    let key
+    if (this.property instanceof Identifier) {
+      key = this.property.name
+    } else {
+      key = this.property.evaluate(env)
+    }
 
     let value
 

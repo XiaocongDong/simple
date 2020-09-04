@@ -75,7 +75,11 @@ const objectAccessExpression = rule(ObjectAccessExpression).ast(identifier).ast(
 const assignmentExpression = rule(AssignmentExpression).or(
   identifier,
   objectAccessExpression
-).separator(TOKEN_TYPE.ASSIGN)
+).or(
+  rule().token(TOKEN_TYPE.ASSIGN),
+  rule().token(TOKEN_TYPE.PLUS_ASSIGN),
+  rule().token(TOKEN_TYPE.MINUS_ASSIGN)
+)
 assignmentExpression.or(assignmentExpression, binaryExpression)
 const arrayExpression = rule(ArrayExpression)
   .separator(TOKEN_TYPE.LEFT_SQUARE_BRACKET)

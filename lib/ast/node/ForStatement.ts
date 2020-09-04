@@ -27,7 +27,7 @@ class ForStatement extends Node {
 
     runtime.markIterationCallPosition()
     this.init.evaluate(executeEnvironment)
-    while(!runtime.isBreak && !runtime.isReturn && this.test.evaluate()) {
+    while(!runtime.isBreak && !runtime.isReturn && this.test.evaluate(executeEnvironment)) {
       this.body.evaluate(executeEnvironment)
       this.update.evaluate(executeEnvironment)
     }

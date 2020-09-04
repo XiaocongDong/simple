@@ -17,7 +17,7 @@ export class Runtime {
     }
 
     const { environment, statement } = this.callStack.peek()
-  
+    // console.log(statement)
     const value = statement.evaluate(environment)
     if (statement instanceof ReturnStatement) {
       this._isReturn = true

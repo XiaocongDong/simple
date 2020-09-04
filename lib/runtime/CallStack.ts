@@ -6,8 +6,8 @@ class CallStack {
   cursor: number = -1
 
   add(environment: Environment, statement: Node) {
-    this.stacks.push({ environment, statement })
-    this.cursor = this.stacks.length - 1
+    this.cursor++
+    this.stacks[this.cursor] = { environment, statement }
   }
 
   peek(): {environment: Environment, statement: Node} {

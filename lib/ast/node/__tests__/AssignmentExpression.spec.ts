@@ -4,11 +4,13 @@ import Environment from "../../../runtime/Environment"
 import BinaryExpression from "../BinaryExpression"
 import MemberExpression from "../MemberExpression"
 import { Property } from "../ObjectExpression"
+import { TOKEN_TYPE } from "../../../lexer/types/token"
 
 describe('AssignmentExpression', () => {
   describe('evaluate', () => {
     it('it should set when left-hand is identifier', () => {
       const assignmentExpression = new AssignmentExpression()
+      assignmentExpression.assignType = TOKEN_TYPE.ASSIGN
       const leftHand = new Identifier()
       const rightHand = new BinaryExpression()
       assignmentExpression.left = leftHand
@@ -27,6 +29,7 @@ describe('AssignmentExpression', () => {
 
     it('it should set when left-handle is memberExpression', () => {
       const assignmentExpression = new AssignmentExpression()
+      assignmentExpression.assignType = TOKEN_TYPE.ASSIGN
       const leftHand = new MemberExpression()
       const rightHand = new BinaryExpression()
       const identifier = new Identifier()

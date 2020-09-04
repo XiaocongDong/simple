@@ -14,6 +14,7 @@ StatementList {
   },
   "statements": Array [
     AssignmentExpression {
+      "assignType": "ASSIGN",
       "left": Identifier {
         "loc": Object {
           "end": Object {
@@ -320,6 +321,7 @@ StatementList {
   },
   "statements": Array [
     AssignmentExpression {
+      "assignType": "ASSIGN",
       "left": Identifier {
         "loc": Object {
           "end": Object {
@@ -344,6 +346,7 @@ StatementList {
         },
       },
       "right": AssignmentExpression {
+        "assignType": "ASSIGN",
         "left": Identifier {
           "loc": Object {
             "end": Object {
@@ -1551,6 +1554,65 @@ StatementList {
         "value": true,
       },
       "type": "BOOLEAN_LITERAL",
+    },
+  ],
+  "type": "STATEMENT_LIST",
+}
+`;
+
+exports[`parse it should parse minus assignment 1`] = `
+StatementList {
+  "loc": Object {
+    "end": Object {
+      "column": 7,
+      "line": 1,
+    },
+    "start": Object {
+      "column": 1,
+      "line": 1,
+    },
+  },
+  "statements": Array [
+    AssignmentExpression {
+      "assignType": "MINUS_ASSIGN",
+      "left": Identifier {
+        "loc": Object {
+          "end": Object {
+            "column": 1,
+            "line": 1,
+          },
+          "start": Object {
+            "column": 1,
+            "line": 1,
+          },
+        },
+        "name": "a",
+      },
+      "loc": Object {
+        "end": Object {
+          "column": 7,
+          "line": 1,
+        },
+        "start": Object {
+          "column": 1,
+          "line": 1,
+        },
+      },
+      "right": NumberLiteral {
+        "loc": Object {
+          "end": Object {
+            "column": 7,
+            "line": 1,
+          },
+          "start": Object {
+            "column": 6,
+            "line": 1,
+          },
+        },
+        "type": "NUMBER_LITERAL",
+        "value": 10,
+      },
+      "type": "ASSIGNMENT_EXPRESSION",
     },
   ],
   "type": "STATEMENT_LIST",
@@ -3183,6 +3245,65 @@ StatementList {
 }
 `;
 
+exports[`parse it should parse plus assignment 1`] = `
+StatementList {
+  "loc": Object {
+    "end": Object {
+      "column": 7,
+      "line": 1,
+    },
+    "start": Object {
+      "column": 1,
+      "line": 1,
+    },
+  },
+  "statements": Array [
+    AssignmentExpression {
+      "assignType": "PLUS_ASSIGN",
+      "left": Identifier {
+        "loc": Object {
+          "end": Object {
+            "column": 1,
+            "line": 1,
+          },
+          "start": Object {
+            "column": 1,
+            "line": 1,
+          },
+        },
+        "name": "a",
+      },
+      "loc": Object {
+        "end": Object {
+          "column": 7,
+          "line": 1,
+        },
+        "start": Object {
+          "column": 1,
+          "line": 1,
+        },
+      },
+      "right": NumberLiteral {
+        "loc": Object {
+          "end": Object {
+            "column": 7,
+            "line": 1,
+          },
+          "start": Object {
+            "column": 6,
+            "line": 1,
+          },
+        },
+        "type": "NUMBER_LITERAL",
+        "value": 10,
+      },
+      "type": "ASSIGNMENT_EXPRESSION",
+    },
+  ],
+  "type": "STATEMENT_LIST",
+}
+`;
+
 exports[`parse it should parse postfix update expression statement 1`] = `
 StatementList {
   "loc": Object {
@@ -3388,6 +3509,7 @@ StatementList {
                     },
                     "statements": Array [
                       AssignmentExpression {
+                        "assignType": "ASSIGN",
                         "left": Identifier {
                           "loc": Object {
                             "end": Object {
@@ -4288,7 +4410,7 @@ StatementList {
               },
             },
             "type": "STRING_LITERAL",
-            "value": "hello world'",
+            "value": "hello world",
           },
           "loc": Object {
             "end": Object {

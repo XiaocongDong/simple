@@ -27,7 +27,7 @@ class FunctionExpression extends Node {
     return this
   }
 
-  call(args: Array<Node>): any {
+  call(args: Array<any>): any {
     if (this.params.length !== args.length) {
       throw new Error('function declared parameters are not matched with arguments')
     }
@@ -38,7 +38,7 @@ class FunctionExpression extends Node {
       const argument = args[i]
       const param = this.params[i]
 
-      callEnvironment.create(param.name, argument.evaluate())
+      callEnvironment.create(param.name, argument)
     }
 
     this.body.evaluate(callEnvironment)

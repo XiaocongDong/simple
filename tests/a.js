@@ -1,13 +1,11 @@
-function sumGenerator() {
-  let sum = 0;
-
-  return function (i) {
-    sum += i
-    return sum
+let a = 1;
+while(true) {
+  if (a < 10) {
+    console.log(a);
+    a += 1;
   };
-};
 
-const sum = sumGenerator();
-for(let i = 0; i <= 10; i++) {
-  console.log(sum(i));
+  if (a >= 10) {
+    break;
+  };
 };
