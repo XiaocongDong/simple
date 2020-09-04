@@ -4,6 +4,7 @@ import FunctionParams from './FunctionParams'
 import Environment from '../../runtime/Environment'
 import Identifier from './Identifier'
 import BlockStatement from './BlockStatement'
+import RuntimeError from '../../errors/Runtime'
 
 class FunctionDeclaration extends Node {
   type: NODE_TYPE.FUNCTION_DECLARATION
@@ -29,6 +30,23 @@ class FunctionDeclaration extends Node {
   evaluate(env: Environment): any {
     env.create(this.id.name, this)
     this.parentEnv = env
+  }
+
+  call(args: Array<Node>): any {
+    if (this.params.length !== args.length) {
+      throw new Error('function declared parameters are not matched with arguments')
+    }
+
+    const callEnvironment = new Environment(this.parentEnv)
+    // initialize environments with args
+    for (let i = 0; i < args.length; i++) {
+      const argument = args[i]
+      const param = this.params[i]
+
+      callEnvironment.create(param.name, argument.evaluate())
+    }
+
+    this.body.evaluate(callEnvironment)
   }
 }
 

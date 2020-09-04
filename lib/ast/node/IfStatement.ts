@@ -17,7 +17,8 @@ class IfStatement extends Node {
 
   evaluate(env: Environment): any {
     if (this.test.evaluate(env)) {
-      this.consequent.evaluate(env)
+      const executionEnvironment = new Environment(env)
+      this.consequent.evaluate(executionEnvironment)
     }
   }
 }

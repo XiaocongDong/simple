@@ -12,6 +12,10 @@ class BooleanLiteral extends Node {
     this.value = token.token.type === TOKEN_TYPE.FALSE ? false : true
     return this
   }
+
+  evaluate(): any {
+    return this.value
+  }
 }
 
 export default BooleanLiteral

@@ -13,9 +13,7 @@ class BlockStatement extends Node {
     return this
   }
 
-  evaluate(parentEnv: Environment): any {
-    // block statement will create an environment
-    const env = new Environment(parentEnv)
+  evaluate(env: Environment): any {
     this.body.evaluate(env)
   }
 }

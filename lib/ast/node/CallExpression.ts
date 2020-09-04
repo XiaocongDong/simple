@@ -13,27 +13,22 @@ class CallExpression extends Node {
   arguments: Array<Node>
 
   evaluate(env: Environment): any {
-    runtime.markFunctionCall()
+    runtime.markFunctionCallPosition()
 
-    const functionNode = env.get(this.callee.name) as FunctionDeclaration|FunctionExpression
-    const environment = new Environment(env)
-    
-    if (functionNode.params.length !== this.arguments.length) {
-      throw new RuntimeError('function declared parameters are not matched with arguments', this.callee.loc.end)
+    let functionNode: FunctionDeclaration|FunctionExpression = null
+    try {
+      functionNode = env.get(this.callee.name) as FunctionDeclaration|FunctionExpression
+    } catch(e) {
+      throw new RuntimeError(e.message, this.callee.loc.start)
     }
 
-    // initialize environments with arguments
-    for (let i = 0; i < this.arguments.length; i++) {
-      const argument = this.arguments[i]
-      const param = functionNode.params[i]
-
-      environment.create(param.name, argument.evaluate())
+    try {
+      functionNode.call(this.arguments)
+    } catch(e) {
+      throw new RuntimeError(e.message, this.callee.loc.start)
     }
-
-    functionNode.body.evaluate(environment)
 
     const result = runtime.getLastFunctionExecutionResult()
-    
     runtime.resetLastFunctionExecutionResult()
 
     return result

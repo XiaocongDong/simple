@@ -1,15 +1,15 @@
 import CallStack from "./CallStack"
 import ReturnStatement from "../ast/node/ReturnStatement"
-import WhileStatement from "../ast/node/WhileStatement"
-import ForStatement from "../ast/node/ForStatement"
+import BreakStatement from "../ast/node/BreakStatement"
+import RuntimeError from "../errors/Runtime"
 
-class Runtime {
+export class Runtime {
   callStack: CallStack = new CallStack()
-  private lastFunctionCall: number = -1
-  private lastFunctionExecutionResult: any = null
-  private lastIterationCall: number = null
-  isBreak = false
-  isReturn = false
+  private _lastFunctionCallPosition: number = -1
+  private _lastFunctionExecutionResult: any = null
+  private _lastIterationCallPosition: number = null
+  private _isBreak = false
+  private _isReturn = false
 
   resume(): any {
     if (this.callStack.isEmpty()) {
@@ -17,66 +17,78 @@ class Runtime {
     }
 
     const { environment, statement } = this.callStack.peek()
+  
     const value = statement.evaluate(environment)
     if (statement instanceof ReturnStatement) {
-      this.lastFunctionExecutionResult = value
-      this.moveBackToLastFunctionCall()
-      // return control 
+      this._isReturn = true
+      this._lastFunctionExecutionResult = value
+      try {
+       this.moveBackToLastFunctionCallPosition()
+      } catch (e) {
+        throw new RuntimeError(e.message, statement.loc.start)
+      }
       return
     }
 
-    if (statement instanceof WhileStatement || statement instanceof ForStatement) {
-      this.isBreak = true
-      this.moveBackToLastIterationCall()
+    if (statement instanceof BreakStatement) {
+      this._isBreak = true
+      try {
+        this.moveBackToLastIterationCallPosition()
+      } catch(e) {
+        throw new RuntimeError(e.message, statement.loc.start)
+      }
       return
     }
 
     this.callStack.pop()
   }
 
-  setLastFunctionExecutionResult(result: any) {
-    this.isReturn = true
-    this.lastFunctionExecutionResult = result
-  }
-
   getLastFunctionExecutionResult(): any {
-    return this.lastFunctionExecutionResult
+    return this._lastFunctionExecutionResult
   }
 
   resetLastFunctionExecutionResult() {
-    this.isReturn = false
-    this.lastFunctionExecutionResult = null
+    this._isReturn = false
+    this._lastFunctionExecutionResult = null
   }
 
-  markFunctionCall() {
-    this.lastFunctionCall = this.callStack.getCursor()
+  markFunctionCallPosition() {
+    this._lastFunctionCallPosition = this.callStack.getCursor()
   }
 
-  markIterationCall() {
-    this.lastIterationCall = this.callStack.getCursor()
+  markIterationCallPosition() {
+    this._lastIterationCallPosition = this.callStack.getCursor()
   }
 
-  moveBackToLastFunctionCall() {
-    if (this.lastFunctionCall == -1) {
-      throw new Error('return statement can only exit in function')
+  moveBackToLastFunctionCallPosition() {
+    if (this._lastFunctionCallPosition == -1) {
+      throw new Error('return statement can only exit in function body')
     }
-    this.callStack.setCursor(this.lastFunctionCall)
-    this.lastFunctionCall = -1
+    this.callStack.setCursor(this._lastFunctionCallPosition)
+    this._lastFunctionCallPosition = -1
   }
 
-  moveBackToLastIterationCall() {
-    if (this.lastIterationCall == null || this.lastIterationCall < this.lastFunctionCall) {
-      throw new Error('break statement only exist in iteration block')
+  moveBackToLastIterationCallPosition() {
+    if (this._lastIterationCallPosition == null || this._lastIterationCallPosition < this._lastFunctionCallPosition) {
+      throw new Error('break statement can only exist in iteration block')
     }
 
-    this.callStack.setCursor(this.lastIterationCall)
-    this.lastIterationCall = null
+    this.callStack.setCursor(this._lastIterationCallPosition)
+    this._lastIterationCallPosition = null
   }
 
-  consumeIsBreak() {
-    let isBreak = this.isBreak
+  get isBreak(): boolean {
+    return this._isBreak
+  }
+
+  get isReturn(): boolean {
+    return this._isReturn
+  }
+
+  resetIsBreak() {
+    let isBreak = this._isBreak
     if (isBreak) {
-      this.isBreak = false
+      this._isBreak = false
     }
     return isBreak
   }

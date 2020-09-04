@@ -13,12 +13,12 @@ class StatementList extends Node {
   }
 
   evaluate(env: Environment): any {
-    // add statement in inverted order
     for(let i = 0; i < this.statements.length; i++) {
-      runtime.callStack.add(env, this.statements[i])
+      // neither return from a function or break from while/for will skip the following statements execution
       if (runtime.isReturn || runtime.isBreak) {
         break
       }
+      runtime.callStack.add(env, this.statements[i])
       runtime.resume()
     }
   }

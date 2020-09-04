@@ -2,6 +2,8 @@ import Node from './Node'
 import { NODE_TYPE } from '../types/node'
 import BinaryExpression from './BinaryExpression'
 import BlockStatement from './BlockStatement'
+import Environment from '../../runtime/Environment'
+import runtime from '../../runtime/runtime'
 
 class WhileStatement extends Node {
   type: NODE_TYPE = NODE_TYPE.WHILE_STATEMENT
@@ -12,6 +14,14 @@ class WhileStatement extends Node {
     this.test = children[0] as BinaryExpression
     this.body = children[1] as BlockStatement
     return this
+  }
+
+  evaluate(env: Environment): any {
+    const executionEnvironment = new Environment(env)
+    
+    while(!runtime.isReturn && !runtime.isBreak && this.test.evaluate(executionEnvironment)) {
+      this.body.evaluate(executionEnvironment)
+    }
   }
 }
 
