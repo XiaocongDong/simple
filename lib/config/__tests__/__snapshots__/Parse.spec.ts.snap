@@ -479,6 +479,228 @@ StatementList {
 }
 `;
 
+exports[`parse it should parse else alternate 1`] = `
+StatementList {
+  "loc": Object {
+    "end": Object {
+      "column": 5,
+      "line": 5,
+    },
+    "start": Object {
+      "column": 1,
+      "line": 1,
+    },
+  },
+  "statements": Array [
+    IfStatement {
+      "alternate": BlockStatement {
+        "body": StatementList {
+          "loc": Object {
+            "end": null,
+            "start": null,
+          },
+          "statements": Array [],
+          "type": "STATEMENT_LIST",
+        },
+        "loc": Object {
+          "end": Object {
+            "column": 5,
+            "line": 5,
+          },
+          "start": Object {
+            "column": 12,
+            "line": 3,
+          },
+        },
+        "type": "BLOCK_STATEMENT",
+      },
+      "consequent": BlockStatement {
+        "body": StatementList {
+          "loc": Object {
+            "end": null,
+            "start": null,
+          },
+          "statements": Array [],
+          "type": "STATEMENT_LIST",
+        },
+        "loc": Object {
+          "end": Object {
+            "column": 5,
+            "line": 3,
+          },
+          "start": Object {
+            "column": 10,
+            "line": 1,
+          },
+        },
+        "type": "BLOCK_STATEMENT",
+      },
+      "loc": Object {
+        "end": Object {
+          "column": 5,
+          "line": 5,
+        },
+        "start": Object {
+          "column": 1,
+          "line": 1,
+        },
+      },
+      "test": BooleanLiteral {
+        "loc": Object {
+          "end": Object {
+            "column": 7,
+            "line": 1,
+          },
+          "start": Object {
+            "column": 4,
+            "line": 1,
+          },
+        },
+        "type": "BOOLEAN_LITERAL",
+        "value": true,
+      },
+      "type": "BOOLEAN_LITERAL",
+    },
+  ],
+  "type": "STATEMENT_LIST",
+}
+`;
+
+exports[`parse it should parse else if alternate 1`] = `
+StatementList {
+  "loc": Object {
+    "end": Object {
+      "column": 5,
+      "line": 7,
+    },
+    "start": Object {
+      "column": 1,
+      "line": 1,
+    },
+  },
+  "statements": Array [
+    IfStatement {
+      "alternate": IfStatement {
+        "alternate": BlockStatement {
+          "body": StatementList {
+            "loc": Object {
+              "end": null,
+              "start": null,
+            },
+            "statements": Array [],
+            "type": "STATEMENT_LIST",
+          },
+          "loc": Object {
+            "end": Object {
+              "column": 5,
+              "line": 7,
+            },
+            "start": Object {
+              "column": 12,
+              "line": 5,
+            },
+          },
+          "type": "BLOCK_STATEMENT",
+        },
+        "consequent": BlockStatement {
+          "body": StatementList {
+            "loc": Object {
+              "end": null,
+              "start": null,
+            },
+            "statements": Array [],
+            "type": "STATEMENT_LIST",
+          },
+          "loc": Object {
+            "end": Object {
+              "column": 5,
+              "line": 5,
+            },
+            "start": Object {
+              "column": 21,
+              "line": 3,
+            },
+          },
+          "type": "BLOCK_STATEMENT",
+        },
+        "loc": Object {
+          "end": Object {
+            "column": 5,
+            "line": 7,
+          },
+          "start": Object {
+            "column": 12,
+            "line": 3,
+          },
+        },
+        "test": BooleanLiteral {
+          "loc": Object {
+            "end": Object {
+              "column": 18,
+              "line": 3,
+            },
+            "start": Object {
+              "column": 15,
+              "line": 3,
+            },
+          },
+          "type": "BOOLEAN_LITERAL",
+          "value": true,
+        },
+        "type": "BOOLEAN_LITERAL",
+      },
+      "consequent": BlockStatement {
+        "body": StatementList {
+          "loc": Object {
+            "end": null,
+            "start": null,
+          },
+          "statements": Array [],
+          "type": "STATEMENT_LIST",
+        },
+        "loc": Object {
+          "end": Object {
+            "column": 5,
+            "line": 3,
+          },
+          "start": Object {
+            "column": 10,
+            "line": 1,
+          },
+        },
+        "type": "BLOCK_STATEMENT",
+      },
+      "loc": Object {
+        "end": Object {
+          "column": 5,
+          "line": 7,
+        },
+        "start": Object {
+          "column": 1,
+          "line": 1,
+        },
+      },
+      "test": BooleanLiteral {
+        "loc": Object {
+          "end": Object {
+            "column": 7,
+            "line": 1,
+          },
+          "start": Object {
+            "column": 4,
+            "line": 1,
+          },
+        },
+        "type": "BOOLEAN_LITERAL",
+        "value": true,
+      },
+      "type": "BOOLEAN_LITERAL",
+    },
+  ],
+  "type": "STATEMENT_LIST",
+}
+`;
+
 exports[`parse it should parse empty array 1`] = `
 StatementList {
   "loc": Object {
@@ -879,6 +1101,7 @@ StatementList {
   },
   "statements": Array [
     IfStatement {
+      "alternate": undefined,
       "consequent": BlockStatement {
         "body": StatementList {
           "loc": Object {
@@ -1457,6 +1680,7 @@ StatementList {
   },
   "statements": Array [
     IfStatement {
+      "alternate": undefined,
       "consequent": BlockStatement {
         "body": StatementList {
           "loc": Object {

@@ -97,6 +97,24 @@ const testCases: Array<{code: string, description: string}> = [
     description: 'it should parse if statement'
   },
   {
+    code: `if(true) {
+
+    } else {
+
+    };`,
+    description: 'it should parse else alternate'
+  },
+  {
+    code: `if(true) {
+
+    } else if(true) {
+
+    } else {
+
+    };`,
+    description: 'it should parse else if alternate'
+  },
+  {
     code: `if(a == b + 10 * 20) {
     };`,
     description: 'it should parse expression in if statement'

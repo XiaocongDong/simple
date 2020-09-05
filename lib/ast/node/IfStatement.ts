@@ -8,10 +8,12 @@ class IfStatement extends Node {
   type: NODE_TYPE = NODE_TYPE.BOOLEAN_LITERAL
   test: BinaryExpression = null
   consequent: BlockStatement = null
+  alternate: IfStatement|BlockStatement = null
 
   create(children: Array<Node>): Node {
     this.test = children[0] as BinaryExpression
     this.consequent = children[1] as BlockStatement
+    this.alternate = children[2] as IfStatement|BlockStatement
     return this
   }
 

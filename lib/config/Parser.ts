@@ -160,11 +160,18 @@ const blockStatement = rule(BlockStatement)
   .separator(TOKEN_TYPE.RIGHT_CURLY_BRACE)
 
 const ifStatement = rule(IfStatement)
+ifStatement
   .separator(TOKEN_TYPE.IF)
   .separator(TOKEN_TYPE.LEFT_PAREN)
   .ast(binaryExpression)
   .separator(TOKEN_TYPE.RIGHT_PAREN)
   .ast(blockStatement)
+  .option(
+    rule().or(
+      rule().separator(TOKEN_TYPE.ELSE).ast(ifStatement),
+      rule().separator(TOKEN_TYPE.ELSE).ast(blockStatement)
+    )
+  )
 const functionParams = rule(FunctionParams)
   .ast(identifier).repeat(
     rule().separator(TOKEN_TYPE.COMMA).ast(identifier)
