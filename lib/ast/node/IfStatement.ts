@@ -21,6 +21,13 @@ class IfStatement extends Node {
     if (this.test.evaluate(env)) {
       const executionEnvironment = new Environment(env)
       this.consequent.evaluate(executionEnvironment)
+    } else if (this.alternate) {
+      if (this.alternate instanceof BlockStatement) {
+        const executionEnvironment = new Environment(env)
+        this.alternate.evaluate(executionEnvironment)
+      } else {
+        this.alternate.evaluate(env)
+      }
     }
   }
 }
