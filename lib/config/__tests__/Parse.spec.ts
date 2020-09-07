@@ -98,9 +98,9 @@ const testCases: Array<{code: string, description: string}> = [
   },
   {
     code: `if(true) {
-
+      console.log(true);
     } else {
-
+      console.log(false);
     };`,
     description: 'it should parse else alternate'
   },

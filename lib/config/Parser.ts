@@ -143,7 +143,7 @@ const variableStatement = rule(VariableStatement)
   .ast(variableModifier)
   .ast(variableDeclarator)
 const breakStatement = rule(BreakStatement).separator(TOKEN_TYPE.BREAK)
-const returnStatement = rule(ReturnStatement).separator(TOKEN_TYPE.RETURN).ast(binaryExpression)
+const returnStatement = rule(ReturnStatement).separator(TOKEN_TYPE.RETURN).option(binaryExpression)
 
 const statement = rule()
 

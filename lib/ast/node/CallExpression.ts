@@ -31,7 +31,7 @@ class CallExpression extends Node {
     runtime.markFunctionCallPosition()
     // execute user defined function
     try {
-      functionNode.call(args)
+      functionNode.call(args, this.callee instanceof MemberExpression ? this.callee.object.evaluate(env) : undefined)
     } catch(e) {
       throw new RuntimeError(e.message, this.callee.loc.start)
     }

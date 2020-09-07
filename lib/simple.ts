@@ -7,6 +7,8 @@ export default (code: string) => {
   env.create('console', {
     log: console.log
   })
+  env.create('process', {
+  })
   console.time('tokenizer')
   tokenizer.parse(code)
   console.timeLog('tokenizer')

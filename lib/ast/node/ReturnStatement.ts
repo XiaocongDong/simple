@@ -13,7 +13,7 @@ class ReturnStatement extends Node {
   }
 
   evaluate(env: Environment): any {
-    return this.argument.evaluate(env)
+    return this.argument && this.argument.evaluate(env)
   }
 }
 

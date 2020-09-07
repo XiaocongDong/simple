@@ -496,10 +496,97 @@ StatementList {
       "alternate": BlockStatement {
         "body": StatementList {
           "loc": Object {
-            "end": null,
-            "start": null,
+            "end": Object {
+              "column": 24,
+              "line": 4,
+            },
+            "start": Object {
+              "column": 7,
+              "line": 4,
+            },
           },
-          "statements": Array [],
+          "statements": Array [
+            ExpressionStatement {
+              "expression": CallExpression {
+                "arguments": Array [
+                  BooleanLiteral {
+                    "loc": Object {
+                      "end": Object {
+                        "column": 23,
+                        "line": 4,
+                      },
+                      "start": Object {
+                        "column": 19,
+                        "line": 4,
+                      },
+                    },
+                    "type": "BOOLEAN_LITERAL",
+                    "value": false,
+                  },
+                ],
+                "callee": MemberExpression {
+                  "loc": Object {
+                    "end": Object {
+                      "column": 17,
+                      "line": 4,
+                    },
+                    "start": Object {
+                      "column": 7,
+                      "line": 4,
+                    },
+                  },
+                  "object": Identifier {
+                    "loc": Object {
+                      "end": Object {
+                        "column": 13,
+                        "line": 4,
+                      },
+                      "start": Object {
+                        "column": 7,
+                        "line": 4,
+                      },
+                    },
+                    "name": "console",
+                  },
+                  "property": Identifier {
+                    "loc": Object {
+                      "end": Object {
+                        "column": 17,
+                        "line": 4,
+                      },
+                      "start": Object {
+                        "column": 15,
+                        "line": 4,
+                      },
+                    },
+                    "name": "log",
+                  },
+                },
+                "loc": Object {
+                  "end": Object {
+                    "column": 24,
+                    "line": 4,
+                  },
+                  "start": Object {
+                    "column": 7,
+                    "line": 4,
+                  },
+                },
+                "type": "CALL_EXPRESSION",
+              },
+              "loc": Object {
+                "end": Object {
+                  "column": 24,
+                  "line": 4,
+                },
+                "start": Object {
+                  "column": 7,
+                  "line": 4,
+                },
+              },
+              "type": "EXPRESSION_STATEMENT",
+            },
+          ],
           "type": "STATEMENT_LIST",
         },
         "loc": Object {
@@ -517,10 +604,97 @@ StatementList {
       "consequent": BlockStatement {
         "body": StatementList {
           "loc": Object {
-            "end": null,
-            "start": null,
+            "end": Object {
+              "column": 23,
+              "line": 2,
+            },
+            "start": Object {
+              "column": 7,
+              "line": 2,
+            },
           },
-          "statements": Array [],
+          "statements": Array [
+            ExpressionStatement {
+              "expression": CallExpression {
+                "arguments": Array [
+                  BooleanLiteral {
+                    "loc": Object {
+                      "end": Object {
+                        "column": 22,
+                        "line": 2,
+                      },
+                      "start": Object {
+                        "column": 19,
+                        "line": 2,
+                      },
+                    },
+                    "type": "BOOLEAN_LITERAL",
+                    "value": true,
+                  },
+                ],
+                "callee": MemberExpression {
+                  "loc": Object {
+                    "end": Object {
+                      "column": 17,
+                      "line": 2,
+                    },
+                    "start": Object {
+                      "column": 7,
+                      "line": 2,
+                    },
+                  },
+                  "object": Identifier {
+                    "loc": Object {
+                      "end": Object {
+                        "column": 13,
+                        "line": 2,
+                      },
+                      "start": Object {
+                        "column": 7,
+                        "line": 2,
+                      },
+                    },
+                    "name": "console",
+                  },
+                  "property": Identifier {
+                    "loc": Object {
+                      "end": Object {
+                        "column": 17,
+                        "line": 2,
+                      },
+                      "start": Object {
+                        "column": 15,
+                        "line": 2,
+                      },
+                    },
+                    "name": "log",
+                  },
+                },
+                "loc": Object {
+                  "end": Object {
+                    "column": 23,
+                    "line": 2,
+                  },
+                  "start": Object {
+                    "column": 7,
+                    "line": 2,
+                  },
+                },
+                "type": "CALL_EXPRESSION",
+              },
+              "loc": Object {
+                "end": Object {
+                  "column": 23,
+                  "line": 2,
+                },
+                "start": Object {
+                  "column": 7,
+                  "line": 2,
+                },
+              },
+              "type": "EXPRESSION_STATEMENT",
+            },
+          ],
           "type": "STATEMENT_LIST",
         },
         "loc": Object {

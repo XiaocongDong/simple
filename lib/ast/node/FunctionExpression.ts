@@ -27,7 +27,7 @@ class FunctionExpression extends Node {
     return this
   }
 
-  call(args: Array<any>): any {
+  call(args: Array<any>, calleeInstance?: any): any {
     if (this.params.length !== args.length) {
       throw new Error('function declared parameters are not matched with arguments')
     }
@@ -39,6 +39,14 @@ class FunctionExpression extends Node {
       const param = this.params[i]
 
       callEnvironment.create(param.name, argument)
+    }
+    callEnvironment.create('arguments', args)
+
+    // if function is called by an instance, this will be this instance, or it will be the global process object
+    if (calleeInstance) {
+      callEnvironment.create('this', calleeInstance)
+    } else {
+      callEnvironment.create('this', this.parentEnv.getRootEnv().get('process'))
     }
 
     this.body.evaluate(callEnvironment)

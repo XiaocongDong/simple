@@ -16,14 +16,14 @@ describe('runtime', () => {
       const environment = new Environment()
       const breakStatement = new BreakStatement()
       runtime.callStack.add(environment, breakStatement)
-      runtime.moveBackToLastIterationCallPosition = jest.fn()
+      runtime.finishLastIterationCall = jest.fn()
   
       breakStatement.evaluate = jest.fn()
 
       runtime.resume()
   
       expect(breakStatement.evaluate).toHaveBeenCalledTimes(1)
-      expect(runtime.moveBackToLastIterationCallPosition).toHaveBeenCalledTimes(1)
+      expect(runtime.finishLastIterationCall).toHaveBeenCalledTimes(1)
       expect(runtime.isBreak).toBe(true)
     })
   })
@@ -35,27 +35,18 @@ describe('runtime', () => {
       const mockValue = 1
       returnStatement.evaluate = jest.fn().mockReturnValue(mockValue)
       runtime.callStack.add(environment, returnStatement)
-      runtime.moveBackToLastFunctionCallPosition = jest.fn()
+      runtime.finishLastFunctionCall = jest.fn()
   
 
       runtime.resume()
   
       expect(returnStatement.evaluate).toHaveBeenCalledTimes(1)
-      expect(runtime.moveBackToLastFunctionCallPosition).toHaveBeenCalledTimes(1)
+      expect(runtime.finishLastFunctionCall).toHaveBeenCalledTimes(1)
       expect(runtime.getLastFunctionExecutionResult()).toEqual(mockValue)
       expect(runtime.isReturn).toBe(true)
     })
   })
 
-  describe('markIterationCallPosition', () => {
-
-  })
-
-  describe('moveBackToLastIterationCallPosition', () => {
-
-  })
-
   describe('resume', () => {
-
   })
 })

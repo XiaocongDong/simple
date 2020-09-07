@@ -6,7 +6,9 @@ class CallStack {
   cursor: number = -1
 
   add(environment: Environment, statement: Node) {
+    // console.log(this.cursor)
     this.cursor++
+    // console.log('call stack cursor', this.cursor)
     this.stacks[this.cursor] = { environment, statement }
   }
 

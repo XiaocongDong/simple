@@ -5,9 +5,9 @@ import RuntimeError from "../errors/Runtime"
 
 export class Runtime {
   callStack: CallStack = new CallStack()
-  private _lastFunctionCallPosition: number = -1
+  private _functionCallPositionStack: Array<number> = []
   private _lastFunctionExecutionResult: any = null
-  private _lastIterationCallPosition: number = null
+  private _iterationCallPositionStack: Array<number> = []
   private _isBreak = false
   private _isReturn = false
 
@@ -17,27 +17,25 @@ export class Runtime {
     }
 
     const { environment, statement } = this.callStack.peek()
-    // console.log(statement)
+
     const value = statement.evaluate(environment)
     if (statement instanceof ReturnStatement) {
       this._isReturn = true
       this._lastFunctionExecutionResult = value
       try {
-       this.moveBackToLastFunctionCallPosition()
+       this.finishLastFunctionCall()
       } catch (e) {
         throw new RuntimeError(e.message, statement.loc.start)
       }
-      return
     }
 
     if (statement instanceof BreakStatement) {
       this._isBreak = true
       try {
-        this.moveBackToLastIterationCallPosition()
+        this.finishLastIterationCall()
       } catch(e) {
         throw new RuntimeError(e.message, statement.loc.start)
       }
-      return
     }
 
     this.callStack.pop()
@@ -53,28 +51,29 @@ export class Runtime {
   }
 
   markFunctionCallPosition() {
-    this._lastFunctionCallPosition = this.callStack.getCursor()
+    this._functionCallPositionStack.push(this.callStack.getCursor())
   }
 
   markIterationCallPosition() {
-    this._lastIterationCallPosition = this.callStack.getCursor()
+    this._iterationCallPositionStack.push(this.callStack.getCursor())
   }
 
-  moveBackToLastFunctionCallPosition() {
-    if (this._lastFunctionCallPosition == -1) {
+  finishLastFunctionCall() {
+    if (this._functionCallPositionStack.length == 0) {
       throw new Error('return statement can only exit in function body')
     }
-    this.callStack.setCursor(this._lastFunctionCallPosition)
-    this._lastFunctionCallPosition = -1
+    this._functionCallPositionStack.pop()
   }
 
-  moveBackToLastIterationCallPosition() {
-    if (this._lastIterationCallPosition == null || this._lastIterationCallPosition < this._lastFunctionCallPosition) {
+  finishLastIterationCall() {
+    const lastFunctionCall = this._functionCallPositionStack[this._functionCallPositionStack.length - 1]
+    const lastIteraltionCall = this._iterationCallPositionStack[this._iterationCallPositionStack.length - 1]
+
+    if (lastIteraltionCall == undefined || lastIteraltionCall == undefined || lastIteraltionCall < lastFunctionCall) {
       throw new Error('break statement can only exist in iteration block')
     }
 
-    this.callStack.setCursor(this._lastIterationCallPosition)
-    this._lastIterationCallPosition = null
+    this._iterationCallPositionStack.pop()
   }
 
   get isBreak(): boolean {
@@ -86,11 +85,7 @@ export class Runtime {
   }
 
   resetIsBreak() {
-    let isBreak = this._isBreak
-    if (isBreak) {
-      this._isBreak = false
-    }
-    return isBreak
+    this._isBreak = false
   }
 }
 

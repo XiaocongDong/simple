@@ -1,5 +1,3 @@
-import CallStack from "./CallStack"
-
 class Environment {
   private parent: Environment = null
   protected values: Object = {}
@@ -33,6 +31,15 @@ class Environment {
     }
 
     return matchedEnvironment.values[key]
+  }
+
+  getRootEnv(): Environment {
+    let currentEnvironment: Environment = this
+    while(currentEnvironment.parent) {
+      currentEnvironment = currentEnvironment.parent
+    }
+
+    return currentEnvironment
   }
 
   private getEnvironmentWithKey(key: string): Environment {

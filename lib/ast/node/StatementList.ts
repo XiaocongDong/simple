@@ -18,6 +18,7 @@ class StatementList extends Node {
       if (runtime.isReturn || runtime.isBreak) {
         break
       }
+      // console.log('statement list evaluate', this.statements[i])
       runtime.callStack.add(env, this.statements[i])
       runtime.resume()
     }
