@@ -1,13 +1,14 @@
 # Simple
-Simple is a **simple** JavaScript-like programming language powered by TypeScript.
+> Life is short, keep it simple.
+
+**Simple** is a simple programming language (subset of JavaScript) powered by TypeScript.
 
 ## Grammar
 ### Data Types
 Currently simple support the following data types:
-* number (both integer and float number are supported)
-* string (string should be surrounded with double quote)
-* boolean (true or false)
-* null (represent empty of the simple world)
+* number
+* string
+* boolean
 * array
 * object
 * function
@@ -15,18 +16,18 @@ Currently simple support the following data types:
 ### Variable Declaration
 Using `let` to declare variable and `const` to declare constant:
 ```javascript
-let a = 10; // integer
-let b = null; // null value
-let c = true; // boolean
-let e = "string"; // string value
+let n = 10; // integer
+let b = true; // boolean
+let s = "string"; // string value
 let f = function(x, y, z) {return x + y * z}; // function
-let g = [1, 2, 3, {1, 2, 3}, "hi"]; // array
-let h = {
+let a = [1, 2, 3, {1, 2, 3}, "hi"]; // array
+let o = {
   name: 'sean',
   age: 27
 }; // object
 ```
-### 运算
+### Operators
+Support almost all of the mathematical and logic operators.
 ```javascript
 1+1
 1-1
@@ -38,41 +39,38 @@ a-=1
 a*=1
 a/=1
 
+a++
+a--
+
+a = 1 + (1 * 2 + 4)/2
+
 a||b
 a&&b
 ```
-### 关键字
+### Function Declaration
 ```javascript
-let
-const
-break
-continue
-if
-else
-while
-function
-undefined
-null
-true
-false
-new
+function sum(x, y) {
+  return x + y;
+};
 ```
-### 定义函数
+Lexical Scope
 ```javascript
-function name(x, y, z) {
+function sumGenerator() {
+  let sum = 1;
 
-}
-```
-也可以在函数里面继续定义函数
-```javascript
-function outer() {
-  function inner() {
+  function add(number) {
+    sum += number;
+    return sum;
+  };
 
-  }
-  inner()
+  return add;
 }
+const sum = sumGenerator();
+for(let i = 0; i < 10; i++) {
+  console.log(sum(i));
+};
 ```
-函数是一等公民，可以作为函数的参数
+Functional programming:
 ```javascript
 function invokeCallback(callback) {
   callback()
@@ -82,7 +80,7 @@ invokeCallback(function () {
   console.log('callback is invoked')
 })
 ```
-### 对象的定义于访问
+### Object
 ```javascript
 let x = {
   a: 1,
@@ -92,37 +90,51 @@ let x = {
 };
 console.log(x.b.c);
 ```
-### 数组定义和访问
+### Array
 ```javascript
 let arr = [1, 2, 3, 4];
 let length = arr.length - 1;
-arr[0]
-arr[2]
+console.log(arr[0]);
+console.log(arr[2]);
 ```
-### 控制语句
+### If condition
 #### if
 ```javascript
-for (let i = 0; i <= 10; i++) {
-  console.log(i)
-}
+let grade = 10;
+if (grade >= 90) {
+  console.log('you are a good student');
+} else if (grade >= 60){
+  console.log('you are not that bad');
+} else {
+  console.log('stop playing computer game!');
+};
 ```
 #### while
 ```javascript
 let i = 0;
 while(true) {
-  i++;
-  console.log(i);
-  if (i > 10) {
-    break;
-  }
-}
+  console.log('this is a infinite loop');
+};
 ```
-### if - else
+### for
 ```javascript
-let i = 10;
-if (i > 10) {
-  console.log("i is greater than 10");
-} else {
-  console.log("i is less than 10");
-}
+for(let i = 0; i < 10; i++) {
+  console.log(i);
+};
+```
+### this binding
+```javascript
+const person = {
+  name: "Hello world",
+  sayName: function() {
+    console.log(this.name); // "Hello world"
+
+    function inner() {
+      console.log(this.name); // undefined
+    };
+
+    inner();
+  }
+};
+person.sayName();
 ```
