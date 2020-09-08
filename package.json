@@ -1,6 +1,6 @@
 {
   "name": "simple-language",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A simple scripting language powered by TypeScript",
   "main": "./dist/simple.js",
   "repository": "https://github.com/XiaocongDong/simple.git",
