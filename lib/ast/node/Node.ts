@@ -1,7 +1,9 @@
 import { ILocation } from "../../lexer/types/location"
 import Environment from "../../runtime/Environment"
+import { NODE_TYPE } from "../types/node"
 
 class Node {
+  type: NODE_TYPE
   loc: {
     start: ILocation,
     end: ILocation

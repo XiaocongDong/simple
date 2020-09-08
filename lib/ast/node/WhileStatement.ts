@@ -19,7 +19,6 @@ class WhileStatement extends Node {
   evaluate(env: Environment): any {
     const executionEnvironment = new Environment(env)
     
-    runtime.markIterationCallPosition()
     while(!runtime.isReturn && !runtime.isBreak && this.test.evaluate(executionEnvironment)) {
       this.body.evaluate(executionEnvironment)
     }

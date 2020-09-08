@@ -25,7 +25,6 @@ class ForStatement extends Node {
   evaluate(env: Environment): any {
     const executeEnvironment = new Environment(env)
 
-    runtime.markIterationCallPosition()
     this.init.evaluate(executeEnvironment)
     while(!runtime.isBreak && !runtime.isReturn && this.test.evaluate(executeEnvironment)) {
       this.body.evaluate(executeEnvironment)
