@@ -27,8 +27,15 @@ class FunctionDeclaration extends Node {
   }
 
   evaluate(env: Environment): any {
-    env.create(this.id.name, this)
-    this.parentEnv = env
+    // clone function
+    const func = new FunctionDeclaration()
+    func.id = this.id
+    func.params = [...this.params]
+    func.body = this.body
+    // closure
+    func.parentEnv = env
+
+    env.create(this.id.name, func)
   }
 
   call(args: Array<any>, callerInstance?: any): any {

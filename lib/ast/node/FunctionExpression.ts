@@ -23,8 +23,12 @@ class FunctionExpression extends Node {
   }
 
   evaluate(env: Environment): any {
-    this.parentEnv = env
-    return this
+    const func = new FunctionExpression()
+    func.params = [...this.params]
+    func.body = this.body
+    func.parentEnv = env
+
+    return func
   }
 
   call(args: Array<any>, callerInstance?: any): any {

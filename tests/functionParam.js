@@ -1,18 +1,16 @@
-function invokeCallback(callback) {
-  callback();
+function createCounter() {
+  let a = 0;
+  return function() {
+      a = a + 1;
+      return a;
+  };
 };
 
-invokeCallback(function () {
-  console.log('callback is invoked');
-});
-
-let x = {
-  a: 1,
-  b: {
-    c: 'cc'
-  }
-};
-console.log(x.b.c);
-
-let arr = [1,2,3];
-console.log(arr[4]);
+let c1 = createCounter();
+let c2 = createCounter();
+let c3 = createCounter();
+console.log(c1());
+console.log(c1());
+console.log(c2());
+console.log(c2());
+console.log(c3());
