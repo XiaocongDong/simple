@@ -14,3 +14,8 @@ console.log(c1());
 console.log(c2());
 console.log(c2());
 console.log(c3());
+
+for(let i = 1; i<10; i++) {
+  let i = 1;
+  console.log(i)
+}

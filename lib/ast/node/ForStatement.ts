@@ -23,14 +23,15 @@ class ForStatement extends Node {
   }
 
   evaluate(env: Environment): any {
-    const executeEnvironment = new Environment(env)
-
+    const bridgeEnvironment = new Environment(env)
     runtime.markIterationCallPosition()
   
-    this.init.evaluate(executeEnvironment)
-    while(!runtime.isBreak && !runtime.isReturn && this.test.evaluate(executeEnvironment)) {
-      this.body.evaluate(executeEnvironment)
-      this.update.evaluate(executeEnvironment)
+    this.init.evaluate(bridgeEnvironment)
+  
+    while(!runtime.isBreak && !runtime.isReturn && this.test.evaluate(bridgeEnvironment)) {
+      const executionEnvironment = new Environment(bridgeEnvironment)
+      this.body.evaluate(executionEnvironment)
+      this.update.evaluate(executionEnvironment)
     }
 
     runtime.resetIsBreak()
