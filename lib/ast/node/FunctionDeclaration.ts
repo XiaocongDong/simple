@@ -10,7 +10,7 @@ class FunctionDeclaration extends Node {
   id: Identifier
   params: Array<Identifier> = []
   body: BlockStatement
-  parentEnv: Environment
+  protected parentEnv: Environment
 
   create(children: Array<Node>): Node {
     const name = children[0] as Identifier
@@ -31,7 +31,7 @@ class FunctionDeclaration extends Node {
     this.parentEnv = env
   }
 
-  call(args: Array<any>, calleeInstance?: any): any {
+  call(args: Array<any>, callerInstance?: any): any {
     if (this.params.length !== args.length) {
       throw new Error('function declared parameters are not matched with arguments')
     }
@@ -47,8 +47,8 @@ class FunctionDeclaration extends Node {
     callEnvironment.create('arguments', args)
 
     // if function is called by an instance, this will be this instance, or it will be the global process object
-    if (calleeInstance) {
-      callEnvironment.create('this', calleeInstance)
+    if (callerInstance) {
+      callEnvironment.create('this', callerInstance)
     } else {
       callEnvironment.create('this', this.parentEnv.getRootEnv().get('process'))
     }
