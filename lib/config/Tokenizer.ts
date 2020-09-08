@@ -42,7 +42,9 @@ enum State {
   EQUAL = 'EQUAL',
   OR = 'OR',
   START_AND = 'START_AND',
-  AND = 'AND'
+  AND = 'AND',
+
+  COMMENT = 'COMMENT'
 }
 
 const keywordTokenTypeLookup: {[k: string]: TOKEN_TYPE} = {
@@ -281,12 +283,27 @@ const config: IConfig = {
         {
           state: State.DIVIDE_ASSIGN,
           checker: "="
+        },
+        {
+          state: State.COMMENT,
+          checker: "/"
         }
       ]
     },
     [State.DIVIDE_ASSIGN]: {
       isEnd: true,
       TokenType: TOKEN_TYPE.DIVIDE_ASSIGN
+    },
+    [State.COMMENT]: {
+      isEnd: true,
+      transitions: [
+        {
+          state: State.COMMENT,
+          checker: (ch) => {
+            return ch !== '\n'
+          }
+        }
+      ]
     },
     [State.ASSIGN]: {
       isEnd: true,

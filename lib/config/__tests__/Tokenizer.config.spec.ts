@@ -14,6 +14,13 @@ const testCases: Array<{code: string, description: string}> = [
     };
     `,
     description: 'it should generate correct buffer'
+  },
+  {
+    code: `
+      let a = 10; // a is not defined
+      let b = 40; // b is not defined
+    `,
+    description: 'it should skip comment'
   }
 ]
 

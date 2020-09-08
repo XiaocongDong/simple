@@ -41,7 +41,7 @@ class Tokenizer {
     }
     
     const currentStateConfig: IStateConfig = this.statesConfig[this.state]
-    if (currentStateConfig.isEnd) {
+    if (currentStateConfig.isEnd && currentStateConfig.TokenType) {
       this.addToken(currentStateConfig.TokenType)
     }
   }
@@ -102,7 +102,9 @@ class Tokenizer {
 
     if (!targetTransition) {
       if (currentStateConfig.isEnd) {
-        this.addToken(currentStateConfig.TokenType)
+        if (currentStateConfig.TokenType) {
+          this.addToken(currentStateConfig.TokenType)
+        }
         this.reset()
         this.consume(ch)
         return

@@ -760,3 +760,148 @@ Array [
   },
 ]
 `;
+
+exports[`Tokenizer with config it should skip comment 1`] = `
+Array [
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 9,
+        "line": 2,
+      },
+      "start": Object {
+        "column": 7,
+        "line": 2,
+      },
+    },
+    "type": "LET",
+    "value": "let",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 11,
+        "line": 2,
+      },
+      "start": Object {
+        "column": 11,
+        "line": 2,
+      },
+    },
+    "type": "IDENTIFIER",
+    "value": "a",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 13,
+        "line": 2,
+      },
+      "start": Object {
+        "column": 13,
+        "line": 2,
+      },
+    },
+    "type": "ASSIGN",
+    "value": "=",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 16,
+        "line": 2,
+      },
+      "start": Object {
+        "column": 15,
+        "line": 2,
+      },
+    },
+    "type": "NUMBER_LITERAL",
+    "value": "10",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 17,
+        "line": 2,
+      },
+      "start": Object {
+        "column": 17,
+        "line": 2,
+      },
+    },
+    "type": "SEMICOLON",
+    "value": ";",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 9,
+        "line": 3,
+      },
+      "start": Object {
+        "column": 7,
+        "line": 3,
+      },
+    },
+    "type": "LET",
+    "value": "let",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 11,
+        "line": 3,
+      },
+      "start": Object {
+        "column": 11,
+        "line": 3,
+      },
+    },
+    "type": "IDENTIFIER",
+    "value": "b",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 13,
+        "line": 3,
+      },
+      "start": Object {
+        "column": 13,
+        "line": 3,
+      },
+    },
+    "type": "ASSIGN",
+    "value": "=",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 16,
+        "line": 3,
+      },
+      "start": Object {
+        "column": 15,
+        "line": 3,
+      },
+    },
+    "type": "NUMBER_LITERAL",
+    "value": "40",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 17,
+        "line": 3,
+      },
+      "start": Object {
+        "column": 17,
+        "line": 3,
+      },
+    },
+    "type": "SEMICOLON",
+    "value": ";",
+  },
+]
+`;
