@@ -1,14 +1,18 @@
 {
-  "name": "simple",
-  "version": "1.0.0",
+  "name": "simple-language",
+  "version": "0.1.2",
   "description": "A simple scripting language powered by TypeScript",
-  "main": "index.ts",
+  "main": "./dist/simple.js",
   "repository": "https://github.com/XiaocongDong/simple.git",
   "author": "XiaocongDong <buptdxc@gmail.com>",
   "license": "MIT",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
   "scripts": {
     "dev": "ts-node index.ts",
     "test": "jest",
+    "build": "tsc --outDir dist",
     "test-watch": "jest --watch"
   },
   "devDependencies": {
