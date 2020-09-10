@@ -30,6 +30,10 @@ import ForStatement from "../ast/node/ForStatement"
 import ArrayExpression from "../ast/node/ArrayExpression"
 import ObjectExpression from "../ast/node/ObjectExpression"
 import FunctionExpression from "../ast/node/FunctionExpression"
+import UndefinedLiteral from "../ast/node/UndefinedLiteral"
+import NullLiteral from "../ast/node/NullLiteral"
+import UnaryExpression from "../ast/node/UnaryExpression"
+
 
 const booleanLiteral = rule(BooleanLiteral).or(
   rule().token(TOKEN_TYPE.TRUE),
@@ -37,10 +41,15 @@ const booleanLiteral = rule(BooleanLiteral).or(
 )
 const numberLiteral = rule(NumberLiteral).token(TOKEN_TYPE.NUMBER_LITERAL)
 const stringLiteral = rule(StringLiteral).token(TOKEN_TYPE.STRING_LITERAL)
+const undefinedLiteral = rule(UndefinedLiteral).token(TOKEN_TYPE.UNDEFINED)
+const nullLiteral = rule(NullLiteral).token(TOKEN_TYPE.NULL)
 const identifier = rule(Identifier).token(TOKEN_TYPE.IDENTIFER)
 
 const operators = new Operators()
 operators.add(TOKEN_TYPE.EQUAL, 1, ASSOCIATIVITY.LEFT)
+operators.add(TOKEN_TYPE.STRICT_EQUAL, 1, ASSOCIATIVITY.LEFT)
+operators.add(TOKEN_TYPE.NOT_EQUAL, 1, ASSOCIATIVITY.LEFT)
+operators.add(TOKEN_TYPE.NOT_STRICT_EQUAL, 1, ASSOCIATIVITY.LEFT)
 operators.add(TOKEN_TYPE.LESS_THAN, 2, ASSOCIATIVITY.LEFT)
 operators.add(TOKEN_TYPE.LESS_EQUAL_THAN, 2, ASSOCIATIVITY.LEFT)
 operators.add(TOKEN_TYPE.GREATER_THAN, 2, ASSOCIATIVITY.LEFT)
@@ -59,6 +68,11 @@ const postfixUpdateExpression = rule(UpdateExpression).or(
   rule().token(TOKEN_TYPE.MINUS_MINUS)
 ).ast(identifier)
 const binaryExpression = rule(BinaryExpression)
+const unaryExpression = rule(UnaryExpression)
+  .token(TOKEN_TYPE.NOT).or(
+    identifier,
+    rule().separator(TOKEN_TYPE.LEFT_PAREN).ast(binaryExpression).separator(TOKEN_TYPE.RIGHT_PAREN)
+  )
 const memberAccessTailer = rule(MemberAccessTailer).or(
   rule().separator(TOKEN_TYPE.LEFT_SQUARE_BRACKET).ast(binaryExpression).separator(TOKEN_TYPE.RIGHT_SQUARE_BRACKET),
   rule().separator(TOKEN_TYPE.DOT).ast(identifier)
@@ -119,6 +133,9 @@ const factor = rule().or(
   objectExpression,
   objectAccessExpression,
   arrayExpression,
+  unaryExpression,
+  undefinedLiteral,
+  nullLiteral,
   identifier,
   stringLiteral,
   booleanLiteral,

@@ -21,6 +21,30 @@ const testCases: Array<{code: string, description: string}> = [
       let b = 40; // b is not defined
     `,
     description: 'it should skip comment'
+  },
+  {
+    code: `let a = undefined`,
+    description: 'it should parse undefined literal'
+  },
+  {
+    code: `let a = null`,
+    description: 'it should parse null literal'
+  },
+  {
+    code: '!a',
+    description: 'it should parse not'
+  },
+  {
+    code: '!=',
+    description: 'it should parse not equal'
+  },
+  {
+    code: '!==',
+    description: 'it should parse not strict equal'
+  },
+  {
+    code: 'a===b',
+    description: 'it should parse strict equal'
   }
 ]
 

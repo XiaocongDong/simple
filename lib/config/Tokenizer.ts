@@ -38,8 +38,12 @@ enum State {
   RIGHT_SQUARE_BRACKET = 'RIGHT_SQUARE_BRACKET',
   COLON = 'COLON',
 
+  NOT = 'NOT',
   START_OR = 'START_OR',
   EQUAL = 'EQUAL',
+  STRICT_EQUAL = 'STRICT_EQUAL',
+  NOT_EQUAL = 'NOT_EQUAL',
+  NOT_STRICT_EQUAL = 'NOT_STRICT_EQUAL',
   OR = 'OR',
   START_AND = 'START_AND',
   AND = 'AND',
@@ -112,6 +116,10 @@ const config: IConfig = {
         {
           state: State.ASSIGN,
           checker: "="
+        },
+        {
+          state: State.NOT,
+          checker: '!',
         },
         {
           state: State.START_OR,
@@ -317,7 +325,17 @@ const config: IConfig = {
     },
     [State.EQUAL]: {
       isEnd: true,
-      TokenType: TOKEN_TYPE.EQUAL
+      TokenType: TOKEN_TYPE.EQUAL,
+      transitions: [
+        {
+          state: State.STRICT_EQUAL,
+          checker: '='
+        }
+      ]
+    },
+    [State.STRICT_EQUAL]: {
+      isEnd: true,
+      TokenType: TOKEN_TYPE.STRICT_EQUAL
     },
     [State.START_OR]: {
       isEnd: false,
@@ -412,6 +430,30 @@ const config: IConfig = {
     [State.GREATER_EQUAL_THAN]: {
       isEnd: true,
       TokenType: TOKEN_TYPE.GREATER_EQUAL_THAN
+    },
+    [State.NOT]: {
+      isEnd: true,
+      TokenType: TOKEN_TYPE.NOT,
+      transitions: [
+        {
+          state: TOKEN_TYPE.NOT_EQUAL,
+          checker: '='
+        }
+      ]
+    },
+    [State.NOT_EQUAL]: {
+      isEnd: true,
+      TokenType: TOKEN_TYPE.NOT_EQUAL,
+      transitions: [
+        {
+          state: TOKEN_TYPE.NOT_STRICT_EQUAL,
+          checker: '='
+        }
+      ]
+    },
+    [State.NOT_STRICT_EQUAL]: {
+      isEnd: true,
+      TokenType: TOKEN_TYPE.NOT_STRICT_EQUAL
     }
   }
 }

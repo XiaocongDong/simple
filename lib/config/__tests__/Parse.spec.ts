@@ -20,6 +20,14 @@ const testCases: Array<{code: string, description: string}> = [
     description: 'it should parse postfix update expression statement',
   },
   {
+    code: 'let a = !b;',
+    description: 'it should parse not unary expression'
+  },
+  {
+    code: 'let a = !(b + 1 * 2);',
+    description: 'it should parse not unary expression with parenthesis'
+  },
+  {
     code: `let a = [];`,
     description: 'it should parse empty array'
   },
@@ -118,6 +126,18 @@ const testCases: Array<{code: string, description: string}> = [
     code: `if(a == b + 10 * 20) {
     };`,
     description: 'it should parse expression in if statement'
+  },
+  {
+    code: `let a = a === b;`,
+    description: 'it should parse strict equal'
+  },
+  {
+    code: `let a = a != b;`,
+    description: 'it should parse not equal',
+  },
+  {
+    code: `let a = a !== b;`,
+    description: 'it should parse not strict equal'
   },
   {
     code: `let a = 10 + 10;`,
