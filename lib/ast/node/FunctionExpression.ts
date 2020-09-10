@@ -24,6 +24,7 @@ class FunctionExpression extends Node {
 
   evaluate(env: Environment): any {
     const func = new FunctionExpression()
+    func.loc = this.loc
     func.params = [...this.params]
     func.body = this.body
     func.parentEnv = env

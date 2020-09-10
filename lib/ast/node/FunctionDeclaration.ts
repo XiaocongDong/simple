@@ -27,8 +27,8 @@ class FunctionDeclaration extends Node {
   }
 
   evaluate(env: Environment): any {
-    // clone function
     const func = new FunctionDeclaration()
+    func.loc = this.loc
     func.id = this.id
     func.params = [...this.params]
     func.body = this.body
