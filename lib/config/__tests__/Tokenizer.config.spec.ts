@@ -45,6 +45,10 @@ const testCases: Array<{code: string, description: string}> = [
   {
     code: 'a===b',
     description: 'it should parse strict equal'
+  },
+  {
+    code: `a += 'Simple'`,
+    description: 'it should parse string'
   }
 ]
 

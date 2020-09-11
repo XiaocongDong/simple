@@ -5,7 +5,7 @@ import Environment from '../../runtime/Environment'
 import RuntimeError from '../../errors/Runtime'
 
 class Identifier extends Node {
-  type: NODE_TYPE.IDENTIFIER
+  type: NODE_TYPE = NODE_TYPE.IDENTIFIER
   name: string
 
   create(children: Array<Node>): Node {

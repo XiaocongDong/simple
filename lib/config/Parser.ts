@@ -211,7 +211,7 @@ functionExpression
   .separator(TOKEN_TYPE.RIGHT_PAREN)
   .ast(blockStatement)
 
-const whileStatement = rule(WhileStatement)
+  const whileStatement = rule(WhileStatement)
   .separator(TOKEN_TYPE.WHILE)
   .separator(TOKEN_TYPE.LEFT_PAREN)
   .ast(binaryExpression)

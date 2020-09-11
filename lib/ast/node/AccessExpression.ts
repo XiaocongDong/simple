@@ -2,7 +2,7 @@ import Node from './Node'
 import { NODE_TYPE } from '../types/node'
 
 class AccessExpression extends Node {
-  type: NODE_TYPE.ACCESS_EXPRESSION
+  type: NODE_TYPE = NODE_TYPE.ACCESS_EXPRESSION
   property: Node
 
   create(children: Array<Node>): Node {

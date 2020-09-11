@@ -940,6 +940,53 @@ Array [
 ]
 `;
 
+exports[`Tokenizer with config it should parse string 1`] = `
+Array [
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 1,
+        "line": 1,
+      },
+      "start": Object {
+        "column": 1,
+        "line": 1,
+      },
+    },
+    "type": "IDENTIFIER",
+    "value": "a",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 4,
+        "line": 1,
+      },
+      "start": Object {
+        "column": 3,
+        "line": 1,
+      },
+    },
+    "type": "PLUS_ASSIGN",
+    "value": "+=",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 13,
+        "line": 1,
+      },
+      "start": Object {
+        "column": 6,
+        "line": 1,
+      },
+    },
+    "type": "STRING_LITERAL",
+    "value": "'Simple'",
+  },
+]
+`;
+
 exports[`Tokenizer with config it should parse undefined literal 1`] = `
 Array [
   Object {
