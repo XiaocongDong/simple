@@ -5,7 +5,9 @@ import RuntimeError from "../errors/Runtime"
 
 export class Runtime {
   callStack: CallStack = new CallStack()
+  private _functionCallPositionStack: Array<number> = []
   private _lastFunctionExecutionResult: any = null
+  private _iterationCallPositionStack: Array<number> = []
   private _isBreak = false
   private _isReturn = false
 
@@ -48,16 +50,30 @@ export class Runtime {
     this._lastFunctionExecutionResult = null
   }
 
+  markFunctionCallPosition() {
+    this._functionCallPositionStack.push(this.callStack.getCursor())
+  }
+
+  markIterationCallPosition() {
+    this._iterationCallPositionStack.push(this.callStack.getCursor())
+  }
+
   finishLastFunctionCall() {
-    if (!this.callStack.checkIfCanReturn()) {
+    if (this._functionCallPositionStack.length == 0) {
       throw new Error('return statement can only exit in function body')
     }
+    this._functionCallPositionStack.pop()
   }
 
   finishLastIterationCall() {
-    if (!this.callStack.checkIfCanBreak()) {
+    const lastFunctionCall = this._functionCallPositionStack[this._functionCallPositionStack.length - 1]
+    const lastIterationCall = this._iterationCallPositionStack[this._iterationCallPositionStack.length - 1]
+
+    if (lastIterationCall == undefined || lastIterationCall == undefined || lastIterationCall < lastFunctionCall) {
       throw new Error('break statement can only exist in iteration block')
     }
+
+    this._iterationCallPositionStack.pop()
   }
 
   get isBreak(): boolean {

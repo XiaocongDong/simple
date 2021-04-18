@@ -19,6 +19,27 @@ const testCases: Array<{operator: TOKEN_TYPE, leftValue: any, rightValue: any, e
     description: 'it should evaluate equal operator false'
   },
   {
+    operator: TOKEN_TYPE.NOT_EQUAL,
+    leftValue: undefined,
+    rightValue: null,
+    expectValue: false,
+    description: 'it should evaluate not equal operator false'
+  },
+  {
+    operator: TOKEN_TYPE.NOT_EQUAL,
+    leftValue: 1,
+    rightValue: 2,
+    expectValue: true,
+    description: 'it should evaluate equal operator true'
+  },
+  {
+    operator: TOKEN_TYPE.NOT_STRICT_EQUAL,
+    leftValue: undefined,
+    rightValue: null,
+    expectValue: true,
+    description: 'it should evaluate not strict equal true'
+  },
+  {
     operator: TOKEN_TYPE.LESS_THAN,
     leftValue: 1,
     rightValue: 2,

@@ -41,6 +41,10 @@ class BinaryExpression extends Node {
     switch (this.operator) {
       case TOKEN_TYPE.EQUAL: 
         return leftValue == rightValue
+      case TOKEN_TYPE.NOT_EQUAL:
+        return leftValue != rightValue
+      case TOKEN_TYPE.NOT_STRICT_EQUAL:
+        return leftValue !== rightValue
       case TOKEN_TYPE.LESS_THAN:
         return leftValue < rightValue
       case TOKEN_TYPE.LESS_EQUAL_THAN:

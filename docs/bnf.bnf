@@ -27,6 +27,7 @@ variableStatement
 varModifier
   : 'let'
   : 'const'
+  ：'var'
   ;
 
 variableDeclaration

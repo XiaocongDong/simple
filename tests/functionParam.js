@@ -1,18 +1,21 @@
-function invokeCallback(callback) {
-  callback();
+function createCounter() {
+  let a = 0;
+  return function() {
+      a = a + 1;
+      return a;
+  };
 };
 
-invokeCallback(function () {
-  console.log('callback is invoked');
-});
+let c1 = createCounter();
+let c2 = createCounter();
+let c3 = createCounter();
+console.log(c1());
+console.log(c1());
+console.log(c2());
+console.log(c2());
+console.log(c3());
 
-let x = {
-  a: 1,
-  b: {
-    c: 'cc'
-  }
-};
-console.log(x.b.c);
-
-let arr = [1,2,3];
-console.log(arr[4]);
+for(let i = 1; i<10; i++) {
+  let i = 1;
+  console.log(i)
+}

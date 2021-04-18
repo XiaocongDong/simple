@@ -54,7 +54,11 @@ export enum TOKEN_TYPE {
   // logical operators
   OR = 'OR',
   AND = 'AND',
-  EQUAL = "EQUAL"
+  NOT = 'NOT',
+  EQUAL = "EQUAL",
+  STRICT_EQUAL = "STRICT_EQUAL",
+  NOT_EQUAL = "NOT_EQUAL",
+  NOT_STRICT_EQUAL = 'NOT_STRICT_EQUAL'
 }
 
 export interface IToken {

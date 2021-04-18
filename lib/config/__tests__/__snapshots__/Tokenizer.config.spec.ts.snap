@@ -761,6 +761,293 @@ Array [
 ]
 `;
 
+exports[`Tokenizer with config it should parse not 1`] = `
+Array [
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 1,
+        "line": 1,
+      },
+      "start": Object {
+        "column": 1,
+        "line": 1,
+      },
+    },
+    "type": "NOT",
+    "value": "!",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 2,
+        "line": 1,
+      },
+      "start": Object {
+        "column": 2,
+        "line": 1,
+      },
+    },
+    "type": "IDENTIFIER",
+    "value": "a",
+  },
+]
+`;
+
+exports[`Tokenizer with config it should parse not equal 1`] = `
+Array [
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 2,
+        "line": 1,
+      },
+      "start": Object {
+        "column": 1,
+        "line": 1,
+      },
+    },
+    "type": "NOT_EQUAL",
+    "value": "!=",
+  },
+]
+`;
+
+exports[`Tokenizer with config it should parse not strict equal 1`] = `
+Array [
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 3,
+        "line": 1,
+      },
+      "start": Object {
+        "column": 1,
+        "line": 1,
+      },
+    },
+    "type": "NOT_STRICT_EQUAL",
+    "value": "!==",
+  },
+]
+`;
+
+exports[`Tokenizer with config it should parse null literal 1`] = `
+Array [
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 3,
+        "line": 1,
+      },
+      "start": Object {
+        "column": 1,
+        "line": 1,
+      },
+    },
+    "type": "LET",
+    "value": "let",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 5,
+        "line": 1,
+      },
+      "start": Object {
+        "column": 5,
+        "line": 1,
+      },
+    },
+    "type": "IDENTIFIER",
+    "value": "a",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 7,
+        "line": 1,
+      },
+      "start": Object {
+        "column": 7,
+        "line": 1,
+      },
+    },
+    "type": "ASSIGN",
+    "value": "=",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 12,
+        "line": 1,
+      },
+      "start": Object {
+        "column": 9,
+        "line": 1,
+      },
+    },
+    "type": "NULL",
+    "value": "null",
+  },
+]
+`;
+
+exports[`Tokenizer with config it should parse strict equal 1`] = `
+Array [
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 1,
+        "line": 1,
+      },
+      "start": Object {
+        "column": 1,
+        "line": 1,
+      },
+    },
+    "type": "IDENTIFIER",
+    "value": "a",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 4,
+        "line": 1,
+      },
+      "start": Object {
+        "column": 2,
+        "line": 1,
+      },
+    },
+    "type": "STRICT_EQUAL",
+    "value": "===",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 5,
+        "line": 1,
+      },
+      "start": Object {
+        "column": 5,
+        "line": 1,
+      },
+    },
+    "type": "IDENTIFIER",
+    "value": "b",
+  },
+]
+`;
+
+exports[`Tokenizer with config it should parse string 1`] = `
+Array [
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 1,
+        "line": 1,
+      },
+      "start": Object {
+        "column": 1,
+        "line": 1,
+      },
+    },
+    "type": "IDENTIFIER",
+    "value": "a",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 4,
+        "line": 1,
+      },
+      "start": Object {
+        "column": 3,
+        "line": 1,
+      },
+    },
+    "type": "PLUS_ASSIGN",
+    "value": "+=",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 13,
+        "line": 1,
+      },
+      "start": Object {
+        "column": 6,
+        "line": 1,
+      },
+    },
+    "type": "STRING_LITERAL",
+    "value": "'Simple'",
+  },
+]
+`;
+
+exports[`Tokenizer with config it should parse undefined literal 1`] = `
+Array [
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 3,
+        "line": 1,
+      },
+      "start": Object {
+        "column": 1,
+        "line": 1,
+      },
+    },
+    "type": "LET",
+    "value": "let",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 5,
+        "line": 1,
+      },
+      "start": Object {
+        "column": 5,
+        "line": 1,
+      },
+    },
+    "type": "IDENTIFIER",
+    "value": "a",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 7,
+        "line": 1,
+      },
+      "start": Object {
+        "column": 7,
+        "line": 1,
+      },
+    },
+    "type": "ASSIGN",
+    "value": "=",
+  },
+  Object {
+    "range": Object {
+      "end": Object {
+        "column": 17,
+        "line": 1,
+      },
+      "start": Object {
+        "column": 9,
+        "line": 1,
+      },
+    },
+    "type": "UNDEFINED",
+    "value": "undefined",
+  },
+]
+`;
+
 exports[`Tokenizer with config it should skip comment 1`] = `
 Array [
   Object {

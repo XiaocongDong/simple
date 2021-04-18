@@ -1,6 +1,7 @@
 import parser from './parser'
 import Environment from './runtime/Environment'
-import tokenizer from './Tokenizer'
+import tokenizerConfig from './config/Tokenizer'
+import Tokenizer from './lexer/Tokenizer'
 import { IToken } from './lexer/types/token'
 import Node from './ast/node/Node'
 
@@ -22,6 +23,7 @@ export default (code: string, config?: any): {tokens: Array<IToken>, node: Node,
     })
   }
 
+  const tokenizer = new Tokenizer(tokenizerConfig)
   const tokenizerStart = Date.now()
   tokenizer.parse(code)
   const tokenizerEnd = Date.now()

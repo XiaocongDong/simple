@@ -17,9 +17,11 @@ class WhileStatement extends Node {
   }
 
   evaluate(env: Environment): any {
-    const executionEnvironment = new Environment(env)
+    const bridgeEnvironment = new Environment(env)
+    runtime.markIterationCallPosition()
     
-    while(!runtime.isReturn && !runtime.isBreak && this.test.evaluate(executionEnvironment)) {
+    while(!runtime.isReturn && !runtime.isBreak && this.test.evaluate(bridgeEnvironment)) {
+      const executionEnvironment = new Environment(bridgeEnvironment)
       this.body.evaluate(executionEnvironment)
     }
     runtime.resetIsBreak()

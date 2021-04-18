@@ -28,6 +28,8 @@ class CallExpression extends Node {
       return (<Function>functionNode)(...args)
     }
 
+    runtime.markFunctionCallPosition()
+
     // execute user defined function
     try {
       functionNode.call(args, this.callee instanceof MemberExpression ? this.callee.object.evaluate(env) : undefined)
