@@ -5,7 +5,7 @@ import Environment from '../../runtime/Environment'
 import BinaryExpression from './BinaryExpression'
 
 class IfStatement extends Node {
-  type: NODE_TYPE = NODE_TYPE.BOOLEAN_LITERAL
+  type: NODE_TYPE = NODE_TYPE.IF_STATEMENT
   test: BinaryExpression = null
   consequent: BlockStatement = null
   alternate: IfStatement|BlockStatement = null
